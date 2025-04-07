@@ -1,0 +1,17 @@
+*.log 
+*.blg
+*.aux
+*.out
+*.fls
+*.pdf
+*.toc
+*.bst
+*.bbl
+*.png 
+*.jpeg
+*.jpg
+*.fdb_latexmk  
+*.xml
+*.bcf 
+__pycache__/*
+.ipynb_checkpoints/*

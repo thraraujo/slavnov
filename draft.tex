@@ -1,0 +1,759 @@
+\documentclass[a4paper,11pt]{amsart}
+
+\usepackage{/home/thiago/.config/dot-files/latex/globaldef}
+\input{/home/thiago/.config/dot-files/latex/definitions.tex}
+
+\bibliography{/home/thiago/Sync/wiki/database/bib-database.bib}
+
+%% Extra packages 
+\usepackage{amsaddr}                % Affiliation in the first page
+\usepackage{slashed}                % Feynman slash notation
+\usepackage{simplewick}             % Wick contractions
+\usepackage{fontawesome}
+\usepackage{tikz-cd}
+\usepackage[textwidth=20mm]{todonotes}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Slavnov products and KP tau functions}
+
+\author{Thiago Araujo}
+
+
+\address{\noindent 
+Instituto de Ciências Exatas, Departamento de Física\\
+Universidade Federal Fluminense\\
+Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
+27213-145 Volta Redonda, RJ, Brazil
+}
+
+\email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
+
+\begin{abstract}
+  ...
+\end{abstract}
+
+\date{\today}
+\keywords{Integrability, Bethe states, Schur, Hall-Littlewood, Toda, KP}
+\subjclass[2020]{82B20, 82B23}
+
+\maketitle
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Scalar products and determinant formulas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+One important ingredient in the Algebraic Bethe Ansatz is the scalar
+product of Bethe states.  The is many important results on this topic,
+see~\cite{Korepin:1993kvr} and references therein. Here we focus on
+the scalar product between an on-shell and an off-shell Bethe vectors,
+the so called \emph{Slavnov product}.
+
+It is known that scalars products in the algebraic Bethe ansatz 
+can be written as determinants. In~\cite{Belliard:2019bfz}, the
+authors show the reason behind this fact. Let us start
+with a short review of this work. 
+
+Let us start with a set of arbitrary complex numbers
+\(\bm{u} = \{u_j\}_{j=1}^{n+1}\), and we define \(n+1\) sets
+\(\bm{u}_j=\bm{u}\setminus \{u_j\}\) so that we can define
+\(n+1\) off-shell Bethe vectors \(\ket{\Psi(\bm{u}_j)}\). 
+
+Consider now a set of Bethe roots \(\bm{v} = \{ v_k \}_{k=1}^n\),
+so that we have the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\). 
+In fact, let us consider the action of the transfer matrix \(\mathcal{T}(z)\)
+on the dual Bethe vector, that is 
+\begin{equation}
+\label{eq:eigenvalue-bethe}
+\bra{\Psi(\bm{v})}\mathcal{T}(z) = \Lambda(z; \bm{v}) \bra{\Psi(\bm{v})} \; , 
+\end{equation}
+where \(\Lambda(z; \bm{v}) \) is the eigenvalue of the transfer matrix. 
+
+From these definitions, we now introduce \(n+1\) Slavnov products 
+\begin{equation}
+  \bm{\zeta}_j = \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)}\qquad j =1, \dots, n+1\; .
+\end{equation}
+We want to show that \(\bm{\zeta}_j\) satisfy a system of linear equations.
+
+In order to see this, we calculate
+\begin{equation}
+  \bra{\Psi(\bm{v})} {\color{violet}\left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right)} =
+  {\color{violet}\left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)}\ket{\Psi(\bm{u}_j)} 
+  \qquad j =1, \dots, n+1\; .
+\end{equation}
+The right-hand side of this equation can be simplified with the eigenvalue
+expression~(\ref{eq:eigenvalue-bethe}), that is
+\begin{equation}
+  {\color{violet}\left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)}\ket{\Psi(\bm{u}_j)}  =
+\Lambda(u_j; \bm{v}) \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)} = 
+\Lambda(u_j; \bm{v}) \bm{\zeta}_j\; . 
+\end{equation}
+
+In order to simmplify the left-hand side, we expand the action of the transfer matrix on
+the off-shell as
+\todo{\tiny This point seems to be the most delicate. It does not work for
+  elliptic cases}
+\begin{equation}
+  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)}  = \sum_{k=1}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; ,
+\end{equation}
+where \(L_{jk}\) are numerical coefficients. Observe that the terms \(L_{jk}\) with
+\(j\neq k\) contain the unwanted terms. In the particular case where the algebraic
+Bethe equations are satisfied, these unwanted terms vanish and only the diagonal
+coefficient survives, that is \(L_{jj}\), and it is equal to the eigenvalue of the
+tranfer matrix. 
+
+Therefore, we have
+\begin{equation}
+  \bra{\Psi(\bm{v})} {\color{violet}\left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right)} =
+  \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k \; .
+\end{equation}
+
+Puttting all these facts together, we get
+\begin{equation}
+  \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k  = 
+  \Lambda(u_j; \bar{v}) \bm{\zeta}_j\quad \Rightarrow \quad
+  \sum_{k=1}^{n+1} M_{jk} \bm{\zeta}_k = 0 \; ,
+\end{equation}
+where
+\begin{equation}
+  M_{jk} = L_{jk} - \delta_{jk}\Lambda(u_j; \bm{v})\; . 
+\end{equation}
+Here is the system we were looking for. We can write this system in
+a matrix form as 
+\begin{equation}
+  \left(\bm{L} - \bm{\Lambda} \right) \cdot \bm{\zeta} = \bm{0}\; ,
+\end{equation}
+where
+\begin{subequations}
+  \begin{equation}
+    \bm{L} = 
+ \begin{pmatrix}
+   L_{1,1} & \cdots & L_{1,n+1}\\
+   L_{2,1} & \cdots & L_{2,n+1}\\
+   \vdots & \vdots & \vdots\\
+   L_{n+1, 1} & \cdots & L_{n+1, n+1}\\
+ \end{pmatrix}  \quad , \quad
+    \bm{\Lambda} = \mathrm{diag}(\Lambda_1, \Lambda_2, \dots, \Lambda_{n+1})
+\end{equation}
+where we have written \( \Lambda_j \equiv \Lambda(u_j; \bm{v})\), and also
+\begin{equation}
+  \bm{\zeta} = (\bm{\zeta}_1, \dots , \bm{\zeta}_{n+1})^T\qquad \, 
+  \bm{0} = (0, \dots , 0)^T\; .
+\end{equation}
+\end{subequations}
+
+The whole point now is that if this system has a solution,
+it will be written as minors of the matrix \(M\).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rational models}
+
+We will now consider some concrete models. In the original
+work~\cite{Belliard:2019bfz}, the authors consider solutions with a
+rational R-mnatrix with periodic boundary conditions. Here we want to
+review the main results of this work. 
+\todo{\tiny Extend these results to the trigonometric case}
+
+We start with an R-matrix of the form
+\begin{equation}
+  R(u,v) = \mathbb{1} + g(u,v) \mathcal{P}\; , \qquad
+  g(u,v) = \frac{c}{u - v}
+\end{equation}
+where \(c\) is a constant. Moreover \(\mathbb{1}\) is the identity operator and
+\(\mathcal{P}\) is the permutation operator.
+
+In the models with rational R-matrix, the eigenvalues of the transfer matrix
+have the form 
+\begin{equation}
+  \Lambda(z, \bm{v}) = g(z, \bm{v}) \mathcal{Y}(z; \bm{v})\; ,
+\end{equation}
+where the function \(\mathcal{Y}(z; \bm{v})\) is symmetric over the
+Bethe roots \(\bm{v}\), and linearly depends on every
+\(v_j\). Generically, it is written as
+\begin{equation}
+  \mathcal{Y}(z; \bm{v}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\bm{v})\; , 
+\end{equation}
+where \(\sigma_p^{(n)}(\bm{v})\) are elementary symmetric polynomials
+in \(\bm{v}\) and where \(\alpha_p(z)\) are free functional
+parameters. In fact, in the XXX discussed in~\cite{Belliard:2019bfz},
+these functions all \(\alpha_p(z)\) are polynomials of degree \(2n\). 
+The important point for us is that \(\alpha_p(z)\) is not
+singular when we consider the limit \(z \to v_j \in \bm{v}\),
+so does the function \(\mathcal{Y}(z; \bm{v})\). 
+
+Furthermore, we have
+\begin{equation}
+  g(z, \bm{v}) = \prod_{v_i\in \bm{v}} g(z; v_i)\; , 
+\end{equation}
+and that means that each Bethe root \( v_i \in \bm{v}\) of this expression
+is a pole of \(g(z;\bm{v})\). Therefore, if \(\gamma_j\) is a contour
+containing the point \(v_j\), we have 
+\begin{equation}
+  \frac{1}{2 \pi i}\oint_{\gamma_j} \mathrm{d}z g(z; \bm{v}) = \prod_{v_i \in \bm{v}\setminus \{u_j\}} g(z, v_i)\; .
+\end{equation}
+
+The coefficients \(L_{jk}\) are given by \todo{\tiny Check references
+  1, 2 of the paper to see the trigonometric case.}
+\begin{equation}
+  L_{jk} = g(u_k, \bm{u}_k) \mathcal{Y}(u_k; \bm{u}_j)
+\end{equation}
+and from this expression one can calculate the matrix \(\bm{M}\).
+Finally, the authors also show that if \(\det (\bm{M}) = 0 \) and
+\(\mathrm{rank}(\bm{M}) = n\), then, the Slavnov products are given by
+\begin{equation}
+ \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; ,
+\end{equation}
+where \(\phi(\bm{v})\) is a function of the Bethe roots, and also
+\begin{equation}
+  \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\; . 
+\end{equation}
+Therefore, we can absorb the product of the constant \(c\) into
+a unique constant \(c_0\) so that 
+\begin{equation}
+  \frac{\tilde{\Delta}(\bm{u}_\ell)}{c_0} = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{1}{u_j - u_k}\; , 
+\end{equation}
+that is the inverse of the Vandermonde determinant
+\(\Delta(\bm{u}_\ell)\).
+Finally, we have  that \(\hat{\Omega}_\ell\) are minors of the matrix \(\bm{\Omega}\) with the \(\ell\)-th
+column excluded, that is 
+\begin{equation}
+ \hat{\Omega}_\ell = \det_{k\neq \ell} \Omega_{jk}\; ,
+\end{equation}
+where
+\begin{equation}
+  \Omega_{jk} = g(u_k, v_j) \mathcal{Y}(u_k; \{u_k, \bm{v}_j\})
+  \qquad j= 1, \dots, n\; , \quad k =1, \dots, n+1
+\end{equation}
+
+All in all, we have an expression of the
+form
+\begin{equation}
+  \bm{\tau}_\ell(\bm{u}_\ell; \bm{v}) \equiv \frac{1}{c_0}\frac{\bm{\zeta}_\ell}{\phi(\bm{v})}
+  = \frac{\det_{k\neq \ell} \Omega_{jk}}{\Delta(\bm{u}_\ell)}
+\end{equation}
+
+Let us now simplify these thing a little bit. First of all, we need to
+observe that we can define \(n\) functions \(\Omega_j(z)\) of the form 
+\begin{equation}
+\begin{split}
+  \Omega_{j}(z; \bm{v}) & = g(z, v_j) \mathcal{Y}(z; \{z, \bm{v}_j\})\qquad j =1, \dots, n\\
+   & = \frac{c}{z - v_j} \mathcal{Y}(z; \{z, \bm{v}_j\})\; .
+\end{split}
+\end{equation}
+Moreover, we have the expansion 
+\begin{equation}
+  \mathcal{Y}(z; \{z,\bm{v}_j\}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\{z,\bm{v}_j\})\; , 
+\end{equation}
+and using that the elementary symmetric polynomials decompose as
+\begin{equation}
+  \sigma_p^{(n)}(\{z,\bm{v}_j\}) = \sigma_p^{(n-1)}(\bm{v}_j) + z \sigma_{p-1}^{(n-1)}(\bm{v}_j) \; , 
+\end{equation}
+Therefore,
+\begin{equation}
+  \label{eq:y-functions-alpha}
+  \mathcal{Y}_j(z)  = 
+\sum_{p=0}^{n} \alpha_p(z)
+  \left(\sigma_p^{(n-1)}(\bm{v}_j) + z \sigma_{p-1}^{(n-1)}(\bm{v}_j) \right) 
+\end{equation}
+where we have denoted \( \mathcal{Y}(z; \{z,\bm{v}_j\}) \equiv \mathcal{Y}_j(z)\). 
+Observe that what defines the functions \(\mathcal{Y}_j(z)\) is the absence of the
+\(j\)-th Bethe root \(v_j\).
+
+Using that the elementary symmetric polynomials also satisfy \(\sigma_n^{(n-1)}(\bm{v}_j)=0\)
+and \(\sigma_{-1}^{(n)}(\bm{v}_j)= 0\), we can write
+\begin{equation}
+  \label{eq:y-functions}
+  \mathcal{Y}_j(z)  = 
+  \sum_{p=0}^{n-1} 
+   \left(\alpha_p(z) + z \alpha_{p+1}(z) \right) \sigma_p^{(n-1)}(\bm{v}_j) 
+\end{equation}
+
+Let us write the \(p\) functions \(\sigma_p\) in terms of a linearly
+\todo{Not sure if I need this!!!}
+independent basis \(\{\phi_j\}_{j=1}^n\). In this case, we have that the functions
+\(\mathcal{Y}_j(z)\) are also linearly independent and have the expansion
+\begin{equation}
+  \mathcal{Y}_j(z) = \sum_{k=1}^n \rho_k(\bm{v}_j) \phi_k(z)\; ,
+\end{equation}
+where the coefficients \( \rho_k(\bm{v}_j)\) depend on the Bethe roots \(\bm{v}_j\). 
+The functional structure of the coefficients \(\rho_k\), when written, in terms of the
+Bethe roots are the same.  
+
+For example, in the case of the XXX model, \(\alpha_p(z)\sim z^{2n} + \cdots\), so
+that one can take \(\phi_j \sim z^{2j} + \cdots\), and the coefficients depend on the
+Bethe roots and inhomogeneities.
+
+We finally have 
+\begin{equation}
+  \Omega_{j}(z; \bm{v}) = -\frac{c}{v_j - z} \mathcal{Y}_j(z) \; .
+\end{equation}
+where we have denoted \( \mathcal{Y}(z; \{z,\bm{v}_j\}) \equiv \mathcal{Y}_j(z)\).
+It is also convenient to consider \(c=1\). 
+
+%Finally, let us now consider this function in the neighborhood of the Bether root \(v_j\). We find 
+%\begin{equation}
+%  \Omega_j(z; \bm{v}) \simeq \frac{c}{z - v_j}
+%\mathcal{Y}(v_j; \bm{v})\qquad j =1, \dots, n\; .
+%\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Tau functions}
+
+Therefore, we can write the matrix \(\bm{\Omega}\) as 
+\begin{equation}
+  \bm{\Omega} =
+  \begin{pmatrix}
+    \Omega_1(u_1) & \dots & \Omega_1(u_n) & \Omega_1(u_{n+1}) \\
+    \Omega_2(u_1) & \dots & \Omega_2(u_n) & \Omega_2(u_{n+1}) \\
+    \vdots & \vdots & \vdots & \vdots \\
+    \Omega_n(u_1) & \dots & \Omega_n(u_n) & \Omega_n(u_{n+1})
+  \end{pmatrix}
+\end{equation}
+and we also define the \(n\times n\) matrices \(\bm\Omega^{(\ell)}(\bm{u}_\ell; \bm{v})\),
+\(\ell = 1, \dots, n+1\), removing the \(\ell\)-th column of
+\(\bm{\Omega}\), that is
+\begin{equation}
+  \bm{\Omega}^{(\ell)} =
+  \begin{pmatrix}
+    \Omega_1(u_1) & \dots & \Omega_1(u_{\ell-1}) & \Omega_1(u_{\ell+1})&\dots & \Omega_1(u_{n+1}) \\
+    \vdots & \dots & \vdots & \vdots & \dots & \vdots \\
+    \Omega_n(u_1) & \dots & \Omega_n(u_{\ell-1}) & \Omega_n(u_{\ell+1})&\dots & \Omega_n(u_{n+1})\; .
+  \end{pmatrix}
+\end{equation}
+
+Putting these facts together, we write the functions
+\begin{equation}
+\label{eq:slavnov-tau-functions}
+  \bm{\tau}_\ell(\bm{u}_\ell; \bm{v}) = \frac{\det [\Omega_j((\bm{u}_\ell)_k)]|_{j,k=1}^n }{\Delta(\bm{u}_\ell)} 
+\end{equation}
+where \((\bm{u}_\ell)_k \) is the k-th component of the vector
+\(\bm{u}_\ell\). These functions are tau functions of the KP
+hierarchy.  We have also omitted the dependence on the Bethe roots
+\(\bm{v}\). The most important aspect now is that the poles of this
+tau function are exactly the Bethe roots of the integrable model.
+
+It is well documented that the functions defined as
+in~(\ref{eq:slavnov-tau-functions}) are tau functions of the
+KP-hierachy, see~\cite{Araujo:2021ghu} and references therein, in
+particular~\cite{Kharchev:1991cy}.
+
+In fact, we can focus all our attention on a particular function. Therefore,
+for a fixed \(\ell\), we define the vector \( \bm{z} \equiv \bm{u}_\ell\).
+Consequently, 
+\begin{equation}
+\begin{split}
+  \bm{\tau}(\bm{z}, \bm{v})
+  & = \frac{1}{\Delta(\bm{z})} \det[\Omega_j(z_k) ]_{j,k=1}^n \\
+  & = \frac{1}{\Delta(\bm{z})} \det\left[\frac{\mathcal{Y}_j(z_k)}{z_k - v_j} \right]_{j,k=1}^n  \\
+\end{split}
+\end{equation}
+All these tau functions have the form of an
+\emph{alternant determinant} \footnote{see definition~(\ref{def:alt-determinant})
+in the appendix~\ref{app:mathematical}.}
+
+\subsection{Pole structure}
+
+We now want to analyse the pole structure of
+\(\Delta(\bm{z})\tau(\bm{z}, \bm{v})\).  First of all, one should
+observe that the Bethe roots \(\bm{v}\) appear as poles of the
+coefficients \(\bm{z}\). Moreover, lets us consideer here that the
+Bethe roots are not degenerate, that is, if \(j \neq k\), then \(v_j
+\neq v_k\). In that case, the poles \(v_j\) are simple poles.
+
+Let us now consider a particular coefficient \(\bm{z}\), say \(z_l\), and
+make a Laplace expansion in the column \(l\), that is
+\begin{equation}
+\begin{split}
+  \bm{\tau}(\bm{z}, \bm{v})
+  & = \frac{1}{\Delta(\bm{z})} \det[\bm{\Omega}(\bm{z}) ] \\
+  & = \frac{1}{\Delta(\bm{z})} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j  } 
+  \det[\hat{\Omega}_{j, l}]\; ,
+\end{split}
+\end{equation}
+where \(\hat{\Omega}_{j,l} \) is the \((j, l)\) minor of \(\bm{\Omega}\).
+
+Now, we can extract the residue of the tau function for \(z_l\) at the point \(v_j\), that is
+\begin{equation}
+  \Res_{(z_l, v_j)}(\Delta(\bm{z})\tau(\bm{z}, \bm{v})) = (-1)^{j+l} \mathcal{Y}_j(v_j) \det[\hat{\Omega}_{j, l}]
+\end{equation}
+
+Let us now decompose the Vandermonde determinant as
+\begin{equation}
+  \Delta(\bm{z}) = \prod_{j>k}(z_j - z_k) = \Delta(\bm{z}_l) \prod_{r<l}(z_l - z_r) \prod_{s>l}(z_s - z_l)\; ,
+\end{equation}
+where \(\bm{z}_l = \bm{z}\setminus \{z_l\} = (z_1, \dots, z_{l-1}, z_{l+1}, \dots, z_n) \).
+\todo[inline]{I wand to verify that this is correct}
+We can define the function
+\begin{equation}
+  \Xi_l(z_l,\bm{z}_l) = \prod_{r<l}(z_l - z_r) \prod_{r>l}(z_r - z_l)\; , 
+\end{equation}
+then 
+\begin{equation}
+  \Delta(\bm{z}) = \Xi_l(z_l, \bm{z}_l) \Delta(\bm{z}_l) \; .
+\end{equation}
+
+Let us now write
+\begin{equation}
+  \bm{\tau}(\bm{z}, \bm{v})
+   = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
+\left(\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\Omega}_{j, l}]\right)\; .
+\end{equation}
+
+When we define the set of functions
+\begin{equation}
+  \begin{split}
+  \hat{\bm{\Omega}}_{(j)}(z) & = \left(\Omega_1(z), \dots, \Omega_{j-1}(z), \Omega_{j+1}(z), \dots, \Omega_n(z) \right)\; ,
+  \end{split}
+\end{equation}
+we can simplify the tau function expansion even further. Then
+\begin{equation}
+\begin{split}
+  \bm{\tau}(\bm{z}, \bm{v})
+  & = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
+    \left(\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j) r}(\bm{z}_{(l) s} ]_{r, s=1}^n\right)\\ 
+  & = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
+    \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\; ,
+\end{split}
+\end{equation}
+where 
+\begin{equation}
+  \label{eq:basis-tau}
+    \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v}) = 
+\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j)}(\bm{z}_{(l)} ]\; .
+\end{equation}
+The curious aspect of this expression is that it easy to see that each term  
+\(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) is a tau function itself, and that
+it acts as a basis for the Slavnov's product. 
+Additionally, these basis tau functions \(\tilde{\tau}_j(\bm{z}_l,
+\bm{v})\) are, by construction, completely independent of \(z_l\).
+
+Finally, we have
+\begin{equation}
+  \Res_{(z_l, v_j)}(\tau(\bm{z}, \bm{v}))
+  = \frac{(-1)^{j + l} \mathcal{Y}_j(v_j)}{\Xi_l(v_j, \bm{z}_l)}
+  \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})
+\end{equation}
+
+In order to avoid cluttering, let us order the parameters \(\bm{z}\) and
+consider these points close to the corresponding \(\bm{v}\), that is,
+we consider just the residues \(z_j \to v_j\), then
+\begin{subequations}
+\begin{equation}
+  \Res_{(z_j, v_j)}(\tau(\bm{z}, \bm{v}))
+  = \frac{\mathcal{Y}_j(v_j)}{\Xi_j(v_j, \bm{z}_j)}
+  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})
+\end{equation}
+or yet 
+\begin{equation}
+  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})
+  = \frac{\Xi_j(v_j, \bm{z}_j)}{\mathcal{Y}_j(v_j)}
+  \Res_{(z_j, v_j)}(\tau(\bm{z}, \bm{v}))
+\end{equation}
+\end{subequations}
+Evidently, one can repeat the same ideas and take \(z_k \in \bm{z}_j\)
+close to \(v_k \in \bm{v}_j\). 
+
+\subsection{Examples} Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
+to gain some understanding of the problem.
+
+\subsubsection{n=2} In this case, we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
+\(\bm{v} = (v_1, v_2)\). Moreover, we have the two sets \(\bm{v}_1 =
+\{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From (\ref{eq:y-functions}), we have
+\begin{subequations}
+\begin{equation}
+  \begin{split}
+    \mathcal{Y}_j(z) =
+    \alpha_0(z) \sigma_0^{(1)}(\bm{v}_j) +  
+    \alpha_1(z)( \sigma_1^{(1)}(\bm{v}_j) + z \sigma_0^{(1)}(\bm{v}_j)) +
+    \alpha_2(z) z \sigma_1^{(1)}(\bm{v}_j) \; , 
+  \end{split}
+\end{equation}
+finally, the explicit formulas for the elementary symmetric polynomials are \(\sigma_0^{(1)}(x) =1\)
+and \(\sigma_1^{(1)}(x) = x\). 
+
+Therefore
+\begin{equation}
+  \begin{split}
+    \mathcal{Y}_1(z) & = \alpha_0(z) + z \alpha_1(z)  + v_2 \left( \alpha_1(z) + z \alpha_2(z) \right) \\ 
+    \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) ; .
+  \end{split}
+\end{equation}
+Thefore, we find
+\begin{equation}
+  \bm{\tau}(z_1, z_2; v_1 , v_2) = \frac{1}{z_2 - z_1}
+  \left(\frac{\mathcal{Y}_1(z_1) \mathcal{Y}_2(z_2)}{(z_1 - v_1)(z_2 - v_2)} - 
+  \frac{\mathcal{Y}_1(z_2) \mathcal{Y}_2(z_1)}{(z_1 - v_2)(z_2 - v_1)} 
+  \right)
+\end{equation}
+\end{subequations}
+One interesting case happens for \(z_2 \to z_1\equiv w\), in this case
+it is easy to show that
+\begin{equation}
+  \bm{\tau}(w; v_1 , v_2) =
+  \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; , 
+\end{equation}
+where \(\mathcal{W}[\mathcal{Y}_1, \dots, \mathcal{Y}_n](w)\) denotes the
+Wronskian of the functions \(\{\mathcal{Y}_j(w)\}_{j=1}^n\), in our
+case, we have \(n=2\). In this case, one can observe that these
+functions are linearly independent as long as \(v_2 \neq v_1\), what
+is guaranteed by the hypothesis that the Bethe roots are different. 
+
+
+
+\subsubsection{n=3} Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\) and three Bethe roots
+\(\bm{v} = (v_1, v_2, v_3)\). Moreover, we have the sets \(\bm{v}_1 = (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\)
+and \(\bm{v}_3 = (v_1, v_2)\). Then, it is easy to see that
+\begin{equation}
+\begin{split}
+  \mathcal{Y}_j(z)
+  & = (\alpha_0(z) + z \alpha_1(z))\sigma_0^{(2)}(\bm{v}_j)   + (\alpha_1(z) + z \alpha_2(z))\sigma_1^{(2)}(\bm{v}_j)  + \\
+  & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) 
+\end{split}
+\end{equation}
+Moreover, one can also use the explicit expressions 
+\begin{equation}
+  \sigma_0^{(2)}(x, y) = 1\; ,\qquad 
+  \sigma_1^{(2)}(x, y) = x + y\; ,\qquad 
+  \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; , 
+\end{equation}
+to determine the functions \(\mathcal{Y}_j(z)\) for \(j=1,2,3\).
+
+Then, we have
+\begin{subequations}
+\begin{equation}
+  \begin{split}
+    \bm{\tau} & (z_1, z_2, z_3 ; v_1 , v_2, v_3)  =
+    \frac{1}{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}\times \\
+    & \times \left[
+      \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        \end{bmatrix}
+        -  
+      \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        \end{bmatrix} \right.\\
+        & \qquad + \left.
+      \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+        \end{bmatrix} 
+  \right]
+  \end{split}
+\end{equation}
+That we can organize as
+\begin{equation}
+  \begin{split}
+    \bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
+    \frac{1}{(z_2 - z_1)(z_3 - z_1)}
+    \left[
+      \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+      \left(
+      \frac{1}{(z_3 - z_2)}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        \end{bmatrix}
+        \right) - \right. \\
+        & - 
+      \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+      \left(
+      \frac{1}{(z_3 - z_2)}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        \end{bmatrix} \right) \\
+        & +
+        \left.
+      \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+      \left(
+      \frac{1}{(z_3 - z_2)}
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+        \end{bmatrix} 
+        \right)
+  \right]\; .
+  \end{split}
+\end{equation}
+\end{subequations}
+
+Finally, we conclude that
+\begin{subequations}
+  \begin{equation}
+	\tilde{\bm{\tau}}_1(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        \end{bmatrix} 
+  \end{equation}
+  \begin{equation}
+	\tilde{\bm{\tau}}_2(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+       \end{bmatrix}
+  \end{equation}
+  \begin{equation}
+	\tilde{\bm{\tau}}_3(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        \det\begin{bmatrix}
+        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+        \end{bmatrix} 
+  \end{equation}
+\end{subequations}
+
+With these expressions, we can consider the case where \(z_1, z_2 z_3
+\to w\). Consider first the case \(z_3 \to z_2 = w\), then  
+we know that 
+\begin{equation}
+  \begin{split}
+  \tilde{\bm{\tau}}_1(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_2, \mathcal{Y}_3](w)\\
+  \tilde{\bm{\tau}}_2(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_3](w)\\
+  \tilde{\bm{\tau}}_3(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_1)(w - v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)
+  \end{split}\; .
+\end{equation}
+and now, it is easy to see that if we also take the limit \(z_1\to w\), we have
+\begin{equation}
+  \bm{\tau}(w; v_1 , v_2, v_3)
+  \frac{1}{(w - v_1)(w - v_2)(w - v_3)} \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \mathcal{Y}_3](w)\; .
+\end{equation}
+
+\subsubsection{Homogeneous limit and Wronskian formula}
+
+We now want to consider the limit where \(z_k\to z_1\), \(k=2,\dots, n\). 
+Let us first consider the case \(z_2 \to z_1\), then
+\begin{subequations}
+\begin{equation}
+  \bm{\tau}(\bm{z}, \bm{v}) = \frac{1}{\Delta(\bm{z})}
+  \det
+  \begin{pmatrix}
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1} + (z_2 - z_1) \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1}
+    + \mathcal{O}(\delta^2) &
+    \frac{\mathcal{Y}_1(z_3)}{z_3 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} + (z_2 - z_1) \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} 
+    + \mathcal{O}(\delta^2) &
+    \frac{\mathcal{Y}_2(z_3)}{z_3 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
+    &  \vdots & & \\
+    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} + (z_2 - z_1) \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} 
+    + \mathcal{O}(\delta^2) &
+    \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+  \end{pmatrix}
+\end{equation}
+where we have written \(z_2 - z_1 = \delta \to 0\). Moreover, we write
+\(\mathcal{Y}^{(n)}(z)\) as the nth derivative with respect its
+argument. Now one can immediatelly see that the second column is the
+first column plus terms multiplied by the factor \(\delta = z_2 -
+z_1\). Using elementary operations on the column, we find
+\begin{equation}
+  \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2 \to z_1}\frac{(z_2 - z_1)}{\Delta(\bm{z})}
+  \det
+  \begin{pmatrix}
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
+    \frac{\mathcal{Y}_1(z_3)}{z_3 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
+    \frac{\mathcal{Y}_2(z_3)}{z_3 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
+    &  \vdots & & \\
+    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
+    \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+  \end{pmatrix}\; .
+\end{equation}
+We can now repeat the same ideas for \(z_3\to z_1=z_2\). We find that
+the third column is the first plus the second and the derivatives
+multiplied by the factor \(\delta^2\sim (z_3 - z_2)(z_3 - z_1)\). All in all, we have
+\begin{equation}
+  \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2, z_3 \to z_1}\frac{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}{\Delta(\bm{z})}
+  \det
+  \begin{pmatrix}
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
+    \frac{\mathcal{Y}^{(2)}_1(z_1)}{z_1 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
+    \frac{\mathcal{Y}_2^{(2)}(z_1)}{z_1 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
+    &  \vdots & & \\
+    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
+    \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+  \end{pmatrix}\; .
+\end{equation}
+Repeating the same idea for all columns, we get that the multiplicative factor cancels out, and
+that the homogeneous limit gives 
+\begin{equation}
+  \bm{\tau}_h(z_1, \bm{v}) =
+  \det
+  \begin{pmatrix}
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
+    \frac{\mathcal{Y}^{(2)}_1(z_1)}{z_1 - v_1} & \dots & \frac{\mathcal{Y}_1^{(n-1)}(z_1)}{z_1 - v_1}\\
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
+    \frac{\mathcal{Y}_2^{(2)}(z_1)}{z_1 - v_2} &  \dots & \frac{\mathcal{Y}_2^{(n-1)}(z_1)}{z_1 - v_2}\\
+    &  \vdots & & \\
+    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
+    \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}^{(n-1)}_n(z_1)}{z_1 - v_n}
+  \end{pmatrix}\; .
+\end{equation}
+
+Finally, let we write \(z_1 \equiv w\) and using elementary row operations we find
+\begin{equation}
+  \bm{\tau}_h(w, \bm{v}) =
+  \frac{1}{\prod_{k=1}^n(w - v_k)}
+  \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](w)
+  \; .
+\end{equation}
+that agrees with the results we obtained above. 
+
+\end{subequations}
+
+
+\subsection{Problems}
+Here are some important comments and problems to discuss. 
+
+It seems that we can consider a basis of functions \(\mathcal{Y}_j(z)\) for the Baker-Akhiezer
+functions. I think that this object might say something interesting. In particular, we can
+explicitly build solutions of the KP equation. In fact, the functions \(\mathcal{Y}_j\)
+above have poles at the Bethe roots, it is interesting. 
+\begin{itemize}
+\item[\faCheck] What is the pole and root structure of the tau and Baker-Akhiezer (BA) functions?
+  In particular, what happens at the Bethe roots?
+\item[\faCheck] Basis tau functions
+\item[\faCheck] Write the cases n=2 and n=3
+\item[\faCheck] What the general case for all \(z_k\) approaching to a single
+  value \(w\). 
+\item Write these tau functions in terms of Miwa coordinates
+\item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
+  the Bethe roots. 
+  \item I think that these tau functions come from algebro geometric tau functions. 
+  \item I can try to study the dynamics closer to the Bethe roots, I think that the
+    \(\Omega\)'s will have some interesting expansions, some of them might vanish. 
+  \item This might become a Riemann Hilbert problem
+  \item Are these tau functions associated to the Calogero-Moser model??
+  \item Elliptic case - see slavnov, zabrodin's paper
+\end{itemize}
+
+
+
+\subsubsection*{Acknowledgments}
+I would like to thank...
+
+\printbibliography
+
+\end{document}
