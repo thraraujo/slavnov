@@ -310,12 +310,10 @@ It is also convenient to consider \(c=1\).
 %\mathcal{Y}(v_j; \bm{v})\qquad j =1, \dots, n\; .
 %\end{equation}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Tau functions}
+\section{Tau functions}
 
 Therefore, we can write the matrix \(\bm{\Omega}\) as 
 \begin{equation}
@@ -360,14 +358,14 @@ for a fixed \(\ell\), we define the vector \( \bm{z} \equiv \bm{u}_\ell\).
 Consequently, 
 \begin{equation}
 \begin{split}
+\label{eq:tau-function}
   \bm{\tau}(\bm{z}, \bm{v})
   & = \frac{1}{\Delta(\bm{z})} \det[\Omega_j(z_k) ]_{j,k=1}^n \\
   & = \frac{1}{\Delta(\bm{z})} \det\left[\frac{\mathcal{Y}_j(z_k)}{z_k - v_j} \right]_{j,k=1}^n  \\
 \end{split}
 \end{equation}
 All these tau functions have the form of an
-\emph{alternant determinant} \footnote{see definition~(\ref{def:alt-determinant})
-in the appendix~\ref{app:mathematical}.}
+\emph{alternant determinant}.
 
 \subsection{Pole structure}
 
@@ -720,8 +718,44 @@ Finally, let we write \(z_1 \equiv w\) and using elementary row operations we fi
   \; .
 \end{equation}
 that agrees with the results we obtained above. 
-
 \end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Miwa coordinates}
+
+We now want to write the Slavnov products we defined above in terms of the following 
+coordinates
+\begin{equation}
+  t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
+\end{equation}
+the so called, Miwa coordinates.
+
+We can show, see~\cite{Araujo:2021ghu} for a detailed proof of this
+statement, that the tau function~\ref{eq:tau-function} admits an
+integral representation of the form (ignoring the signs dependence on
+the length \(n\) of the spin chain)
+\begin{equation}
+  \label{eq:tau-function-miwa}
+  \bm{\tau}(\bm{t}, \bm{v}) = 
+    \det_{j,k}\left(
+    \oint \frac{d w}{2\pi i} e^{\bm{\xi}(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
+    \right)
+\end{equation}
+where 
+\begin{equation}
+  \bm{\xi}(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; .
+\end{equation}
+One of the advantages of this representation is that now it makes
+sense to consider the limit of the infinite chain, \(n\to \infty\).
+
+
+
+
+
+
+
 
 
 \subsection{Problems}
@@ -738,7 +772,7 @@ above have poles at the Bethe roots, it is interesting.
 \item[\faCheck] Write the cases n=2 and n=3
 \item[\faCheck] What the general case for all \(z_k\) approaching to a single
   value \(w\). 
-\item Write these tau functions in terms of Miwa coordinates
+\item[\faCheck] Write these tau functions in terms of Miwa coordinates
 \item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
   the Bethe roots. 
   \item I think that these tau functions come from algebro geometric tau functions. 
@@ -748,6 +782,8 @@ above have poles at the Bethe roots, it is interesting.
   \item Are these tau functions associated to the Calogero-Moser model??
   \item Elliptic case - see slavnov, zabrodin's paper
 \end{itemize}
+
+
 
 
 
