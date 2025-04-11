@@ -736,6 +736,9 @@ We can show, see~\cite{Araujo:2021ghu} for a detailed proof of this
 statement, that the tau function~\ref{eq:tau-function} admits an
 integral representation of the form (ignoring the signs dependence on
 the length \(n\) of the spin chain)
+\todo{\tiny I need to do this calculation carefully now. The contour that gives the
+  representation below should avoid the Bethe root \(v_k\), otherwise, we pick
+poles we want to avoid.}
 \begin{equation}
   \label{eq:tau-function-miwa}
   \bm{\tau}(\bm{t}, \bm{v}) = 
@@ -749,6 +752,7 @@ where
 \end{equation}
 One of the advantages of this representation is that now it makes
 sense to consider the limit of the infinite chain, \(n\to \infty\).
+
 
 
 
@@ -773,6 +777,10 @@ above have poles at the Bethe roots, it is interesting.
 \item[\faCheck] What the general case for all \(z_k\) approaching to a single
   value \(w\). 
 \item[\faCheck] Write these tau functions in terms of Miwa coordinates
+\item I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
+  in terms of tau functions. The tau functions above is know. I think that this BA function
+  will be similar to the soliton-like solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}. 
+  My functions seem to have a pole of order \(N\) at infinity. And \(N\) zeros at the Bethe roots. 
 \item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
   the Bethe roots. 
   \item I think that these tau functions come from algebro geometric tau functions. 
