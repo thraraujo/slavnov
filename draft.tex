@@ -732,24 +732,25 @@ coordinates
 \end{equation}
 the so called, Miwa coordinates.
 
-We can show, see~\cite{Araujo:2021ghu} for a detailed proof of this
-statement, that the tau function~\ref{eq:tau-function} admits an
-integral representation of the form (ignoring the signs dependence on
-the length \(n\) of the spin chain)
-\todo{\tiny I need to do this calculation carefully now. The contour that gives the
-  representation below should avoid the Bethe root \(v_k\), otherwise, we pick
-poles we want to avoid.}
+It is easy to show that that the tau function~(\ref{eq:tau-function})
+admits an integral representation of the form
 \begin{equation}
   \label{eq:tau-function-miwa}
   \bm{\tau}(\bm{t}, \bm{v}) = 
     \det_{j,k}\left(
-    \oint \frac{d w}{2\pi i} e^{\bm{\xi}(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
+    \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\bm{\xi}(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
     \right)
 \end{equation}
 where 
 \begin{equation}
-  \bm{\xi}(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; .
+  \bm{\xi}(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; ,
 \end{equation}
+and the integration contour \(\gamma_k\) encloses all points
+\(\{z_j\}_{j=1}^n\) but avoids the Bethe root \(v_k\).  For a detailed
+proof of this statement, one may check the
+reference~\cite{Araujo:2021ghu}.  The only difference now is that now
+we need to be carefull with the integration contour \(\gamma_k\).
+
 One of the advantages of this representation is that now it makes
 sense to consider the limit of the infinite chain, \(n\to \infty\).
 
