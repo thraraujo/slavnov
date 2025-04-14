@@ -723,7 +723,7 @@ that agrees with the results we obtained above.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Miwa coordinates}
+\section{Baker-Akhiezer function}
 
 We now want to write the Slavnov products we defined above in terms of the following 
 coordinates
@@ -738,23 +738,94 @@ admits an integral representation of the form
   \label{eq:tau-function-miwa}
   \bm{\tau}(\bm{t}, \bm{v}) = 
     \det_{j,k}\left(
-    \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\bm{\xi}(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
+    \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
     \right)
 \end{equation}
 where 
 \begin{equation}
-  \bm{\xi}(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; ,
+  \xi(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; ,
 \end{equation}
 and the integration contour \(\gamma_k\) encloses all points
 \(\{z_j\}_{j=1}^n\) but avoids the Bethe root \(v_k\).  For a detailed
 proof of this statement, one may check the
 reference~\cite{Araujo:2021ghu}.  The only difference now is that now
 we need to be carefull with the integration contour \(\gamma_k\).
-
 One of the advantages of this representation is that now it makes
 sense to consider the limit of the infinite chain, \(n\to \infty\).
 
+For later convencience, let us also define an invertible matrix
+\(\mathcal{K}\) by its components
+\begin{equation}
+    \mathcal{K}_{jk} = 
+\oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k}\;,  
+\end{equation}
+so that the tau function is simply \(\bm{\tau}(\bm{t}, \bm{v}) = \det\mathcal{K}\).
 
+The Baker-Akhiezer funcion is defined in terms of the Japanese formula~\cite{Zabrodin2018}
+\begin{equation}
+  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
+  \frac{\bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})}{\bm{\tau}(\bm{t}, \bm{v})}
+\end{equation}
+where 
+\begin{equation}
+  \bm{t} - [\lambda^{-1}] = 
+  \{t_1 - \lambda^{-1}, t_2 - \lambda^{-2}/ 2 ,  t_2 - \lambda^{-3}/3, \dots,  t_p - \lambda^{-p}/p, \dots \}\; .
+\end{equation}
+
+Using the expression~(\ref{eq:tau-function-miwa}), we can write the
+Baker-Akhiezer function in terms of the \(z\)-coordinates.
+Let us first write
+\begin{subequations}
+\begin{equation}
+  \begin{split}
+    e^{\xi(\bm{t}, \lambda)} & = \exp\left( \sum_{p=1}^\infty t_p \lambda^p \right)
+    = \exp\left( \sum_{p=1}^\infty \sum_{j=1}^n \frac{1}{p} z^p \lambda^p \right) \\
+    & = \exp\left( \sum_{j=1}^n \sum_{p=1}^\infty  \frac{1}{p} z_j^p \lambda^p \right)
+    = \exp\left( - \sum_{j=1}^n \ln( 1 -  z_j \lambda ) \right) \\
+    & =  \prod_{j=1}^n \frac{1}{1 -  z_j \lambda} 
+  \end{split}
+\end{equation}
+and we see that these functions have simple poles at \( \lambda = z_j\). 
+
+Moreover, 
+\begin{equation}
+  t_p - \lambda^{-p}/p = \frac{1}{p} \sum_{j=1}^n z_j^ p - \lambda^{-p}/p \; , 
+\end{equation}
+and we can write
+\begin{equation}
+  \begin{split}
+    e^{\xi(\bm{t} - [\lambda^{-1}], w^{-1})} & = \exp\left[ \sum_{p=1}^\infty \left(t_p  - \frac{\lambda^{-p}}{p}\right) w^{-p} \right]\\
+    & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ - \sum_{p=1}^\infty \frac{\lambda^{-p}}{p} w^{-p} \right] \\
+    & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ \ln ( 1 - 1 / (\lambda w)) \right]\\
+    & = \left( 1 - \frac{1}{\lambda w}\right)  \prod_{j=1}^n \frac{1}{1 -  z_j /w} \; .
+  \end{split}
+\end{equation}
+\end{subequations}
+
+Using these expressions, we can write 
+\begin{equation}
+  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
+  \det_{j,k}\left[
+  \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \left( 1 - \frac{1}{\lambda w} \right) \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} 
+  \right]\; .
+\end{equation}
+Now, we define the matrix \(\widetilde{\mathcal{K}}(\lambda)\) by its components
+\begin{equation}
+    \widetilde{\mathcal{K}}_{jk}(\lambda)  = -  \frac{1}{\lambda} 
+  \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; ,
+\end{equation}
+and we then have 
+\begin{equation}
+  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
+  \bm{\tau}(\bm{t}, \bm{v})
+  \det \left( \mathbb{1} +  \mathcal{K}^{-1} \widetilde{\mathcal{K}}(\lambda) \right)\; .
+\end{equation}
+
+We finally conclude that the Bakher-Akhiezer function can be written as
+\begin{equation}
+  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
+  \det \left( \mathbb{1} +  \mathcal{K}^{-1} \widetilde{\mathcal{K}}(\lambda) \right)\; .
+\end{equation}
 
 
 
@@ -778,9 +849,11 @@ above have poles at the Bethe roots, it is interesting.
 \item[\faCheck] What the general case for all \(z_k\) approaching to a single
   value \(w\). 
 \item[\faCheck] Write these tau functions in terms of Miwa coordinates
-\item I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
-  in terms of tau functions. The tau functions above is know. I think that this BA function
-  will be similar to the soliton-like solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}. 
+\item[\faCheck] I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
+  in terms of tau functions.
+\item Write some explicit expressions for \(N=2\) and \(N=3\). 
+\item Better investigate these functions. See Fredholm determinant. 
+  I think that this BA function will be similar to the soliton-like solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}. 
   My functions seem to have a pole of order \(N\) at infinity. And \(N\) zeros at the Bethe roots. 
 \item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
   the Bethe roots. 
