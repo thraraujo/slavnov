@@ -227,7 +227,7 @@ a unique constant \(c_0\) so that
   \frac{\tilde{\Delta}(\bm{u}_\ell)}{c_0} = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{1}{u_j - u_k}\; , 
 \end{equation}
 that is the inverse of the Vandermonde determinant
-\(\Delta(\bm{u}_\ell)\).
+\(\Delta(\bm{u}_\ell) = \prod_{j>k}(u_j - u_k)\).
 Finally, we have  that \(\hat{\Omega}_\ell\) are minors of the matrix \(\bm{\Omega}\) with the \(\ell\)-th
 column excluded, that is 
 \begin{equation}
@@ -361,11 +361,16 @@ Consequently,
 \label{eq:tau-function}
   \bm{\tau}(\bm{z}, \bm{v})
   & = \frac{1}{\Delta(\bm{z})} \det[\Omega_j(z_k) ]_{j,k=1}^n \\
-  & = \frac{1}{\Delta(\bm{z})} \det\left[\frac{\mathcal{Y}_j(z_k)}{z_k - v_j} \right]_{j,k=1}^n  \\
+  & = \frac{1}{\Delta(\bm{z})} \det\left[\frac{\mathcal{Y}_j(z_k)}{z_k - v_j} \right]_{j,k=1}^n  \; .
 \end{split}
 \end{equation}
-All these tau functions have the form of an
-\emph{alternant determinant}.
+All these tau functions have the form of an \emph{alternant
+determinant}.  Henceforth, we will only refer to the matrix
+\(\bm{\Omega}\) defined by the components
+\begin{equation}
+  \label{eq:omega-matrix}
+  \Omega_{jk} = \frac{\mathcal{Y}_j(z_k)}{z_k - v_j}\; .
+\end{equation}
 
 \subsection{Pole structure}
 
@@ -732,34 +737,90 @@ coordinates
 \end{equation}
 the so called, Miwa coordinates.
 
-It is easy to show that that the tau function~(\ref{eq:tau-function})
-admits an integral representation of the form
+Let us also define
+\begin{equation}
+  \begin{split}
+    e^{\xi(\bm{t}, \lambda)} & = \exp\left( \sum_{p=1}^\infty t_p \lambda^p \right)
+    = \exp\left( \sum_{p=1}^\infty \sum_{j=1}^n \frac{1}{p} z^p \lambda^p \right) \\
+    & = \exp\left( \sum_{j=1}^n \sum_{p=1}^\infty  \frac{1}{p} z_j^p \lambda^p \right)
+    = \exp\left( - \sum_{j=1}^n \ln( 1 -  z_j \lambda ) \right) \\
+    & =  \prod_{j=1}^n \frac{1}{1 -  z_j \lambda} 
+  \end{split}
+\end{equation}
+where \(\lambda\) is a complex parameter. 
+and we see that these functions have simple poles at \( \lambda = z_j^{-1}\). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Integral representation of the tau functions}
+
+It is easy to show, see~\cite{Araujo:2021ghu} and references therein,
+that that the tau function~(\ref{eq:tau-function}) admits an integral
+representation of the form
 \begin{equation}
   \label{eq:tau-function-miwa}
-  \bm{\tau}(\bm{t}, \bm{v}) = 
+  \bm{\tau}(\bm{t}, \bm{v}) =
     \det_{j,k}\left(
     \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
     \right)
 \end{equation}
 where 
 \begin{equation}
-  \xi(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p}\; ,
+  \xi(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p} \quad \Leftrightarrow \quad
+  \xi(\bm{z}, w^{-1}) = w^n \prod_{j=1}^n (w - z_j)^{-1} \; ,
 \end{equation}
 and the integration contour \(\gamma_k\) encloses all points
-\(\{z_j\}_{j=1}^n\) but avoids the Bethe root \(v_k\).  For a detailed
-proof of this statement, one may check the
-reference~\cite{Araujo:2021ghu}.  The only difference now is that now
-we need to be carefull with the integration contour \(\gamma_k\).
-One of the advantages of this representation is that now it makes
-sense to consider the limit of the infinite chain, \(n\to \infty\).
+\(\{z_j\}_{j=1}^n\) but avoids the Bethe root \(v_k\).
+One of the advantages of this representation is
+that now it makes sense to consider the limit of the infinite chain,
+\(n\to \infty\).
 
-For later convencience, let us also define an invertible matrix
-\(\mathcal{K}\) by its components
+There are some minor differences between our calculations and the
+original references. First, we need to be carefull with the
+integration contour \(\gamma_k\). For this reason, we want to
+show explicitly this result. 
+
+Let us define the invertible matrix \(\bm{\mathcal{K}}^T\) by its components
 \begin{equation}
-    \mathcal{K}_{jk} = 
-\oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k}\;,  
+    \mathcal{K}_{kj} = 
+\oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{z}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k}\;. 
 \end{equation}
-so that the tau function is simply \(\bm{\tau}(\bm{t}, \bm{v}) = \det\mathcal{K}\).
+Explicitly, we have 
+\begin{equation}
+  \begin{split}
+    \mathcal{K}_{kj}
+    = & \oint_{\gamma_k} \frac{d w}{2\pi i} \frac{w^{n-j}}{\prod_{j} (w - z_j)}
+    \frac{\mathcal{Y}_k(w)}{w - v_k} = \sum_{\ell =1}^n \frac{z_l^{n-j}}{\prod_{j\neq \ell} (z_\ell - z_j)}
+    \frac{\mathcal{Y}_k(z_\ell)}{z_\ell - v_k}\\
+    & = \sum_{\ell = 1}^n  \Omega_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{j\neq \ell} (z_\ell - z_j)} \right)
+  \end{split}
+\end{equation}
+where in the second line we have used the
+\(\bm{\Omega}\)-matrix defined in~(\ref{eq:omega-matrix}).
+
+It is easy to see that
+\begin{equation}
+  \begin{split}
+  \det \bm{\mathcal{K}} & = \det(\bm{\Omega}) \det_{l,j}\left( \frac{z_l^{n-j}}{\prod_{j\neq l} (z_l - z_j)}\right) \\
+  & = \det(\bm{\Omega}) \det_{l, j}(z_l^{n-j}) \prod_{\substack{j, l =1 \\ j \neq l}}^n (z_l - z_j)^{-1} \; .
+  \end{split}
+\end{equation}
+We also have the identities 
+\begin{subequations}
+  \begin{equation}
+	\det_{l,j}(z_l^{n-j}) = (-1)^{n(n-1)/2} \Delta(\bm{z})\; ,
+  \end{equation}
+  and
+  \begin{equation}
+	\prod_{\substack{j, l = 1 \\ j \neq l}}^n (z_l - z_j) = (-1)^{n(n-1)/2} \Delta(\bm{z})^2\; . 
+  \end{equation}
+\end{subequations}
+
+Putting all these facts together, we finally see that 
+\(\bm{\tau}(\bm{z}, \bm{v}) = \det\bm{\mathcal{K}}\). 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Baker-Akhiezer function}
 
 The Baker-Akhiezer funcion is defined in terms of the Japanese formula~\cite{Zabrodin2018}
 \begin{equation}
@@ -774,19 +835,6 @@ where
 
 Using the expression~(\ref{eq:tau-function-miwa}), we can write the
 Baker-Akhiezer function in terms of the \(z\)-coordinates.
-Let us first write
-\begin{subequations}
-\begin{equation}
-  \begin{split}
-    e^{\xi(\bm{t}, \lambda)} & = \exp\left( \sum_{p=1}^\infty t_p \lambda^p \right)
-    = \exp\left( \sum_{p=1}^\infty \sum_{j=1}^n \frac{1}{p} z^p \lambda^p \right) \\
-    & = \exp\left( \sum_{j=1}^n \sum_{p=1}^\infty  \frac{1}{p} z_j^p \lambda^p \right)
-    = \exp\left( - \sum_{j=1}^n \ln( 1 -  z_j \lambda ) \right) \\
-    & =  \prod_{j=1}^n \frac{1}{1 -  z_j \lambda} 
-  \end{split}
-\end{equation}
-and we see that these functions have simple poles at \( \lambda = z_j\). 
-
 Moreover, 
 \begin{equation}
   t_p - \lambda^{-p}/p = \frac{1}{p} \sum_{j=1}^n z_j^ p - \lambda^{-p}/p \; , 
@@ -800,7 +848,6 @@ and we can write
     & = \left( 1 - \frac{1}{\lambda w}\right)  \prod_{j=1}^n \frac{1}{1 -  z_j /w} \; .
   \end{split}
 \end{equation}
-\end{subequations}
 
 Using these expressions, we can write 
 \begin{equation}
