@@ -756,6 +756,7 @@ and we see that these functions have simple poles at \( \lambda = z_j^{-1}\).
 It is easy to show, see~\cite{Araujo:2021ghu} and references therein,
 that that the tau function~(\ref{eq:tau-function}) admits an integral
 representation of the form
+\todo{Zero is not a pole of this expression}
 \begin{equation}
   \label{eq:tau-function-miwa}
   \bm{\tau}(\bm{t}, \bm{v}) =
@@ -850,12 +851,55 @@ and we can write
 \end{equation}
 
 Using these expressions, we can write 
+\todo{Zero is a pole of this expression}
 \begin{equation}
   \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
   \det_{j,k}\left[
   \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \left( 1 - \frac{1}{\lambda w} \right) \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} 
   \right]\; .
 \end{equation}
+We can now  calculate this integral.
+
+
+\subsubsection{Regular case}
+Let \(D_k\) be a domain defined by \(\partial D = \gamma_k\). We can
+see that the function
+\begin{equation}
+  \widetilde{\mathcal{Y}}_k(w)
+  = \left( 1 - \frac{1}{\lambda w} \right) \mathcal{Y}_k(w) \; ,
+\end{equation}
+is holomorphic in \(D_k\) and has a zero at \(\lambda = z_k^{-1}\). Therefore, we can repeat the previous arguments
+to calculate the shifted tau functions. The final result is 
+\begin{subequations}
+\begin{equation}
+  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})\ \Rightarrow \
+  \bm{\tau}(\lambda^{-1};\bm{z},\bm{v}) = 
+  \frac{1}{\Delta(\bm{z})}
+  \det_{j,k}\left[
+  \left( 1 - \frac{1}{\lambda z_j} \right) \frac{\mathcal{Y}_j(z_k)}{z_k - v_j} 
+  \right]\; , 
+\end{equation}
+and elementary column operations, we find
+\begin{equation}
+  \begin{split}
+    \bm{\tau}(\lambda^{-1};\bm{z},\bm{v})
+    & = \bm{\tau}(\bm{z},\bm{v}) \prod_{j=1}^n\left( 1 - \frac{1}{\lambda z_j} \right) \\ 
+    & = \bm{\tau}(\bm{z},\bm{v}) (-1)^n \prod_{j=1}^n \frac{1 - \lambda z_j}{\lambda z_j} \; . 
+  \end{split}
+\end{equation}
+\end{subequations}
+
+Putting all these facts together, we find that the Baker-Akhiezer function is given by
+\begin{equation}
+  \psi(\lambda, \bm{z}) =  \frac{(-1)^n}{\lambda^n}\prod_{j=1}^n \frac{1}{z_j}\; ,
+\end{equation}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fredholm determinant}
+
 Now, we define the matrix \(\widetilde{\mathcal{K}}(\lambda)\) by its components
 \begin{equation}
     \widetilde{\mathcal{K}}_{jk}(\lambda)  = -  \frac{1}{\lambda} 
