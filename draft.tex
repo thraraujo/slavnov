@@ -756,22 +756,34 @@ and we see that these functions have simple poles at \( \lambda = z_j^{-1}\).
 It is easy to show, see~\cite{Araujo:2021ghu} and references therein,
 that that the tau function~(\ref{eq:tau-function}) admits an integral
 representation of the form
-\todo{Zero is not a pole of this expression}
+\begin{subequations}
 \begin{equation}
   \label{eq:tau-function-miwa}
   \bm{\tau}(\bm{t}, \bm{v}) =
     \det_{j,k}\left(
-    \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \; ,
-    \right)
+    \oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} \right)\; ,
 \end{equation}
 where 
 \begin{equation}
   \xi(\bm{t}, w^{-1}) = \sum_{p=1}^\infty t_p w^{-p} \quad \Leftrightarrow \quad
-  \xi(\bm{z}, w^{-1}) = w^n \prod_{j=1}^n (w - z_j)^{-1} \; ,
+  \xi(\bm{z}, w^{-1}) = w^n \prod_{j=1}^n (w - z_j)^{-1} \; . 
 \end{equation}
-and the integration contour \(\gamma_k\) encloses all points
-\(\{z_j\}_{j=1}^n\) but avoids the Bethe root \(v_k\).
-One of the advantages of this representation is
+In the above integral, we consider that integration curve \(\gamma_k\)
+encloses all poles except the Bethe root \(v_k\).
+
+In terms of the \(z\)-coordinates, we have
+\begin{equation}
+  \label{eq:tau-function}
+  \bm{\tau}(\bm{z}, \bm{v}) =
+    \det_{j,k}\left(
+    \oint_{\gamma_k} \frac{d w}{2\pi i}
+    \prod_{l=1}^n \frac{1}{w - z_l} \frac{w^{n-j}\mathcal{Y}_k(w)}{w - v_k} \right) \; . 
+\end{equation}
+\end{subequations}
+Now, it is easy to see that \(w =0\) is not a pole.  
+
+All in all, the integration curve \(\gamma_k\) encloses all poles
+\(\{z_j\}_{j=1}^n\).  One of the advantages of this representation is
 that now it makes sense to consider the limit of the infinite chain,
 \(n\to \infty\).
 
@@ -789,14 +801,14 @@ Explicitly, we have
 \begin{equation}
   \begin{split}
     \mathcal{K}_{kj}
-    = & \oint_{\gamma_k} \frac{d w}{2\pi i} \frac{w^{n-j}}{\prod_{j} (w - z_j)}
-    \frac{\mathcal{Y}_k(w)}{w - v_k} = \sum_{\ell =1}^n \frac{z_l^{n-j}}{\prod_{j\neq \ell} (z_\ell - z_j)}
+    = & \oint_{\gamma_k} \frac{d w}{2\pi i} \frac{w^{n-j}}{\prod_{s} (w - z_s)}
+    \frac{\mathcal{Y}_k(w)}{w - v_k} = \sum_{\ell =1}^n \frac{z_l^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)}
     \frac{\mathcal{Y}_k(z_\ell)}{z_\ell - v_k}\\
-    & = \sum_{\ell = 1}^n  \Omega_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{j\neq \ell} (z_\ell - z_j)} \right)
+    & = \sum_{\ell = 1}^n  \Omega_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
   \end{split}
 \end{equation}
-where in the second line we have used the
-\(\bm{\Omega}\)-matrix defined in~(\ref{eq:omega-matrix}).
+where in the second line we have used the \(\bm{\Omega}\)-matrix
+defined in~(\ref{eq:omega-matrix}).
 
 It is easy to see that
 \begin{equation}
@@ -845,55 +857,61 @@ and we can write
   \begin{split}
     e^{\xi(\bm{t} - [\lambda^{-1}], w^{-1})} & = \exp\left[ \sum_{p=1}^\infty \left(t_p  - \frac{\lambda^{-p}}{p}\right) w^{-p} \right]\\
     & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ - \sum_{p=1}^\infty \frac{\lambda^{-p}}{p} w^{-p} \right] \\
-    & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ \ln ( 1 - 1 / (\lambda w)) \right]\\
-    & = \left( 1 - \frac{1}{\lambda w}\right)  \prod_{j=1}^n \frac{1}{1 -  z_j /w} \; .
+    & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ \ln ( 1 - 1 / (\lambda w)) \right]
+      = \left( 1 - \frac{1}{\lambda w}\right)  \prod_{j=1}^n \frac{1}{1 -  z_j /w} \\
+    & = \frac{w^{n-1}}{\lambda } \left( \lambda w - 1 \right)  \prod_{j=1}^n \frac{1}{w -  z_j} \\
   \end{split}
 \end{equation}
 
 Using these expressions, we can write 
-\todo{Zero is a pole of this expression}
 \begin{equation}
   \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
   \det_{j,k}\left[
-  \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \left( 1 - \frac{1}{\lambda w} \right) \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k} 
+  \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{- j -1} ( \lambda w - 1) \mathcal{Y}_k(w)}{\lambda(w - v_k)} 
   \right]\; .
 \end{equation}
-We can now  calculate this integral.
-
-
-\subsubsection{Regular case}
-Let \(D_k\) be a domain defined by \(\partial D = \gamma_k\). We can
-see that the function
+that in terms of the \(z\)-coordinates becomes
 \begin{equation}
-  \widetilde{\mathcal{Y}}_k(w)
-  = \left( 1 - \frac{1}{\lambda w} \right) \mathcal{Y}_k(w) \; ,
+\begin{split}
+  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})
+  & = \det_{j,k}\left[\oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}  
+    \frac{( \lambda w - 1) w^{n-j-1}\mathcal{Y}_k(w)}{\lambda(w - v_k)} \right]\\
+  & = \det_{j,k}\left[
+    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}  
+    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
+    \right]
+\end{split}
 \end{equation}
-is holomorphic in \(D_k\) and has a zero at \(\lambda = z_k^{-1}\). Therefore, we can repeat the previous arguments
-to calculate the shifted tau functions. The final result is 
-\begin{subequations}
+where we have defined the function 
 \begin{equation}
-  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})\ \Rightarrow \
-  \bm{\tau}(\lambda^{-1};\bm{z},\bm{v}) = 
-  \frac{1}{\Delta(\bm{z})}
-  \det_{j,k}\left[
-  \left( 1 - \frac{1}{\lambda z_j} \right) \frac{\mathcal{Y}_j(z_k)}{z_k - v_j} 
-  \right]\; , 
+  \widetilde{\mathcal{Y}}_k(w; \lambda)
+  = \frac{( \lambda w - 1)}{\lambda} \mathcal{Y}_k(w) \; ,
 \end{equation}
-and elementary column operations, we find
+From these expressions, it is easy to see that for \(j=n\), then \(w =
+0\) is a pole and we must pick this term in the integration curve
+\(\gamma_k\).
+
+Let us define the components
 \begin{equation}
   \begin{split}
-    \bm{\tau}(\lambda^{-1};\bm{z},\bm{v})
-    & = \bm{\tau}(\bm{z},\bm{v}) \prod_{j=1}^n\left( 1 - \frac{1}{\lambda z_j} \right) \\ 
-    & = \bm{\tau}(\bm{z},\bm{v}) (-1)^n \prod_{j=1}^n \frac{1 - \lambda z_j}{\lambda z_j} \; . 
+    \widetilde{\mathcal{K}}_{kj} = &
+    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
+    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
+    + \delta_{nj} F_k(\lambda) \\
+    & = \sum_{\ell = 1}^n  \widetilde{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
+    + \delta_{nj} F_k(\lambda) \\
   \end{split}
 \end{equation}
-\end{subequations}
-
-Putting all these facts together, we find that the Baker-Akhiezer function is given by
+where
 \begin{equation}
-  \psi(\lambda, \bm{z}) =  \frac{(-1)^n}{\lambda^n}\prod_{j=1}^n \frac{1}{z_j}\; ,
+  \widetilde{\Omega}_{k\ell}
+  = \frac{1}{z_\ell} \frac{\widetilde{\mathcal{Y}}_k(\lambda, z_\ell)}{z_\ell - v_k}
+  = \frac{(\lambda z_\ell -1)}{\lambda z_\ell} {\Omega}_{k\ell} 
+\; , \qquad 
+ F_k(\lambda) = (-1)^n \frac{\widetilde{\mathcal{Y}}_k(\lambda; 0)}{v_k }  \prod_{s=1}^n z_s^{-1} \; .
 \end{equation}
-
+We conclude that we are basically adding a constant vector
+\(\bm{F} = (F_1, \dots , F_n)\) to the \(n\)-th line of a matrix with components...
 
 
 
