@@ -899,7 +899,7 @@ Let us define the components
     \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
     + \delta_{nj} F_k(\lambda) \\
     & = \sum_{\ell = 1}^n  \widetilde{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
-    + \delta_{nj} F_k(\lambda) \\
+    + F_k(\lambda)\delta_{nj}  \\
   \end{split}
 \end{equation}
 where
@@ -910,8 +910,25 @@ where
 \; , \qquad 
  F_k(\lambda) = (-1)^n \frac{\widetilde{\mathcal{Y}}_k(\lambda; 0)}{v_k }  \prod_{s=1}^n z_s^{-1} \; .
 \end{equation}
-We conclude that we are basically adding a constant vector
-\(\bm{F} = (F_1, \dots , F_n)\) to the \(n\)-th line of a matrix with components...
+
+In order to simplify our analysis, let us define one more matrix
+\(\widehat{\mathcal{K}}\) by its components
+\begin{equation}
+    \widehat{\mathcal{K}}_{kj} = 
+    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
+    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}\; .
+\end{equation}
+We conclude that \(\widetilde{\mathcal{K}}\) can be obtained from 
+\(\widehat{\mathcal{K}}\) by adding to each component of the \(n\)-th row
+the corresponding component of the vector \(\bm{F} = (F_1, \dots , F_n)\). 
+Let us write this operation as 
+\begin{equation}
+  \widetilde{\mathcal{K}} = \widehat{\mathcal{K}} + \bm{F}_{[\rightarrow n-row]}\; ,
+\end{equation}
+
+
+
+
 
 
 
