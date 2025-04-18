@@ -878,13 +878,13 @@ that in terms of the \(z\)-coordinates becomes
     \frac{( \lambda w - 1) w^{n-j-1}\mathcal{Y}_k(w)}{\lambda(w - v_k)} \right]\\
   & = \det_{j,k}\left[
     \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}  
-    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
+    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
     \right]
 \end{split}
 \end{equation}
 where we have defined the function 
 \begin{equation}
-  \widetilde{\mathcal{Y}}_k(w; \lambda)
+  \widehat{\mathcal{Y}}_k(w; \lambda)
   = \frac{( \lambda w - 1)}{\lambda} \mathcal{Y}_k(w) \; ,
 \end{equation}
 From these expressions, it is easy to see that for \(j=n\), then \(w =
@@ -896,37 +896,83 @@ Let us define the components
   \begin{split}
     \widetilde{\mathcal{K}}_{kj} = &
     \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
-    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
+    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
     + \delta_{nj} F_k(\lambda) \\
-    & = \sum_{\ell = 1}^n  \widetilde{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
+    & = \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
     + F_k(\lambda)\delta_{nj}  \\
   \end{split}
 \end{equation}
 where
 \begin{equation}
-  \widetilde{\Omega}_{k\ell}
+  \widehat{\Omega}_{k\ell}
   = \frac{1}{z_\ell} \frac{\widetilde{\mathcal{Y}}_k(\lambda, z_\ell)}{z_\ell - v_k}
   = \frac{(\lambda z_\ell -1)}{\lambda z_\ell} {\Omega}_{k\ell} 
 \; , \qquad 
- F_k(\lambda) = (-1)^n \frac{\widetilde{\mathcal{Y}}_k(\lambda; 0)}{v_k }  \prod_{s=1}^n z_s^{-1} \; .
+ F_k(\lambda) = (-1)^n \frac{\widehat{\mathcal{Y}}_k(\lambda; 0)}{v_k }  \prod_{s=1}^n z_s^{-1} \; .
 \end{equation}
 
 In order to simplify our analysis, let us define one more matrix
 \(\widehat{\mathcal{K}}\) by its components
 \begin{equation}
     \widehat{\mathcal{K}}_{kj} = 
-    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
-    \frac{w^{n-j-1}\widetilde{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}\; .
+    \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell}
+    \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
+    \; .
 \end{equation}
 We conclude that \(\widetilde{\mathcal{K}}\) can be obtained from 
 \(\widehat{\mathcal{K}}\) by adding to each component of the \(n\)-th row
 the corresponding component of the vector \(\bm{F} = (F_1, \dots , F_n)\). 
 Let us write this operation as 
 \begin{equation}
-  \widetilde{\mathcal{K}} = \widehat{\mathcal{K}} + \bm{F}_{[\rightarrow n-row]}\; ,
+  \widetilde{\mathcal{K}} = \widehat{\mathcal{K}} + \bm{0}_{[ \bm{F} \to n-row]}\; . 
+\end{equation}
+Where we use the notation \(\mathcal{A}_{[ \bm{F} \to j-row]} \) to denote
+the replacement of the \(j-th\) row of the matrix with the vector \(\bm{F}\).
+Above we have considered this operation with the zero matrix \(\bm{0}\). 
+
+By the multilinearity of the determinant, we can write
+\begin{equation}
+  \det \widetilde{\mathcal{K}} = 
+    \det \widehat{\mathcal{K}} + 
+    \det \widehat{\mathcal{K}}_{[\bm{F} \to n-row]}\; .
 \end{equation}
 
+It is now easy to see that \(\det \widehat{\mathcal{K}}\) is
+proportional to the tau functions (Slavnov products), that is
+\begin{equation}
+    \det \widehat{\mathcal{K}}  = 
+    \det(\widehat{\Omega})
+    \det_{l,j}
+    \left( \frac{z_l^{n-j}}{\prod_{s\neq l} (z_l - z_s)} \right)\\
+    = \frac{\det(\widehat{\Omega})}{\Delta(\bm{z})}
+\end{equation}
+where \(\widehat{\Omega}\) is the matrix formed by the components
+\(\widehat{\Omega}_{i,j}\). The above determinant is itself a tau function,
+but we can also write is as
+\begin{equation}
+    \det \widehat{\mathcal{K}} = 
+    \frac{\det(\Omega)}{\Delta(\bm{z})}
+    \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) 
+    = \bm{\tau}(\bm{z}, \bm{v}) \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) \; .
+\end{equation}
 
+Finally, using the elementary symmetric polynomials \(\sigma_p^{(n)}\), we write
+\begin{equation}
+  \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) = 1 + 
+  \sum_{p=1}^n (-1)^p \lambda^{-p} \sigma_p^{(n)}(\bm{z}^{-1})\; .
+\end{equation}
+where \( \bm{z}^{-1} = \{z_1^{-1}, z_2^{-1}, \dots , z_n^{-1}\}\). 
+
+Putting all these facts together, we write the Baker-Akhiezer function
+as 
+\begin{equation}
+  \psi(\lambda; \bm{z}, \bm{v}) =
+  e^{\xi(\bm{t}, \lambda)}  \left[ 1 + 
+  \sum_{p=1}^n (-1)^p \lambda^{-p} \sigma_p^{(n)}(\bm{z}^{-1})
+    + \frac{1}{\bm{\tau}(\bm{z}, \bm{v})}
+    \det \widehat{\mathcal{K}}_{[\bm{F} \to n-row]}
+  \right]\; .
+\end{equation}
 
 
 
