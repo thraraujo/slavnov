@@ -895,14 +895,15 @@ Let us define the components
 \begin{equation}
   \begin{split}
     \widetilde{\mathcal{K}}_{kj} = &
-    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
+    \oint_{\tilde \gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
     \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
     + \delta_{nj} F_k(\lambda) \\
     & = \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
     + F_k(\lambda)\delta_{nj}  \\
   \end{split}
 \end{equation}
-where
+where \(\tilde{\gamma}_k\) is a contour that does not pick
+the point \(w=0\); and
 \begin{equation}
   \widehat{\Omega}_{k\ell}
   = \frac{1}{z_\ell} \frac{\widetilde{\mathcal{Y}}_k(\lambda, z_\ell)}{z_\ell - v_k}
@@ -926,9 +927,10 @@ Let us write this operation as
 \begin{equation}
   \widetilde{\mathcal{K}} = \widehat{\mathcal{K}} + \bm{0}_{[ \bm{F} \to n-row]}\; . 
 \end{equation}
-Where we use the notation \(\mathcal{A}_{[ \bm{F} \to j-row]} \) to denote
-the replacement of the \(j-th\) row of the matrix with the vector \(\bm{F}\).
-Above we have considered this operation with the zero matrix \(\bm{0}\). 
+Where we use the notation \(\mathcal{A}_{[ \bm{F} \to j-row]} \) to
+denote the replacement of the \(j-th\) row of the matrix with the
+vector \(\bm{F}\).  Above we have considered this operation with the
+zero matrix \(\bm{0}\).
 
 By the multilinearity of the determinant, we can write
 \begin{equation}
@@ -976,28 +978,66 @@ as
 
 
 
+%%% Maybe I should calculate some examples
+%\subsection{Examples} Let us now consider the cases \(n=2, 3\).
+%We have calculated the tau functions for these objets. The
+%elementary symmetric polynomials are also known. Therefore,
+%the only detail we need to complete now is the calculation of
+%the matrix \(\widehat{\mathcal{K}}\). 
+%
+%\subsubsection{n=2} We
+%we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fredholm determinant}
 
-Now, we define the matrix \(\widetilde{\mathcal{K}}(\lambda)\) by its components
+We now want to consider the above calculations in the Miwa
+coordinates. This allows us to consider the infinite chain limit.
+
+We define the matrix \(\check{\mathcal{K}}(\lambda)\) by its components
 \begin{equation}
-    \widetilde{\mathcal{K}}_{jk}(\lambda)  = -  \frac{1}{\lambda} 
-  \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; ,
+    \check{\mathcal{K}}_{jk}  = -  
+    \oint_{\gamma_k} \frac{dw}{2\pi i}
+    e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; .
 \end{equation}
-and we then have 
+
+Therefore, we have that 
+\begin{equation}
+  \widetilde{\mathcal{K}}_{kj} = 
+  \mathcal{K}_{kj}  + \frac{1}{\lambda}
+  \check{\mathcal{K}}_{kj}
+  \ \Leftrightarrow \
+  \widetilde{\mathcal{K}} = 
+  \mathcal{K}  + \frac{1}{\lambda}
+  \check{\mathcal{K}}\; , 
+\end{equation}
+and since \(\mathcal{K}\) is invertible, we get
+\begin{equation}
+  \widetilde{\mathcal{K}} = 
+  \mathcal{K}\left( \mathbb{1}  +
+  \frac{1}{\lambda}\mathcal{K}^{-1}\check{\mathcal{K}} \right)\; .
+\end{equation}
+
+Putting all these facts together, we find that the shifted
+tau-functions are
 \begin{equation}
   \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
   \bm{\tau}(\bm{t}, \bm{v})
-  \det \left( \mathbb{1} +  \mathcal{K}^{-1} \widetilde{\mathcal{K}}(\lambda) \right)\; .
+  \det \left( \mathbb{1} + \frac{1}{\lambda}
+  \mathcal{K}^{-1} \check{\mathcal{K}} \right)\; .
 \end{equation}
 
 We finally conclude that the Bakher-Akhiezer function can be written as
 \begin{equation}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
-  \det \left( \mathbb{1} +  \mathcal{K}^{-1} \widetilde{\mathcal{K}}(\lambda) \right)\; .
+  \det \left( \mathbb{1} +
+    \frac{1}{\lambda} \mathcal{T}
+  \right)\; .
 \end{equation}
+where \(\mathcal{T} = \mathcal{K}^{-1} \check{\mathcal{K}}\). 
+
 
 
 
@@ -1023,8 +1063,11 @@ above have poles at the Bethe roots, it is interesting.
 \item[\faCheck] Write these tau functions in terms of Miwa coordinates
 \item[\faCheck] I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
   in terms of tau functions.
-\item Write some explicit expressions for \(N=2\) and \(N=3\). 
-\item Better investigate these functions. See Fredholm determinant. 
+\item[\faCheck]  Write some explicit expressions for \(N=2\) and \(N=3\). 
+\item See the Limit \(L \to \infty\) and \(N \to \infty\) but sufficiently slower than \(L\). 
+  I think that the matrix \(\mathcal{T}\) is a trace class operator and we write the BA function
+  as a Fredholm determinant. 
+\item Better investigate these functions in Miwa coordinates. See Fredholm determinant. 
   I think that this BA function will be similar to the soliton-like solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}. 
   My functions seem to have a pole of order \(N\) at infinity. And \(N\) zeros at the Bethe roots. 
 \item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
