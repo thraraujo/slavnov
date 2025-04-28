@@ -1,0 +1,107 @@
+% DEFINITIONS PDFLATEX
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS AND LANGUAGES
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage[T1]{fontenc} % In case I am compiling with Latex. UTF-8 is not necessary anymore
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% ADDITIONAL PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{parskip}
+\usepackage{tikz} % Drawing package
+\usepackage[backend=biber, style=alphabetic, sorting=ydnt]{biblatex}
+%\usepackage[backend=biber, style=alphabetic]{biblatex}
+\usepackage{listings}
+\usepackage{ytableau}
+
+
+\usepackage{mdframed} % Better than the framed package
+
+
+\usetikzlibrary{intersections,decorations.text} % this is to make the cover
+\usetikzlibrary{matrix, arrows.meta}            % this is to improve diagrams
+
+\setlength\parindent{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% METADATA
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% See options in the official manual
+\hypersetup{ 
+	pdftitle={integrable systems, programming and so on},
+	pdfsubject={High Energy Physics}, 
+	pdfauthor={thiago araujo},
+	pdfkeywords={gauge; susy; strings; fields; cft; python},
+	colorlinks=true,    % false: color frames ; true: color links
+    linkcolor=myPurple, % Color of internal links (sections, pages and so on)
+    citecolor=myPurple, % color for bibliographical citations
+    urlcolor =myPurple, % color for linked URL
+    linktocpage=true    % link page to table of contents
+}
+
+% Options for listings package I saw the sniipet below here: 
+% https://stackoverflow.com/questions/3175105/inserting-code-in-this-latex-document-with-indentation
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{myPurple},
+  keywordstyle=\color{myRed},
+  commentstyle=\color{myBlue},
+  stringstyle=\color{myPurple!80},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% see palette here: https://github.com/enkia/tokyo-night-vscode-theme
+\definecolor{myPurple}{RGB}{90, 74, 120}
+\definecolor{myBlue}{RGB}{15, 75, 110}
+\definecolor{myRed}{RGB}{191,97,106}
+\definecolor{myDarkGray}{RGB}{216, 222, 233}
+\definecolor{myLightGray}{RGB}{236, 239, 244}
+
+\definecolor{c1}{RGB}{129, 162, 193} % myBlue {15, 75, 110}
+\definecolor{c2}{RGB}{216, 222, 233} % myDarkGray
+\definecolor{c3}{RGB}{236, 239, 244} % myLightGray
+\definecolor{c4}{RGB}{59, 66, 82}
+\definecolor{c5}{RGB}{76, 86, 106}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREM
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{notation}{Notation}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% MATH OPERATORS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\DeclareMathOperator{\Res}{Res}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% MACROS
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiter{\bbra}{\langle\!\langle}{\rvert}
+\DeclarePairedDelimiter{\kket}{\lvert}{\rangle\!\rangle}
+\DeclarePairedDelimiterX{\bracket}[2]{\langle}{\rangle}{#1\vert#2}
+\DeclarePairedDelimiterX{\bbracket}[2]{\langle\!\langle}{\rangle\!\rangle}{#1\vert#2}

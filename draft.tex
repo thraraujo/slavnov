@@ -1,7 +1,7 @@
-\documentclass[a4paper,11pt]{amsart}
+\documentclass[a4paper,12pt]{amsart}
 
-\usepackage{/home/thiago/.config/dot-files/latex/globaldef}
-\input{/home/thiago/.config/dot-files/latex/definitions.tex}
+\usepackage{globaldef}
+\input{definitions.tex}
 
 \bibliography{/home/thiago/Sync/wiki/database/bib-database.bib}
 
@@ -73,16 +73,34 @@ Heisenberg XXZ spin chain, and the Kadomtsev–Petviashvili (KP)
 classical integrable hierarchy. This analysis has been extended to
 some directions and applications, for example~\cite{Wheeler:2010vmq,
   Foda:2010, Takasaki:2010qm, Foda:2012wn, Foda:2012wf}.
+In~\cite{Araujo:2021ghu, Araujo:2024klz}, the author of the current
+paper also investigated some developments of this research field. In
+particular, the relation between integrable hierarchies and quantum
+integrable systems such as the Q-Boson integrable system and in the
+Temperley-Lieb open spin chains.
 
-In (my papers)
-the author of the current paper started studying some other cases of
-this interesting connection, in particular, in the case of the Temperley-Lieb spin chains
-and the Q-Boson model. In all these cases, although the specific details of he
-Slavnov product are radically different, the general functional structure
-are basically the same, modulo some multiplicative terms. 
+Although the specific details of he Slavnov product are radically
+different, In all these cases discussed in the previous paragraph, the
+general functional structure of the Slavnov products of different
+models are basically the same. More specifically, module some
+multiplicative terms, all these expressions are determinant, and it is
+the fact that allows us to manipulate these objects to show that thesy
+are KP and Toda tau functions.
 
-In~\cite{Belliard:2019bfz}, the authors show
-the reason behind this fact.
+Belliard and Slavnov~\cite{Belliard:2019bfz} have addressed precisely
+this property: \emph{Why scalar products in the algebraic Bethe ansatz
+have determinant representations}.  Using their results, we now want
+to understand \emph{why and how (some) scalar products in the
+algebraic Bethe ansatz are KP and Toda tau functions}. In the current
+show that as long as the integrable system satisfies the conditions
+established in~\cite{Belliard:2019bfz} -- and some additional
+restrictions -- the Slavnov product is guaranteed to satisfy the KP
+integrable hiearchy. Moreover, we also discuss some immediate
+consequences of this result.
+
+In section 2 we review the main aspects of the
+work~\cite{Belliard:2019bfz} and fix the main notation we use in the
+remainder of this work. (...)
 
 
 
@@ -90,62 +108,90 @@ the reason behind this fact.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Scalar products and determinant formulas}
+\section{Scalar products as determinants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section reviews the main arguments in~\cite{Belliard:2019bfz}. 
+In order to make the paper as self-contained as possible, this section
+reviews the main arguments in~\cite{Belliard:2019bfz}. Let us start
+with a set of arbitrary complex numbers \(\bm{u} =
+\{u_j\}_{j=1}^{n+1}\), and we set \(n+1\) sets
+\(\bm{u}_j=\bm{u}\setminus \{u_j\}\). In the algebraic Bethe ansatz
+setting~\cite{Korepin:1993kvr}, we can now define \(n+1\) off-shell
+Bethe vectors \(\ket{\Psi(\bm{u}_j)}\), i.e. Bethe states where the
+algebraic Bethe equations are not imposed on
+\(\bm{u}_j\). Additionally, we also consider a set of Bethe roots
+\(\bm{v} = \{ v_k \}_{k=1}^n\), and the on-shell Bethe vectors
+\(\ket{\Psi(\bm{v})}\).
 
-Let us start with a set of arbitrary complex numbers
-\(\bm{u} = \{u_j\}_{j=1}^{n+1}\), and we define \(n+1\) sets
-\(\bm{u}_j=\bm{u}\setminus \{u_j\}\) so that we can define
-\(n+1\) off-shell Bethe vectors \(\ket{\Psi(\bm{u}_j)}\). 
 
-Consider now a set of Bethe roots \(\bm{v} = \{ v_k \}_{k=1}^n\),
-so that we have the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\). 
-In fact, let us consider the action of the transfer matrix \(\mathcal{T}(z)\)
-on the dual Bethe vector, that is 
+\subsection{Determinant representation}
+The action of the transfer matrix \(\mathcal{T}(z)\), that is an
+Hermitian operator, on the dual Bethe vector is given by
 \begin{equation}
 \label{eq:eigenvalue-bethe}
 \bra{\Psi(\bm{v})}\mathcal{T}(z) = \Lambda(z; \bm{v}) \bra{\Psi(\bm{v})} \; , 
 \end{equation}
 where \(\Lambda(z; \bm{v}) \) is the eigenvalue of the transfer matrix. 
 
-From these definitions, we now introduce \(n+1\) Slavnov products 
+We now introduce \(n+1\) scalar products between the on-shell and
+off-shell Bethe states
 \begin{equation}
-  \bm{\zeta}_j = \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)}\qquad j =1, \dots, n+1\; .
+  \bm{\zeta}_j(\bm{u}_j, \bm{v}) \equiv  \bm{\zeta}_j
+  = \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)}\qquad j =1, \dots, n+1\; .
 \end{equation}
-We want to show that \(\bm{\zeta}_j\) satisfy a system of linear equations.
+These partially on-shell scalar products are called \emph{Slavnov
+products}.
 
-In order to see this, we calculate
+Before procceding, let us also establish the class of models we are
+dealing with.  Let us consider a class of integrable models where the
+action of the transfer matrix on a generic off-shell bethe states can
+be expanded as
+\begin{subequations}
 \begin{equation}
-  \bra{\Psi(\bm{v})} {\color{violet}\left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right)} =
-  {\color{violet}\left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)}\ket{\Psi(\bm{u}_j)} 
+\label{eq:scalar-exp}
+  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)}  = \sum_{k=1}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; ,
+\end{equation}
+where \(L_{jk}\) are numerical coefficients. Observe that the terms
+\(L_{jk}\) with \(j\neq k\) contain the unwanted terms.; and these
+non-diagonal terms must vanish when the Bethe equations are
+satisfied. Therefore, since the diagonal coefficient survives, that is
+\(L_{jj}\), we conclude that these terms must be equal to the
+eigenvalue of the tranfer matrix, that is
+\begin{equation}
+  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} =  \Lambda(u_j; \bm{u}_j) \ket{\Psi(\bm{v})} + 
+  \sum_{\substack{k=1\\ k\neq j}}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; . 
+\end{equation}
+\end{subequations}
+This class of models include a wide range of known integrable systems,
+including the ones discussed in the introduction. One important class
+of models that does not fall in this classification are with elliptic
+R-matrices, although some of these models have slavnov products with
+determinantal representations.
+
+\begin{proposition}
+The Slavnov products \(\bm{\zeta}_j\) satisfy a system of linear
+equations.
+\end{proposition}
+
+\paragraph{\emph{Proof}} Let us first use that
+\begin{equation}
+\label{eq:scalar-prod}
+  \bra{\Psi(\bm{v})} \left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right) =
+  \left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)\ket{\Psi(\bm{u}_j)}
   \qquad j =1, \dots, n+1\; .
 \end{equation}
 The right-hand side of this equation can be simplified with the eigenvalue
 expression~(\ref{eq:eigenvalue-bethe}), that is
 \begin{equation}
-  {\color{violet}\left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)}\ket{\Psi(\bm{u}_j)}  =
+  \left(\bra{\Psi(\bm{v})}\mathcal{T}(u_j)\right)\ket{\Psi(\bm{u}_j)}  =
 \Lambda(u_j; \bm{v}) \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)} = 
 \Lambda(u_j; \bm{v}) \bm{\zeta}_j\; . 
 \end{equation}
 
-In order to simmplify the left-hand side, we expand the action of the transfer matrix on
-the off-shell as
-\todo{\tiny This point seems to be the most delicate. It does not work for
-  elliptic cases}
+Let us now use the expansion~(\ref{eq:scalar-exp}) on the left-hand
+side of~(\ref{eq:scalar-prod}). Therefore, we have
 \begin{equation}
-  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)}  = \sum_{k=1}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; ,
-\end{equation}
-where \(L_{jk}\) are numerical coefficients. Observe that the terms \(L_{jk}\) with
-\(j\neq k\) contain the unwanted terms. In the particular case where the algebraic
-Bethe equations are satisfied, these unwanted terms vanish and only the diagonal
-coefficient survives, that is \(L_{jj}\), and it is equal to the eigenvalue of the
-tranfer matrix. 
-
-Therefore, we have
-\begin{equation}
-  \bra{\Psi(\bm{v})} {\color{violet}\left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right)} =
+  \bra{\Psi(\bm{v})} \left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right) =
   \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k \; .
 \end{equation}
 
@@ -159,10 +205,11 @@ where
 \begin{equation}
   M_{jk} = L_{jk} - \delta_{jk}\Lambda(u_j; \bm{v})\; . 
 \end{equation}
-Here is the system we were looking for. We can write this system in
-a matrix form as 
+And this expression shows that the Slavnov products satisfy a linear system.
+We can write this system in a matrix form as 
 \begin{equation}
-  \left(\bm{L} - \bm{\Lambda} \right) \cdot \bm{\zeta} = \bm{0}\; ,
+\bm{M} \bm{\zeta} = 
+  \left(\bm{L} - \bm{\Lambda} \right) \bm{\zeta} = \bm{0}\; ,
 \end{equation}
 where
 \begin{subequations}
@@ -176,28 +223,40 @@ where
  \end{pmatrix}  \quad , \quad
     \bm{\Lambda} = \mathrm{diag}(\Lambda_1, \Lambda_2, \dots, \Lambda_{n+1})
 \end{equation}
-where we have written \( \Lambda_j \equiv \Lambda(u_j; \bm{v})\), and also
+with \(\Lambda_j \equiv \Lambda(u_j; \bm{v})\), and also
 \begin{equation}
   \bm{\zeta} = (\bm{\zeta}_1, \dots , \bm{\zeta}_{n+1})^T\qquad \, 
   \bm{0} = (0, \dots , 0)^T\; .
 \end{equation}
 \end{subequations}
+ \qed
 
-The whole point now is that if this system has a solution,
-it will be written as minors of the matrix \(M\).
+There are two important consequences for us now. First of all, if we
+assume that this system has a non-trivial solution, it will be written
+as minors of the matrix \(\bm{M}\).
 
+Moreover, since the system is homogeneous, the solutions are
+determined up to multiplicative terms, that we can fix them by
+requiring that the final result gives the required tau function. In
+the original works of Foda and collaborators, e.g.~\cite{Foda:2009zz,
+  Wheeler:2010vmq}, the authors perform a series of redefinitions to
+reach the same goal.
+
+Evidently being a determinant is not enough to guarantee that the
+Slavnov product is a tau function.  In order to accomplish this
+result, we need to specify the models. Following the original
+work~\cite{Belliard:2019bfz}, we will only discuss the rational models
+-- we will see that the calculations are massive even in this simples
+case. The generalization for open boundary conditions and for
+trigonometric models is immediate, see~\cite{Slavnov:2019aba}
+for more details on the generalization.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Rational models}
 
-We will now consider some concrete models. In the original
-work~\cite{Belliard:2019bfz}, the authors consider solutions with a
-rational R-mnatrix with periodic boundary conditions. Here we want to
-review the main results of this work. 
-\todo{\tiny Extend these results to the trigonometric case}
-
+We will now consider some concrete models.
 We start with an R-matrix of the form
 \begin{equation}
   R(u,v) = \mathbb{1} + g(u,v) \mathcal{P}\; , \qquad
@@ -311,21 +370,6 @@ and \(\sigma_{-1}^{(n)}(\bm{v}_j)= 0\), we can write
   \sum_{p=0}^{n-1} 
    \left(\alpha_p(z) + z \alpha_{p+1}(z) \right) \sigma_p^{(n-1)}(\bm{v}_j) 
 \end{equation}
-
-Let us write the \(p\) functions \(\sigma_p\) in terms of a linearly
-\todo{Not sure if I need this!!!}
-independent basis \(\{\phi_j\}_{j=1}^n\). In this case, we have that the functions
-\(\mathcal{Y}_j(z)\) are also linearly independent and have the expansion
-\begin{equation}
-  \mathcal{Y}_j(z) = \sum_{k=1}^n \rho_k(\bm{v}_j) \phi_k(z)\; ,
-\end{equation}
-where the coefficients \( \rho_k(\bm{v}_j)\) depend on the Bethe roots \(\bm{v}_j\). 
-The functional structure of the coefficients \(\rho_k\), when written, in terms of the
-Bethe roots are the same.  
-
-For example, in the case of the XXX model, \(\alpha_p(z)\sim z^{2n} + \cdots\), so
-that one can take \(\phi_j \sim z^{2j} + \cdots\), and the coefficients depend on the
-Bethe roots and inhomogeneities.
 
 We finally have 
 \begin{equation}
@@ -1094,6 +1138,7 @@ above have poles at the Bethe roots, it is interesting.
 \item[\faCheck] I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
   in terms of tau functions.
 \item[\faCheck]  Write some explicit expressions for \(N=2\) and \(N=3\). 
+\item Discuss the Toda hierarchy case. 
 \item See the Limit \(L \to \infty\) and \(N \to \infty\) but sufficiently slower than \(L\). 
   I think that the matrix \(\mathcal{T}\) is a trace class operator and we write the BA function
   as a Fredholm determinant. 
