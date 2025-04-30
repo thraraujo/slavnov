@@ -33,7 +33,18 @@ Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
 
 \begin{abstract}
-  ...
+One important ingredient in the Algebraic Bethe Ansatz is the scalar
+product of Bethe states.  There are many important results on this
+topic and references therein, but here we turn our attention to the
+well known fact that scalars products in the algebraic Bethe ansatz
+can be written as determinants.  More specifically, we will
+investigate a particular type of correlation functions in quantum
+integrable spin chains, the so called \emph{Slavnov product} These
+objects can be seen as building blocks of more sofisticated
+correlation functions and are instrumental in the study of norms of
+Bethe wave functions But more importantly for our present discussion,
+Slavnov products seem to be a bridge connecting quantum and classical
+integrable system.
 \end{abstract}
 
 \date{\today}
@@ -42,7 +53,7 @@ Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 
 \maketitle
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 
@@ -563,15 +574,17 @@ Bethe root \(v_j\) is proportional to a tau function.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Homogeneous limit and Wronskian formula}
+\section{Homogeneous limit}
 
-We the previous section we have discussed the limit where the
+In the previous section we have discussed the limit where the
 parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
 want to consider the limit where \(\bm{z}\) tend to a single variable,
 say \(z_k\to z_1\), \(k=2,\dots, n\).
 
-Let us first consider the case
-\(z_2 \to z_1\), then
+\subsection{Wronskian formula}
+
+Let us first consider the case where \(z_2 \to z_1\). We consider a
+series expansion about \(z_1\), and the second column of~(\ref{eq:slav-tau-function}) becomes
 \begin{subequations}
 \begin{equation}
   \bm{\tau}(\bm{z}, \bm{v}) = \frac{1}{\Delta(\bm{z})}
@@ -589,10 +602,12 @@ Let us first consider the case
     \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
   \end{pmatrix}
 \end{equation}
-where we have written \(z_2 - z_1 = \delta \to 0\). Moreover, we write
-\(\mathcal{Y}^{(n)}(z)\) as the nth derivative with respect its
-argument. Now one can immediatelly see that the second column is the
-first column plus terms multiplied by the factor \(\delta = z_2 -
+where we have written \(z_2 - z_1 = \delta \to 0\), and we denote by
+\(\mathcal{Y}^{(n)}(z)\) the \(n\)-th derivative of a
+\(\mathcal{Y}(z)\) with respect its argument.
+
+Now one can immediatelly see that the second column is the first
+column plus terms multiplied by the factor \(\delta = z_2 -
 z_1\). Using elementary operations on the column, we find
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2 \to z_1}\frac{(z_2 - z_1)}{\Delta(\bm{z})}
@@ -608,8 +623,9 @@ z_1\). Using elementary operations on the column, we find
   \end{pmatrix}\; .
 \end{equation}
 We can now repeat the same ideas for \(z_3\to z_1=z_2\). We find that
-the third column is the first plus the second and the derivatives
-multiplied by the factor \(\delta^2\sim (z_3 - z_2)(z_3 - z_1)\). All in all, we have
+the third column is the sum of the first and second columns, and
+derivatives multiplied by the factor \(\delta^2\sim (z_3 - z_2)(z_3 -
+z_1)\). All in all, we have
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2, z_3 \to z_1}\frac{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}{\Delta(\bm{z})}
   \det
@@ -623,8 +639,10 @@ multiplied by the factor \(\delta^2\sim (z_3 - z_2)(z_3 - z_1)\). All in all, we
     \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
   \end{pmatrix}\; .
 \end{equation}
-Repeating the same idea for all columns, we get that the multiplicative factor cancels out, and
-that the homogeneous limit gives 
+
+Repeating the same idea for all columns, we get that the
+multiplicative factor cancels out the Vandermonde determinant, and
+that the homogeneous limit gives
 \begin{equation}
   \bm{\tau}_h(z_1, \bm{v}) =
   \det
@@ -646,25 +664,21 @@ Finally, let we write \(z_1 \equiv w\) and using elementary row operations we fi
   \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](w)
   \; .
 \end{equation}
-that agrees with the results we obtained above. 
 \end{subequations}
+The interesting aspect of this expression is that the poles of this
+function are exactly the Bethe roots, and they are easily built from
+the Algebraic Bethe ansatz. Additionally, the functions
+\(\{\mathcal{Y}_j(w)\}_{j=1}^n\) are linearly independent if and only
+if the Bethe roots are non-degenerate.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-
-
-
-
-
-
-\subsection{Examples} Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
+\section{Examples} Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
 to gain some understanding of the problem.
 
-\subsubsection{n=2} In this case, we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
+\subsection{n=2} In this case, we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
 \(\bm{v} = (v_1, v_2)\). Moreover, we have the two sets \(\bm{v}_1 =
 \{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From (\ref{eq:y-functions}), we have
 \begin{subequations}
@@ -686,45 +700,55 @@ Therefore
     \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) ; .
   \end{split}
 \end{equation}
-Thefore, we find
+Consequently, we find
 \begin{equation}
-  \bm{\tau}(z_1, z_2; v_1 , v_2) = \frac{1}{z_2 - z_1}
-  \left(\frac{\mathcal{Y}_1(z_1) \mathcal{Y}_2(z_2)}{(z_1 - v_1)(z_2 - v_2)} - 
-  \frac{\mathcal{Y}_1(z_2) \mathcal{Y}_2(z_1)}{(z_1 - v_2)(z_2 - v_1)} 
-  \right)
+\begin{split}
+  \bm{\tau}(z_1, z_2; v_1 , v_2)
+  & = \frac{1}{z_2 - z_1} \left(\frac{\mathcal{Y}_1(z_1) \mathcal{Y}_2(z_2)}{(z_1 - v_1)(z_2 - v_2)} - 
+  \frac{\mathcal{Y}_1(z_2) \mathcal{Y}_2(z_1)}{(z_1 - v_2)(z_2 - v_1)} \right)\\
+  & = \frac{1}{z_2 - z_1}
+  \left(
+  \frac{\mathcal{Y}_1(z_1)}{(z_1 - v_1)} \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) - 
+  \frac{\mathcal{Y}_2(z_1)}{(z_1 - v_2)} \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) \right)
+\end{split}
+\end{equation}
+where 
+\begin{equation}
+ \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) = \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} \quad \textrm{and}  \qquad 
+ \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) = \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)}  \; .
 \end{equation}
 \end{subequations}
-One interesting case happens for \(z_2 \to z_1\equiv w\), in this case
-it is easy to show that
+From this expression, it is easy to extract the residues of \(z_1\)
+about one of the Bethe roots.
+
+It is easy to see that the homogeneous limit, that is \(z_2 \to z_1\equiv
+w\) gives
 \begin{equation}
   \bm{\tau}(w; v_1 , v_2) =
   \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; , 
 \end{equation}
-where \(\mathcal{W}[\mathcal{Y}_1, \dots, \mathcal{Y}_n](w)\) denotes the
-Wronskian of the functions \(\{\mathcal{Y}_j(w)\}_{j=1}^n\), in our
-case, we have \(n=2\). In this case, one can observe that these
-functions are linearly independent as long as \(v_2 \neq v_1\), what
-is guaranteed by the hypothesis that the Bethe roots are different. 
+It is also elementary to see that the functions \(\{\mathcal{Y}_1,
+\mathcal{Y}_2\}\) are linearly independent as long as \(v_2 \neq
+v_1\), what is guaranteed by the hypothesis that the Bethe roots are
+different.
 
 
-
-\subsubsection{n=3} Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\) and three Bethe roots
+\subsection{n=3} Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\) and three Bethe roots
 \(\bm{v} = (v_1, v_2, v_3)\). Moreover, we have the sets \(\bm{v}_1 = (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\)
 and \(\bm{v}_3 = (v_1, v_2)\). Then, it is easy to see that
 \begin{equation}
 \begin{split}
   \mathcal{Y}_j(z)
   & = (\alpha_0(z) + z \alpha_1(z))\sigma_0^{(2)}(\bm{v}_j)   + (\alpha_1(z) + z \alpha_2(z))\sigma_1^{(2)}(\bm{v}_j)  + \\
-  & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) 
+  & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) \; ,
 \end{split}
 \end{equation}
-Moreover, one can also use the explicit expressions 
+with the explicit expressions 
 \begin{equation}
   \sigma_0^{(2)}(x, y) = 1\; ,\qquad 
   \sigma_1^{(2)}(x, y) = x + y\; ,\qquad 
-  \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; , 
+  \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; . 
 \end{equation}
-to determine the functions \(\mathcal{Y}_j(z)\) for \(j=1,2,3\).
 
 Then, we have
 \begin{subequations}
@@ -750,10 +774,10 @@ Then, we have
         \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
         \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
         \end{bmatrix} 
-  \right]
+  \right] \; .
   \end{split}
 \end{equation}
-That we can organize as
+We organize this expression as
 \begin{equation}
   \begin{split}
     \bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
@@ -790,7 +814,7 @@ That we can organize as
 \end{equation}
 \end{subequations}
 
-Finally, we conclude that
+Finally, we conclude that that basis tau functions are
 \begin{subequations}
   \begin{equation}
 	\tilde{\bm{\tau}}_1(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
@@ -811,7 +835,7 @@ Finally, we conclude that
         \det\begin{bmatrix}
         \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
         \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-        \end{bmatrix} 
+        \end{bmatrix} \; .
   \end{equation}
 \end{subequations}
 
@@ -823,21 +847,36 @@ we know that
   \tilde{\bm{\tau}}_1(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_2, \mathcal{Y}_3](w)\\
   \tilde{\bm{\tau}}_2(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_3](w)\\
   \tilde{\bm{\tau}}_3(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_1)(w - v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)
-  \end{split}\; .
+  \; .
+  \end{split}
 \end{equation}
 and now, it is easy to see that if we also take the limit \(z_1\to w\), we have
 \begin{equation}
-  \bm{\tau}(w; v_1 , v_2, v_3)
+  \bm{\tau}(w; v_1 , v_2, v_3) = 
   \frac{1}{(w - v_1)(w - v_2)(w - v_3)} \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \mathcal{Y}_3](w)\; .
 \end{equation}
+
+Of course we can keep the calculations for other cases, but now it is obvious that
+this explicit analysis become cumbersome very early. It also explains why we
+keep our analysis restricted to the Rational cases. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Baker-Akhiezer function}
 
-We now want to write the Slavnov products we defined above in terms of the following 
-coordinates
+This section deals with the properties of the Baker-Akhiezer functions
+associated to the above tau functions. There are some interesting
+aspects of these tau functions that deserve further analysis, and here
+we just touch some of these aspects.
+
+Let us first start with some rewriting of the tau functions above. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Integral representation of the tau functions}
+
+We now want to write the Slavnov products we defined above in terms of
+the following coordinates
 \begin{equation}
   t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
 \end{equation}
@@ -856,12 +895,10 @@ Let us also define
 where \(\lambda\) is a complex parameter. 
 and we see that these functions have simple poles at \( \lambda = z_j^{-1}\). 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Integral representation of the tau functions}
-
-It is easy to show, see~\cite{Araujo:2021ghu} and references therein,
-that that the tau function~(\ref{eq:tau-function}) admits an integral
-representation of the form
+\begin{proposition}
+The tau function~(\ref{eq:tau-function}) admits an integral
+representation, see ~\cite{Araujo:2021ghu} and references therein,
+of the form
 \begin{subequations}
 \begin{equation}
   \label{eq:tau-function-miwa}
@@ -876,8 +913,9 @@ where
 \end{equation}
 In the above integral, we consider that integration curve \(\gamma_k\)
 encloses all poles except the Bethe root \(v_k\).
+\end{subequations}
 
-In terms of the \(z\)-coordinates, we have
+In terms of the \(z\)-coordinates, the tau functions becomes
 \begin{equation}
   \label{eq:tau-function}
   \bm{\tau}(\bm{z}, \bm{v}) =
@@ -885,18 +923,20 @@ In terms of the \(z\)-coordinates, we have
     \oint_{\gamma_k} \frac{d w}{2\pi i}
     \prod_{l=1}^n \frac{1}{w - z_l} \frac{w^{n-j}\mathcal{Y}_k(w)}{w - v_k} \right) \; . 
 \end{equation}
-\end{subequations}
 Now, it is easy to see that \(w =0\) is not a pole.  
 
 All in all, the integration curve \(\gamma_k\) encloses all poles
 \(\{z_j\}_{j=1}^n\).  One of the advantages of this representation is
 that now it makes sense to consider the limit of the infinite chain,
 \(n\to \infty\).
+\end{proposition}
 
+
+\paragraph{\emph{Proof}}
 There are some minor differences between our calculations and the
-original references. First, we need to be carefull with the
-integration contour \(\gamma_k\). For this reason, we want to
-show explicitly this result. 
+original references; namely, the integration contour \(\gamma_k\) and
+sign conventions. For this reason, we want to show
+explicitly this result.
 
 Let us define the invertible matrix \(\bm{\mathcal{K}}^T\) by its components
 \begin{equation}
@@ -933,9 +973,8 @@ We also have the identities
 	\prod_{\substack{j, l = 1 \\ j \neq l}}^n (z_l - z_j) = (-1)^{n(n-1)/2} \Delta(\bm{z})^2\; . 
   \end{equation}
 \end{subequations}
-
 Putting all these facts together, we finally see that 
-\(\bm{\tau}(\bm{z}, \bm{v}) = \det\bm{\mathcal{K}}\). 
+\(\bm{\tau}(\bm{z}, \bm{v}) = \det\bm{\mathcal{K}}\). \qed
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
