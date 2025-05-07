@@ -1119,8 +1119,8 @@ as
     \det \widehat{\mathcal{K}}_{[\bm{F} \to n-row]}
   \right]\; .
 \end{equation}
-
-
+Next section we find a better expression for the Baker-Akhiezer
+function. 
 
 %%% Maybe I should calculate some examples
 %\subsection{Examples} Let us now consider the cases \(n=2, 3\).
@@ -1133,7 +1133,6 @@ as
 %we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fredholm determinant}
 
@@ -1142,7 +1141,7 @@ coordinates.
 
 We define the matrix \(\check{\mathcal{K}}(\lambda)\) by its components
 \begin{equation}
-    \check{\mathcal{K}}_{jk}  = -  
+    \check{\mathcal{K}}_{jk} = -
     \oint_{\gamma_k} \frac{dw}{2\pi i}
     e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; .
 \end{equation}
@@ -1154,13 +1153,13 @@ Therefore, we have that
   \check{\mathcal{K}}_{kj}
   \ \Leftrightarrow \
   \widetilde{\mathcal{K}} = 
-  \mathcal{K}  + \frac{1}{\lambda}
+  \mathcal{K} + \frac{1}{\lambda}
   \check{\mathcal{K}}\; , 
 \end{equation}
 and since \(\mathcal{K}\) is invertible, we get
 \begin{equation}
   \widetilde{\mathcal{K}} = 
-  \mathcal{K}\left( \mathbb{1}  +
+  \mathcal{K}\left( \mathbb{1} + 
   \frac{1}{\lambda}\mathcal{K}^{-1}\check{\mathcal{K}} \right)\; .
 \end{equation}
 
@@ -1176,22 +1175,52 @@ tau-functions are
 We finally conclude that the Bakher-Akhiezer function can be written as
 \begin{equation}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
-  \det \left( \mathbb{1} +
-    \frac{1}{\lambda} \mathcal{T}
-  \right)\; .
+  \det \left( \mathbb{1} + 
+    \frac{1}{\lambda} \mathcal{M}
+  \right)\; , 
 \end{equation}
-where \(\mathcal{T} = \mathcal{K}^{-1} \check{\mathcal{K}}\). 
+where \(\mathcal{M} = \mathcal{K}^{-1} \check{\mathcal{K}}\) is a
+finite dimensional matrix. Let us now use the elementary expression
+\begin{subequations}
+\begin{equation}
+  \begin{split}
+    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
+    & = \exp \left[ \Tr \log \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M} \right) \right]\\
+    & = \prod_{l=1}^n \left( 1 + \frac{\mu_l}{\lambda} \right) \; ,
+  \end{split}
+\end{equation}
+\end{subequations}
+where \(\bm{\mu} = \{\mu_l\}_{l=1}^n\) are the eigenvalues of the
+matrix \(\mathcal{M}\), and these obviously depend on the Bethe roots
+\(\bm{v}\) and parameters \(\bm{t}\). Therefore, we have
+\begin{equation}
+  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
+  \left(1 + \sum_{k=1}^n \frac{\xi_k(\bm{t})}{\lambda^k} 
+  \right)\; . 
+\end{equation}
+where \(\xi_k(\bm{t}) = \sigma_k^{(n)}(\mu_1, \dots, \mu_n)\) and \(\mu_j = \mu_j(\bm{t}, \bm{v})\).
+
+We can also write 
+\begin{equation}
+  \begin{split}
+    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
+    & = \prod_{l=1}^n \left( 1 + \frac{\mu_l}{\lambda} \right) \\ 
+  \end{split}
+\end{equation}
+
+In the limit \(n \to \infty\) with with \(n/L \to 0\), we have
+that the Baker-Akhiezer function can be written as
+\begin{equation}
+  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
+  \left( 1 + \sum_{k=1}^n \frac{(-1)^k}{\lambda^k} \sigma_k(\{\bm{p}\})
+  \right)\; . 
+\end{equation}
 
 
 
 
-
-
-
-
-
-\subsection{Problems}
-Here are some important comments and problems to discuss. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Discussion}
 
 It seems that we can consider a basis of functions \(\mathcal{Y}_j(z)\) for the Baker-Akhiezer
 functions. I think that this object might say something interesting. In particular, we can
