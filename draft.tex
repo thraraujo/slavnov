@@ -349,9 +349,8 @@ This is the most important result for us, and our goal now is to show
 that it is a tau-function of the KP-hierarchy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Tau functions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In order to proceed, let us simplify the notation and organize the
 results we described before. First of all, we need to observe
@@ -572,9 +571,8 @@ tau function \(\tau(\bm{z}, \bm{v})\) for \(z_j\) approaching the
 Bethe root \(v_j\) is proportional to a tau function.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Homogeneous limit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In the previous section we have discussed the limit where the
 parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
@@ -673,9 +671,10 @@ if the Bethe roots are non-degenerate.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Examples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Examples} Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
+Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
 to gain some understanding of the problem.
 
 \subsection{n=2} In this case, we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
@@ -861,9 +860,8 @@ this explicit analysis become cumbersome very early. It also explains why we
 keep our analysis restricted to the Rational cases. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Baker-Akhiezer function}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section deals with some properties of the Baker-Akhiezer
 functions associated to the tau functions we found above.  Many
@@ -977,7 +975,7 @@ that now it is easier to consider the limit of the infinite chain,
 \(n\to \infty\).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Baker-Akhiezer function}
+\subsection{Baker-Akhiezer  in \(z\)-coordinates}
 
 The Baker-Akhiezer (BA) funcion is defined in terms of the Japanese formula~\cite{Zabrodin2018}
 \begin{equation}
@@ -990,7 +988,6 @@ where
   \{t_1 - \lambda^{-1}, t_2 - \lambda^{-2}/ 2 ,  t_2 - \lambda^{-3}/3, \dots,  t_p - \lambda^{-p}/p, \dots \}\; .
 \end{equation}
 
-\subsubsection{BA in \(z\)-coordinates}
 Using the expression~(\ref{eq:tau-function-miwa}), we can write the
 Baker-Akhiezer function in terms of the \(z\)-coordinates.
 Let us first write
@@ -1120,7 +1117,8 @@ as
   \right]\; .
 \end{equation}
 Next section we find a better expression for the Baker-Akhiezer
-function. 
+function, but from this expression we can see that all the poles
+are at the point \(\lambda =0\). 
 
 %%% Maybe I should calculate some examples
 %\subsection{Examples} Let us now consider the cases \(n=2, 3\).
@@ -1134,7 +1132,7 @@ function.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fredholm determinant}
+\subsection{Baker-Akhiezer in \(t\)-coordinates}
 
 We now want to consider the above calculations in the Miwa
 coordinates. 
@@ -1174,6 +1172,7 @@ tau-functions are
 
 We finally conclude that the Bakher-Akhiezer function can be written as
 \begin{equation}
+\label{eq:ba-fredholm}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
   \det \left( \mathbb{1} + 
     \frac{1}{\lambda} \mathcal{M}
@@ -1204,57 +1203,69 @@ We can also write
 \begin{equation}
   \begin{split}
     \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
-    & = \prod_{l=1}^n \left( 1 + \frac{\mu_l}{\lambda} \right) \\ 
+    & = \exp\left[ \sum_{l=1}^n \ln \left( 1 + \frac{\mu_l}{\lambda} \right)\right]
+    = \exp\left[ \sum_{l=1}^n \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k} \left(\frac{\mu_l}{\lambda} \right)^k\right] \\ 
+    & = \exp\left[ \sum_{k=1}^\infty \frac{(-1)^{k-1}}{\lambda^k} \gamma_k\right] \; ,
   \end{split}
 \end{equation}
-
-In the limit \(n \to \infty\) with with \(n/L \to 0\), we have
-that the Baker-Akhiezer function can be written as
+where we define the Miwa coordinates \(\gamma_k = \frac{1}{k}\sum_{l=1}^n \mu_l^k \). Consequently
 \begin{equation}
-  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
-  \left( 1 + \sum_{k=1}^n \frac{(-1)^k}{\lambda^k} \sigma_k(\{\bm{p}\})
-  \right)\; . 
+    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
+     = 1 + \sum_{k\geq 1}\frac{1}{\lambda^k} \sigma_k(\bm{\gamma})\; .
 \end{equation}
-
-
+Putting all these facts together, we can write the functions
+\(\xi_k(\bm{t})\) in terms of \(\bm{\gamma}\).  Observe that now the
+parameter \(n\) is hidden in the definition of the coordinates
+\(\gamma_k\).  One advantgage of this expression is that now we seem
+ot have a better setting to consider the thermodynamic limit \(n \to
+\infty\) with with \(n/L \to 0\). In fact, the
+expression~(\ref{eq:ba-fredholm}) suggests that in this limit, the
+Baker-Akhiezer function in the thermodynamics limit can be written as
+a Fredholm determinant. We are currently exploring this question and
+hope to report new results soon.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Discussion}
+\section{Discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-It seems that we can consider a basis of functions \(\mathcal{Y}_j(z)\) for the Baker-Akhiezer
-functions. I think that this object might say something interesting. In particular, we can
-explicitly build solutions of the KP equation. In fact, the functions \(\mathcal{Y}_j\)
-above have poles at the Bethe roots, it is interesting. 
-\begin{itemize}
-\item[\faCheck] What is the pole and root structure of the tau and Baker-Akhiezer (BA) functions?
-  In particular, what happens at the Bethe roots?
-\item[\faCheck] Basis tau functions
-\item[\faCheck] Write the cases n=2 and n=3
-\item[\faCheck] What the general case for all \(z_k\) approaching to a single
-  value \(w\). 
-\item[\faCheck] Write these tau functions in terms of Miwa coordinates
-\item[\faCheck] I need to calculate the Baker-Akhiezer function for this model using the Japanese formula
-  in terms of tau functions.
-\item[\faCheck]  Write some explicit expressions for \(N=2\) and \(N=3\). 
-\item Discuss the Toda hierarchy case. 
-\item See the Limit \(L \to \infty\) and \(N \to \infty\) but sufficiently slower than \(L\). 
-  I think that the matrix \(\mathcal{T}\) is a trace class operator and we write the BA function
-  as a Fredholm determinant. 
-\item Better investigate these functions in Miwa coordinates. See Fredholm determinant. 
-  I think that this BA function will be similar to the soliton-like solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}. 
-  My functions seem to have a pole of order \(N\) at infinity. And \(N\) zeros at the Bethe roots. 
-\item It turns out that the Baker-Akhiezer function is the appropriate object to discuss
-  the Bethe roots. 
-  \item I think that these tau functions come from algebro geometric tau functions. 
-  \item I can try to study the dynamics closer to the Bethe roots, I think that the
-    \(\Omega\)'s will have some interesting expansions, some of them might vanish. 
-  \item This might become a Riemann Hilbert problem
-  \item Are these tau functions associated to the Calogero-Moser model??
-  \item Elliptic case - see slavnov, zabrodin's paper
-\end{itemize}
+In this paper we have discussed some properties of the Slavnov
+products and their relation with the tau functions of the KP
+hierarchy.
 
+An important initial observation is that the general form of this tau
+function is written in terms of some alternant matrix, and this form
+is known since (cite papers on the matrix models and so on). But the
+functions associated to the current paper is drastically different
+from those papers, and do not expand a point in the
+Grassmannian. Therefore, it is necessary to better understand some of
+these properties. In this paper we start exploring these results.
 
+.... 
+
+We have also started our exploration of the Baker-Akhiezer function since it seems to
+be the relevant object of our investigation.  
+
+Soem future interesting directions. We might want to calculate the
+solutions of the KP equation to see what they really mean. Perhaps
+consider analitic and numerical calculations, since the calculation of
+the determinants become complicated even for small values of \(n\).
+
+More interestingly, one may try to consider the thermodynamic limit of
+the Slavnov product and explore what it means from the viewpoint of
+the Baker-Akhiezer function.  See the Limit \(L \to \infty\) and \(N
+\to \infty\) but sufficiently slower than \(L\).  I think that the
+matrix \(\mathcal{M}\) is a trace class operator and we write the BA
+function as a Fredholm determinant.
+
+I think that this BA function will be similar to the soliton-like
+solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}.
+My functions seem to have a pole of order \(N\) at infinity. And \(N\)
+zeros at the Bethe roots.
+
+Finally, we can explore the elliptic case and see if one can see if
+there exists any similar relation on the elliptic case.  Elliptic case
+- see slavnov, zabrodin's paper
 
 
 
