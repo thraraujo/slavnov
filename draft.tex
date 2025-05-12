@@ -18,14 +18,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Slavnov products and KP tau functions}
+\title[Slavnov products, KP and BA functions]{
+  More on the Slavnov products of spin chains,
+  KP hierarchy tau and Baker-Akhiezer functions 
+}
 
 \author{Thiago Araujo}
 
 
 \address{\noindent 
-Instituto de Ciências Exatas, Departamento de Física\\
-Universidade Federal Fluminense\\
+Institute of Exact Sciences, Department of Physics\\
+Fluminense Federal University\\
 Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 27213-145 Volta Redonda, RJ, Brazil
 }
@@ -33,18 +36,21 @@ Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
 
 \begin{abstract}
-One important ingredient in the Algebraic Bethe Ansatz is the scalar
-product of Bethe states.  There are many important results on this
-topic and references therein, but here we turn our attention to the
-well known fact that scalars products in the algebraic Bethe ansatz
-can be written as determinants.  More specifically, we will
-investigate a particular type of correlation functions in quantum
-integrable spin chains, the so called \emph{Slavnov product} These
-objects can be seen as building blocks of more sofisticated
-correlation functions and are instrumental in the study of norms of
-Bethe wave functions But more importantly for our present discussion,
-Slavnov products seem to be a bridge connecting quantum and classical
-integrable system.
+Connections between classical and quantum integrable systems are
+analyzed from the viewpoint of the Slavnov products of Bethe
+states. It is well known that, modulo model-dependent aspects, the
+functional structure of the Slavnov products takes the form of
+determinants. Using new results on the general structure of rational
+and trigonometric models, we establish that, as long as the model
+satisfies certain conditions, its Slavnov product is a tau function of
+the KP hierarchy, thus generalizing some known results. We also show
+that the Slavnov products can be expanded in terms of other tau
+functions, and we prove that their homogeneous limit can be calculated
+as a Wronskian of functions related to the eigenvalues of the transfer
+matrices. Finally, we calculate the Baker–Akhiezer functions
+associated with these Slavnov products, and show that, modulo a
+multiplicative universal term, the Baker–Akhiezer functions have a
+closed determinantal formula.
 \end{abstract}
 
 \date{\today}
@@ -58,133 +64,181 @@ integrable system.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 One important ingredient in the Algebraic Bethe Ansatz is the scalar
-product of Bethe states.  There are many important results on this
-topic, see~\cite{Korepin:1993kvr} and references therein, but here we
-turn our attention to the well known fact that scalars products in
-the algebraic Bethe ansatz can be written as determinants.
+product of Bethe states. This object plays a central role in the
+analysis of quantum integrable systems. Many important results have
+been collected on this topic, see~\cite{Korepin:1993kvr} and
+references therein. In this text, we focus on a powerful and elegant
+aspect of these products: scalars products in the algebraic Bethe
+ansatz can be expressed in terms of determinants.
 
-More specifically, we will investigate a particular type of
-correlation functions in quantum integrable spin chains, the so called
-\emph{Slavnov product}~\cite{Slavnov1989}. These objects can be seen as building blocks
-of more sofisticated correlation functions and are instrumental in the
-study of norms of Bethe wave functions~\cite{Korepin:1993kvr}.  But
-more importantly for our present discussion, Slavnov products seem to
-be a bridge connecting quantum and classical integrable system.
+More specifically, we investigate a very special type of correlation
+function in quantum integrable spin chains, the so called
+\emph{Slavnov product}~\cite{Slavnov1989}. These objects can be seen
+as building blocks of more sophisticated correlation functions and are
+instrumental in the study of norms of Bethe wave
+functions~\cite{Korepin:1993kvr}. But more importantly for the
+purposes of the present work, Slavnov products seem to be a bridge
+connecting quantum and classical integrable system. This is the
+problem we explore in this work.
 
-The study of connections between classical and quantum integrable
-systems is an old subject, and has been addressed from a wide range of
-perspectives~\cite{Wu:1975mw, Its:1992bj, korepin2000the, Foda2009,
+Connections between classical and quantum integrable systems are a
+long-standing research area, and have been addressed from a wide range
+of perspectives~\cite{Wu:1975mw, Its:1992bj, korepin2000the, Foda2009,
   Alexandrov:2011aa}.  In~\cite{Foda:2009zz}, the authors started the
 analysis of the connections between the Slavnov products of the
-Heisenberg XXZ spin chain, and the Kadomtsev–Petviashvili (KP)
-classical integrable hierarchy. This analysis has been extended to
-some directions and applications, for example~\cite{Wheeler:2010vmq,
-  Foda:2010, Takasaki:2010qm, Foda:2012wn, Foda:2012wf}.
-In~\cite{Araujo:2021ghu, Araujo:2024klz}, the author of the current
-paper also investigated some developments of this research field. In
-particular, the relation between integrable hierarchies and quantum
-integrable systems such as the Q-Boson integrable system and in the
-Temperley-Lieb open spin chains.
+Heisenberg XXZ spin chain and the Kadomtsev–Petviashvili (KP)
+classical integrable hierarchy. Their analysis has been extended in
+several different directions and applications, for
+example~\cite{Wheeler:2010vmq, Foda:2010, Takasaki:2010qm,
+  Foda:2012wn, Foda:2012wf}.  In~\cite{Araujo:2021ghu,
+  Araujo:2024klz}. The author of the current paper also investigated
+some aspects of this research problem. In particular, the relation
+between integrable hierarchies and quantum integrable systems such as
+the Q-Boson integrable system and the Temperley-Lieb open spin chains.
 
-Although the specific details of he Slavnov product are radically
-different, In all these cases discussed in the previous paragraph, the
-general functional structure of the Slavnov products of different
-models are basically the same. More specifically, module some
-multiplicative terms, all these expressions are determinant, and it is
-the fact that allows us to manipulate these objects to show that thesy
-are KP and Toda tau functions.
+The main ingredients for the Slavnov product are the Bethe
+wavefunctions themselves. As such, the specific details of these
+objects depend on the model, symmetries and their representations, and
+on the boundary conditions. Nevertheless, the general
+\textbf{functional structure} of Slavnov products across radically
+different models is basically the same. More specifically, modulo some
+multiplicative factors, all these expressions take the form of
+determinants, and it is this basic property that allows us to
+manipulate these objects and prove that they are KP and/or Toda tau
+functions.
 
-Belliard and Slavnov~\cite{Belliard:2019bfz} have addressed precisely
-this property: \emph{Why scalar products in the algebraic Bethe ansatz
-have determinant representations}.  Using their results, we now want
-to understand \emph{why and how (some) scalar products in the
-algebraic Bethe ansatz are KP and Toda tau functions}. In the current
-show that as long as the integrable system satisfies the conditions
-established in~\cite{Belliard:2019bfz} -- and some additional
-restrictions -- the Slavnov product is guaranteed to satisfy the KP
-integrable hiearchy. Moreover, we also discuss some immediate
-consequences of this result.
+Belliard and Slavnov~\cite{Belliard:2019bfz} have thoroughly
+investigated this property for spin chains with rational and
+trigonometric \(R\)-matrices, and basically answered ``\emph{why
+scalar products in the Algebraic Bethe Ansatz have determinant
+representations}''. Using their results, we now want to understand
+``\emph{why and how (some) scalar products in the Algebraic Bethe
+Ansatz are KP and Toda tau functions}''. We prove that, as long as the
+integrable system satisfies the conditions established
+in~\cite{Belliard:2019bfz} -- along with some additional restrictions
+-- the Slavnov product is guaranteed to satisfy the KP integrable
+hierarchy. Additionally, we discuss some immediate consequences of
+this result.
 
-In section 2 we review the main aspects of the
-work~\cite{Belliard:2019bfz} and fix the main notation we use in the
-remainder of this work. (...)
+In Section 2, we review the main aspects of the
+work~\cite{Belliard:2019bfz}. This section also fixes some of the
+notation we use in the remainder of this work and in future
+investigations. Section 3 presents two new results. First, we rewrite
+relevant formulas established in~\cite{Belliard:2019bfz} and prove
+that these Slavnov products are KP tau functions expressed in terms of
+alternant determinants. We also discuss some contrasts between this
+formula and certain results that have previously appeared in matrix
+theory investigations.
+
+These tau functions are written in terms of two sets of
+parameters. The first set is given by arbitrary complex numbers, and
+the second set is given by the Bethe roots of the spin chain.  In
+Section 3, we also find a basis for the Slavnov products, and this
+basis is itself formed by tau functions. The results of Section 3
+allow us to investigate the case where the complex parameters are
+close to the Bethe roots.
+
+Section 4 discusses the homogeneous limit of the Slavnov product.  In
+this case, all complex parameters condense to a single value, and we
+show that Slavnov products have a Wronskian expression written in
+terms of functions related to the eigenvalues of the transfer matrix.
+Section 5 presents some explicit examples for small spin chains, and
+we see that even in those cases the expressions for the tau functions
+become overwhelming very quickly.
+
+Finally, in Section 6, we use the Japanese formula to investigate the
+Baker–Akhiezer function associated with these tau functions. Using
+known integral formulas for the tau functions, we write them in terms
+of Miwa coordinates. The most important result in this section is the
+explicit expressions for the Baker–Akhiezer functions. We discuss some
+interesting consequences and open problems in Section 7.
 
 
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Scalar products as determinants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In order to make the paper as self-contained as possible, this section
-reviews the main arguments in~\cite{Belliard:2019bfz}. Let us start
-with a set of arbitrary complex numbers \(\bm{u} =
-\{u_j\}_{j=1}^{n+1}\), and we set \(n+1\) sets
-\(\bm{u}_j=\bm{u}\setminus \{u_j\}\). In the algebraic Bethe ansatz
-setting~\cite{Korepin:1993kvr}, we can now define \(n+1\) off-shell
-Bethe vectors \(\ket{\Psi(\bm{u}_j)}\), i.e. Bethe states where the
-algebraic Bethe equations are not imposed on
-\(\bm{u}_j\). Additionally, we also consider a set of Bethe roots
-\(\bm{v} = \{ v_k \}_{k=1}^n\), and the on-shell Bethe vectors
-\(\ket{\Psi(\bm{v})}\).
+To ensure the paper is as self-contained as possible, this section
+reviews the main arguments of the work of Belliard and
+Slavnov~\cite{Belliard:2019bfz}. Let us start with a set of arbitrary
+complex parameters \(\bm{u} = \{u_j\}_{j=1}^{n+1}\), and define
+\(n+1\) sets \(\bm{u}_j=\bm{u}\setminus \{u_j\}\). In the Algebraic
+Bethe Ansatz context~\cite{Korepin:1993kvr, Slavnov:2019aba}, we can
+now define \(n+1\) off-shell Bethe vectors \(\ket{\Psi(\bm{u}_j)}\),
+i.e., Bethe states where the algebraic Bethe equations are not imposed
+on the parameters \(\bm{u}_j\). Additionally, we must also consider a
+set of Bethe roots \(\bm{v} = \{ v_k \}_{k=1}^n\), that is, parameters
+\(\bm{v}\) that satisfy the algebraic Bethe equations. Finally, we
+define the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\).
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinant representation}
 The action of the transfer matrix \(\mathcal{T}(z)\), that is an
-Hermitian operator, on the dual Bethe vector is given by
+Hermitian operator, on the dual on-shell Bethe vector is given by
 \begin{equation}
 \label{eq:eigenvalue-bethe}
 \bra{\Psi(\bm{v})}\mathcal{T}(z) = \Lambda(z; \bm{v}) \bra{\Psi(\bm{v})} \; , 
 \end{equation}
-where \(\Lambda(z; \bm{v}) \) is the eigenvalue of the transfer matrix. 
+where \(\Lambda(z; \bm{v}) \) is the transfer matrix eigenvalue.
 
-We now introduce \(n+1\) scalar products between the on-shell and
-off-shell Bethe states
+We construct \(n+1\) functions obtained from products between the
+on-shell and each off-shell Bethe states
 \begin{equation}
-  \bm{\zeta}_j(\bm{u}_j, \bm{v}) \equiv  \bm{\zeta}_j
-  = \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)}\qquad j =1, \dots, n+1\; .
+  \bm{\zeta}_j(\bm{u}_j, \bm{v}) 
+  = \bracket{\Psi(\bm{v})}{\Psi(\bm{u}_j)}\; ,\qquad j =1, \dots, n+1\; .
 \end{equation}
 These partially on-shell scalar products are called \emph{Slavnov
-products}.
+products}.  Henceforth, the functional dependence of these functions
+will be omitted, that is \(\bm{\zeta}_j\equiv \bm{\zeta}_j(\bm{u}_j,
+\bm{v})\).
 
-Before procceding, let us also establish the class of models we are
-dealing with.  Let us consider a class of integrable models where the
-action of the transfer matrix on a generic off-shell bethe states can
-be expanded as
+In this work we only consider integrable models where the action of
+the transfer matrix on a generic off-shell bethe states can be
+expanded as
 \begin{subequations}
 \begin{equation}
 \label{eq:scalar-exp}
   \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)}  = \sum_{k=1}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; ,
 \end{equation}
-where \(L_{jk}\) are numerical coefficients. Observe that the terms
-\(L_{jk}\) with \(j\neq k\) contain the unwanted terms.; and these
-non-diagonal terms must vanish when the Bethe equations are
-satisfied. Therefore, since the diagonal coefficient survives, that is
-\(L_{jj}\), we conclude that these terms must be equal to the
-eigenvalue of the tranfer matrix, that is
+where \(L_{jk}\) are coefficients, and the off-diagonal elements
+\(L_{jk}\) with \(j\neq k\) contain the unwanted
+terms~\cite{Slavnov:2019aba}. From the Algebraic Bethe Ansatz
+construction, the non-diagonal terms must vanish when the Bethe
+equations are satisfied, and this is basically the definition of the
+algebraic bethe equations. Consequently, only the diagonal
+coefficients \(L_{jj}\) survive, and we conclude that these terms must
+be equal to the eigenvalue of the tranfer matrix.  Therefore
 \begin{equation}
   \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} =  \Lambda(u_j; \bm{u}_j) \ket{\Psi(\bm{v})} + 
   \sum_{\substack{k=1\\ k\neq j}}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; . 
 \end{equation}
 \end{subequations}
-This class of models include a wide range of known integrable systems,
-including the ones discussed in the introduction. One important class
-of models that does not fall in this classification are with elliptic
-R-matrices, although some of these models have slavnov products with
-determinantal representations.
+
+This class of models includes many of the most familiar spin chains
+with rational and trigonometric \(R\)-matrices -- including those
+models discussed in the introduction. One important class of models
+that does not fall into this classification is defined by
+elliptic \(R\)-matrices, although some of these models still have slavnov
+products with determinantal representations.
 
 \begin{proposition}
 The Slavnov products \(\bm{\zeta}_j\) satisfy a system of linear
-equations.
+equations~\cite{Slavnov:2019aba}.
 \end{proposition}
-
-\paragraph{\textbf{\emph{Proof}}} Let us first use that
+\paragraph{\textbf{\emph{Proof}}} Let us first use that the
+transfer matrix can act on the on-shell bra \(\bra{\Psi(\bm{v})}\)
+on on the off-shell ket \(\ket{\Psi(\bm{u}_j)}\), then  
 \begin{equation}
 \label{eq:scalar-prod}
   \bra{\Psi(\bm{v})} \left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right) =
@@ -206,18 +260,19 @@ side of~(\ref{eq:scalar-prod}). Therefore, we have
   \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k \; .
 \end{equation}
 
-Puttting all these facts together, we get
+Puttting all these facts together, we can write the
+expression~(\ref{eq:scalar-prod}) as
 \begin{equation}
   \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k  = 
   \Lambda(u_j; \bar{v}) \bm{\zeta}_j\quad \Rightarrow \quad
   \sum_{k=1}^{n+1} M_{jk} \bm{\zeta}_k = 0 \; ,
 \end{equation}
-where
+where we have defined the coefficients
 \begin{equation}
   M_{jk} = L_{jk} - \delta_{jk}\Lambda(u_j; \bm{v})\; . 
 \end{equation}
-And this expression shows that the Slavnov products satisfy a linear system.
-We can write this system in a matrix form as 
+In simple terms, this expression shows that the Slavnov products
+satisfy a linear system.  We can write this system in a matrix form as
 \begin{equation}
 \bm{M} \bm{\zeta} = 
   \left(\bm{L} - \bm{\Lambda} \right) \bm{\zeta} = \bm{0}\; ,
@@ -234,12 +289,13 @@ where
  \end{pmatrix}  \quad , \quad
     \bm{\Lambda} = \mathrm{diag}(\Lambda_1, \Lambda_2, \dots, \Lambda_{n+1})
 \end{equation}
-with \(\Lambda_j \equiv \Lambda(u_j; \bm{v})\), and also
+with \(\Lambda_j \equiv \Lambda(u_j; \bm{v})\), and
 \begin{equation}
   \bm{\zeta} = (\bm{\zeta}_1, \dots , \bm{\zeta}_{n+1})^T\qquad \, 
   \bm{0} = (0, \dots , 0)^T\; .
 \end{equation}
 \end{subequations}
+This completes the proof of their proposition. 
  \qed
 
 There are two important consequences for us now. First of all, if we
