@@ -365,41 +365,46 @@ Putting all these facts together, the coefficients \(L_{jk}\) are given by
 \end{equation}
 and from this expression one can calculate the matrix \(\bm{M}\).
 
-It has also been shown~\cite{Belliard:2019bfz} that if \(\det (\bm{M})
-= 0 \) and \(\mathrm{rank}(\bm{M}) = n\), the Slavnov products are
+It has also been shown~\cite{Belliard:2019bfz} that for \(\det(\bm{M})
+= 0\) and \(\mathrm{rank}(\bm{M}) = n\), the Slavnov products are
 given by
 \begin{equation}
- \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; . 
+ \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; , \qquad \ell = 1, \dots, n+1\; .
 \end{equation}
-Let us now explain the different terms in this expression. 
-First of all, \(\phi(\bm{v})\) is a function of the Bethe roots and
+Let us now explain the different terms in this expression.  First of
+all, \(\phi(\bm{v})\) is a function of the Bethe roots and its
+particular form is not important in out analysis. Moreover, we have
 \begin{equation}
   \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\; .
 \end{equation}
-We can absorbed the product of \(c\) into a new constant
+We can also absorb the product of \(c\) into a new constant
 \(c_0\), and it is easy to see that \(\tilde{\Delta}(\bm{u}_\ell)/c_0\) is the
 inverse of the Vandermonde determinant \(\Delta(\bm{u}_\ell) =
 \prod_{j>k}(u_j - u_k)\).
 
-Additionally, the matrices \(\hat{\Omega}_\ell\) are minors of
-\(\bm{\Omega}\) with the \(\ell\)-th column excluded, in other words,
-\begin{equation}
- \hat{\Omega}_\ell = \det_{k\neq \ell} \Omega_{jk}\; ,
-\end{equation}
-where
+We now define the matrix \(\bm{\Omega}\) by specifying its components
 \begin{equation}
   \Omega_{jk}(u_k; \bm{v}) = g(u_k, v_j) \mathcal{Y}(u_k; \{u_k, \bm{v}_j\})\; ,
   \quad j= 1, \dots, n\; , \quad k =1, \dots, n+1\; .
 \end{equation}
+The matrices \(\hat{\Omega}_\ell\) are minors of
+\(\bm{\Omega}\) with the \(\ell\)-th column excluded, in other words,
+\begin{equation}
+ \hat{\Omega}_\ell = \det_{k\neq \ell} \Omega_{jk}\; . 
+\end{equation}
 
-All in all, we have an expression of the form
+All in all, we use these objects to define the \(n+1\) functions below
 \begin{equation}
   \label{eq:slavnov-tau}
   \bm{\tau}_\ell(\bm{u}_\ell; \bm{v}) \equiv \frac{1}{c_0}\frac{\bm{\zeta}_\ell}{\phi(\bm{v})}
   = \frac{\hat{\Omega}_{\ell}}{\Delta(\bm{u}_\ell)} \; .
 \end{equation}
-This is the most important result for us, and our goal now is to show
-that it is a tau-function of the KP-hierarchy.
+This is the most important result for our discussion; and our goal now
+is to show that it is a tau-function of the KP-hierarchy.
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tau functions}
