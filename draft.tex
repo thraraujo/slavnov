@@ -299,90 +299,87 @@ This completes the proof of their proposition.
  \qed
 
 There are two important consequences for us now. First of all, if we
-assume that this system has a non-trivial solution, it will be written
-as minors of the matrix \(\bm{M}\).
+assume that this system has a nontrivial solution, it will be
+expressed in terms of minors of the matrix \(\bm{M}\).
 
 Moreover, since the system is homogeneous, the solutions are
-determined up to multiplicative terms, that we can fix them by
-requiring that the final result gives the required tau function. In
-the original works of Foda and collaborators, e.g.~\cite{Foda:2009zz,
+determined up to multiplicative factors, which we can fix by
+requiring that the final result yields a KP tau function. In the
+original works of Foda and collaborators, e.g.,~\cite{Foda:2009zz,
   Wheeler:2010vmq}, the authors perform a series of redefinitions to
-reach the same goal.
+achieve the same goal.
 
-Evidently being a determinant is not enough to guarantee that the
-Slavnov product is a tau function.  In order to accomplish this
+Evidently, being a determinant is not enough to guarantee that the
+Slavnov product is a tau function.  In order to establish this
 result, we need to specify the models. Following the original
-work~\cite{Belliard:2019bfz}, we will only discuss the rational models
+work~\cite{Belliard:2019bfz}, we will restrict the current analysis to rational models
 -- we will see that the calculations are overwhelming even in this
-simple case. The generalization for open boundary conditions and for
-trigonometric models is immediate, see~\cite{Slavnov:2019aba} for more
-details on the generalization.
+simple case. The generalization to open boundary conditions and for
+trigonometric models is straightforward, see~\cite{Slavnov:2019aba} for more
+details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Rational models}
 
-Let us startwith an R-matrix of the form
+Let us start with an R-matrix of the form
 \begin{equation}
   R(u,v) = \mathbb{1} + g(u,v) \mathcal{P}\; , \qquad
   g(u,v) = \frac{c}{u - v}
 \end{equation}
-where \(c\) is a constant, the identity operator is denoted by
-\(\mathbb{1}\) and \(\mathcal{P}\) is the permutation operator.
-
-In the models with rational R-matrix, the eigenvalues of the transfer matrix
-have the form 
+where \(c\) is a constant, \(\mathbb{1}\) is the identity and
+\(\mathcal{P}\) is the permutation operator~\cite{Slavnov:2019aba}.
+The eigenvalues of the transfer matrix have the form
 \begin{equation}
   \Lambda(z, \bm{v}) = g(z, \bm{v}) \mathcal{Y}(z; \bm{v})\; ,
 \end{equation}
 where the function \(\mathcal{Y}(z; \bm{v})\) is symmetric over the
-Bethe roots \(\bm{v}\), and linearly depends on every
+Bethe roots \(\bm{v}\), and has a linear dependence on each Bethe root
 \(v_j\).
 
-Generically, it is written as
+Generically, we write the \(\mathcal{Y}\)-functions as 
 \begin{equation}
   \mathcal{Y}(z; \bm{v}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\bm{v})\; , 
 \end{equation}
 where \(\sigma_p^{(n)}(\bm{v})\) are elementary symmetric polynomials
-in \(\bm{v}\) and where \(\alpha_p(z)\) are free functional
-parameters. In fact, in the XXX discussed in~\cite{Belliard:2019bfz},
-these functions all \(\alpha_p(z)\) are polynomials of degree \(2n\).
-The important point for us is that the functions \(\alpha_p(z)\) are
-not singular when we consider the limit \(z \to v_j \in \bm{v}\), and
-that also means that \(\mathcal{Y}(z; \bm{v})\) is also regular in
-this limit.
+in \(\bm{v}\), and \(\alpha_p(z)\) are free functional parameters.
+The most important point for us is that the functions \(\alpha_p(z)\), 
+and consequently the \(\mathcal{Y}\)-function, are regular in the limit
+\(z \to v_j \in \bm{v}\). The XXX spin chain has been discussed
+in~\cite{Belliard:2019bfz}, and the authors show that \(\alpha_p(z)\)
+are polynomials of degree \(2n\).
 
-Let us also define the following product 
+Let us also define the product 
 \begin{equation}
-  g(z, \bm{v}) = \prod_{v_i\in \bm{v}} g(z; v_i)\; , 
+  g(z, \bm{v}) = \prod_{v_i\in \bm{v}} g(z; v_i)\; . 
 \end{equation}
-and that means that each Bethe root \( v_i \in \bm{v}\) 
-is a pole of \(g(z;\bm{v})\). Therefore, if \(\Gamma\) is a contour
-containing all the Bethe roots \(\{v_j\}_{j=1}^n\), we have 
+Now, it is easy to see that each Bethe root \( v_i \in \bm{v}\) is a
+pole of \(g(z;\bm{v})\). Therefore, if \(\Gamma\) is a contour
+containing all the Bethe roots \(\{v_j\}_{j=1}^n\), we have
 \begin{equation}
-  \frac{1}{2 \pi i}\oint_{\Gamma} \mathrm{d}z g(z; \bm{v}) = \sum_{j=1}^n  \prod_{v_i \in \bm{v}\setminus \{u_j\}} g(z, v_i)\; .
+  \frac{1}{2 \pi i}\oint_{\Gamma} \mathrm{d}z g(z; \bm{v}) = \sum_{j=1}^n
+  \prod_{v_i \in \bm{v}\setminus \{v_j\}} g(z, v_i)\; .
 \end{equation}
-Furthermore, the coefficients \(L_{jk}\) are given by
+Putting all these facts together, the coefficients \(L_{jk}\) are given by
 \begin{equation}
-  L_{jk} = g(u_k, \bm{u}_k) \mathcal{Y}(u_k; \bm{u}_j)
+  L_{jk} = g(u_k, \bm{u}_k) \mathcal{Y}(u_k; \bm{u}_j)\; ,
 \end{equation}
 and from this expression one can calculate the matrix \(\bm{M}\).
 
-It has also been shown~\cite{Belliard:2019bfz} that if \(\det
-(\bm{M}) = 0 \) and \(\mathrm{rank}(\bm{M}) = n\), then, the Slavnov
-products are given by
+It has also been shown~\cite{Belliard:2019bfz} that if \(\det (\bm{M})
+= 0 \) and \(\mathrm{rank}(\bm{M}) = n\), the Slavnov products are
+given by
 \begin{equation}
- \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; ,
+ \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; . 
 \end{equation}
-where \(\phi(\bm{v})\) is a function of the Bethe roots and
+Let us now explain the different terms in this expression. 
+First of all, \(\phi(\bm{v})\) is a function of the Bethe roots and
 \begin{equation}
-  \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\quad \Rightarrow \quad
-\frac{\tilde{\Delta}(\bm{u}_\ell)}{c_0} = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{1}{u_j - u_k}\; , 
+  \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\; .
 \end{equation}
-where we have absorbed the product of \(c\) into a new constant \(c_0\). 
-All in all, \(\tilde{\Delta}(\bm{u}_\ell)/c_0\) is the inverse of the Vandermonde determinant
-\(\Delta(\bm{u}_\ell) = \prod_{j>k}(u_j - u_k)\).
+We can absorbed the product of \(c\) into a new constant
+\(c_0\), and it is easy to see that \(\tilde{\Delta}(\bm{u}_\ell)/c_0\) is the
+inverse of the Vandermonde determinant \(\Delta(\bm{u}_\ell) =
+\prod_{j>k}(u_j - u_k)\).
 
 Additionally, the matrices \(\hat{\Omega}_\ell\) are minors of
 \(\bm{\Omega}\) with the \(\ell\)-th column excluded, in other words,
