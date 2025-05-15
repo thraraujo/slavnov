@@ -338,6 +338,7 @@ Bethe roots \(\bm{v}\), and has a linear dependence on each Bethe root
 
 Generically, we write the \(\mathcal{Y}\)-functions as 
 \begin{equation}
+\label{eq:yfunc-exp}
   \mathcal{Y}(z; \bm{v}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\bm{v})\; , 
 \end{equation}
 where \(\sigma_p^{(n)}(\bm{v})\) are elementary symmetric polynomials
@@ -382,8 +383,9 @@ We can also absorb the product of \(c\) into a new constant
 inverse of the Vandermonde determinant \(\Delta(\bm{u}_\ell) =
 \prod_{j>k}(u_j - u_k)\).
 
-We now define the matrix \(\bm{\Omega}\) by specifying its components
+We now define the \(n\times (n+1)\) matrix \(\bm{\Omega}\) by specifying its components
 \begin{equation}
+  \label{eq:omega-matrix-def}
   \Omega_{jk}(u_k; \bm{v}) = g(u_k, v_j) \mathcal{Y}(u_k; \{u_k, \bm{v}_j\})\; ,
   \quad j= 1, \dots, n\; , \quad k =1, \dots, n+1\; .
 \end{equation}
@@ -392,119 +394,111 @@ The matrices \(\hat{\Omega}_\ell\) are minors of
 \begin{equation}
  \hat{\Omega}_\ell = \det_{k\neq \ell} \Omega_{jk}\; . 
 \end{equation}
-
-All in all, we use these objects to define the \(n+1\) functions below
+All in all, we use these determinants to define \(n+1\)
+\emph{normalized Slavnov products} as follows
 \begin{equation}
   \label{eq:slavnov-tau}
-  \bm{\tau}_\ell(\bm{u}_\ell; \bm{v}) \equiv \frac{1}{c_0}\frac{\bm{\zeta}_\ell}{\phi(\bm{v})}
-  = \frac{\hat{\Omega}_{\ell}}{\Delta(\bm{u}_\ell)} \; .
+  \bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v}) \equiv \frac{1}{c_0}\frac{\bm{\zeta}_\ell}{\phi(\bm{v})}
+  = \frac{\hat{\Omega}_{\ell}}{\Delta(\bm{u}_\ell)}\; , \quad \ell = 1, \dots, n+1 \; .
 \end{equation}
 This is the most important result for our discussion; and our goal now
-is to show that it is a tau-function of the KP-hierarchy.
+is to show that each \(\bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v})\) is a
+tau-function of the KP-hierarchy.
 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tau functions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In order to proceed, let us simplify the notation and organize the
-results we described before. First of all, we need to observe
-that we can define \(n\) functions \(\Omega_j(z)\) of the form
+results described above. First of all, observe that we can define
+\(n\) functions \(\Omega_j(z)\) of the form
 \begin{equation}
 \begin{split}
-  \Omega_{j}(z; \bm{v}) & = g(z, v_j) \mathcal{Y}(z; \{z, \bm{v}_j\})\qquad j =1, \dots, n\\
-   & = \frac{c}{z - v_j} \mathcal{Y}(z; \{z, \bm{v}_j\})\; .
+  \Omega_{j}(z) \equiv
+  \Omega_{j}(z; \bm{v}) & = g(z, v_j) \mathcal{Y}(z; \{z, \bm{v}_j\})\\
+   & = \frac{c}{z - v_j} \mathcal{Y}(z; \{z, \bm{v}_j\})\; , \qquad j =1, \dots, n \; .
 \end{split}
 \end{equation}
-Moreover, we have the expansion 
+Let us also denote \(\mathcal{Y}(z; \{z, \bm{v}_j\}) \equiv
+\mathcal{Y}_j(z)\), and note that we have \(n\) functions
+\(\mathcal{Y}_j(z)\) whose defining property is the absence of the
+\(j\)-th Bethe root \(v_j\).  It is also convenient to consider
+\(c=1\), consequently \(c_0=1\).
+
+Moreover, the expansion of the
+\(\mathcal{Y}\)-functions~(\ref{eq:yfunc-exp}) yields
 \begin{equation}
-  \mathcal{Y}(z; \{z,\bm{v}_j\}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\{z,\bm{v}_j\})\; , 
+  \mathcal{Y}(z; \{z,\bm{v}_j\}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\{z,\bm{v}_j\})\; . 
 \end{equation}
-and using that the elementary symmetric polynomials decompose as
+Using that the elementary symmetric polynomials satisfies the
+relations
 \begin{equation}
   \sigma_p^{(n)}(\{z,\bm{v}_j\}) = \sigma_p^{(n-1)}(\bm{v}_j) + z \sigma_{p-1}^{(n-1)}(\bm{v}_j) \; . 
 \end{equation}
-
-Let us also denote the functions
+we write
 \begin{equation}
   \label{eq:y-functions-alpha}
-  \mathcal{Y}_j(z)  \equiv  \mathcal{Y}(z; \{z,\bm{v}_j\})  = 
+  \mathcal{Y}(z; \{z,\bm{v}_j\})  = 
 \sum_{p=0}^{n} \alpha_p(z)
   \left(\sigma_p^{(n-1)}(\bm{v}_j) + z \sigma_{p-1}^{(n-1)}(\bm{v}_j) \right) \; .
 \end{equation}
-Observe that the defining property of these functions
-\(\mathcal{Y}_j(z)\) is the absence of the \(j\)-th Bethe root
-\(v_j\).
-Using that the elementary symmetric polynomials also satisfy \(\sigma_n^{(n-1)}(\bm{v}_j)=0\)
-and \(\sigma_{-1}^{(n)}(\bm{v}_j)= 0\), we can write
+The elementary symmetric polynomials also satisfy
+\(\sigma_n^{(n-1)}(\bm{v}_j)=0\) and \(\sigma_{-1}^{(n)}(\bm{v}_j)=
+0\), and it yields
 \begin{equation}
   \label{eq:y-functions}
   \mathcal{Y}_j(z)  = 
-  \sum_{p=0}^{n-1} 
-   \left(\alpha_p(z) + z \alpha_{p+1}(z) \right) \sigma_p^{(n-1)}(\bm{v}_j) \; .
+  \sum_{p=0}^{n-1} \beta_p(z) \sigma_p^{(n-1)}(\bm{v}_j) \; , \qquad 
+\beta_p(z) = \alpha_p(z) + z \alpha_{p+1}(z) \; .
 \end{equation}
 
-Putting all these facts together, we have the functions
+Putting all these facts together, we have
 \begin{equation}
-  \Omega_{j}(z; \bm{v}) = \frac{c}{z - v_j} \mathcal{Y}_j(z) \; .
+\begin{split}
+  \Omega_{j}(z; \bm{v}) & = \frac{\mathcal{Y}_j(z) }{z - v_j} \\ 
+& = \frac{1}{z - v_j} \sum_{p=0}^{n-1} \beta_p(z) \sigma_p^{(n-1)}(\bm{v}_j) \; .
+\end{split}
 \end{equation}
-It is also convenient to consider \(c=1\), consequently \(c_0=1\).
+The factor \((z - v_j)^{-1}\) introduces the dependence on the Bethe root \(v_j\).  
+Moreover, one can observe that
+\begin{equation}
+\Res_{z=v_k} \left( \Omega_j(z)\right) =  \delta_{jk}\mathcal{Y}_j(v_j)\; .
+\end{equation}
 
 
 
-\subsection{Alternant expression for the Slavnov products}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Alternant determinant expression for the Slavnov products}
 
-The matrix \(\bm{\Omega}\) can be written as
+Let us now write the matrix \(\bm{\Omega}\) defined
+in~(\ref{eq:omega-matrix-def}) as
 \begin{equation}
   \bm{\Omega} =
   \begin{pmatrix}
-    \Omega_1(u_1) & \dots & \Omega_1(u_n) & \Omega_1(u_{n+1}) \\
-    \Omega_2(u_1) & \dots & \Omega_2(u_n) & \Omega_2(u_{n+1}) \\
-    \vdots & \vdots & \vdots & \vdots \\
-    \Omega_n(u_1) & \dots & \Omega_n(u_n) & \Omega_n(u_{n+1})\; .
-  \end{pmatrix}
+    \Omega_1(u_1) & \dots & \Omega_1(u_\ell) & \dots  & \Omega_1(u_n) & \Omega_1(u_{n+1}) \\
+    \Omega_2(u_1) & \dots & \Omega_2(u_\ell) & \dots  & \Omega_2(u_n) & \Omega_2(u_{n+1}) \\
+          \vdots &       &   \vdots    &    &     \vdots       & \vdots   \\
+    \Omega_n(u_1) & \dots & \Omega_n(u_\ell)& \dots  & \Omega_n(u_n) & \Omega_n(u_{n+1})
+  \end{pmatrix}\; .
 \end{equation}
-From this expression, we can also define a set of \(n\) square matrices
-\(\bm\Omega^{(\ell)}(\bm{u}_\ell; \bm{v})\),
-\(\ell = 1, \dots, n+1\), removing the \(\ell\)-th column of
-\(\bm{\Omega}\), that is
+From this expression, we can also define \(n+1\) square matrices
+\(\bm\Omega^{(\ell)}(\bm{u}_\ell) \equiv \bm\Omega^{(\ell)}(\bm{u}_\ell; \bm{v})\), for
+\(\ell = 1, \dots, n+1\), by deleting the \(\ell\)-th column of
+\(\bm{\Omega}\). That is
 \begin{equation}
   \bm{\Omega}^{(\ell)} =
   \begin{pmatrix}
     \Omega_1(u_1) & \dots & \Omega_1(u_{\ell-1}) & \Omega_1(u_{\ell+1})&\dots & \Omega_1(u_{n+1}) \\
-    \vdots & \dots & \vdots & \vdots & \dots & \vdots \\
+    \vdots &  & \vdots & \vdots & & \vdots \\
     \Omega_n(u_1) & \dots & \Omega_n(u_{\ell-1}) & \Omega_n(u_{\ell+1})&\dots & \Omega_n(u_{n+1})
   \end{pmatrix}\; .
 \end{equation}
-
-Finaly, we can write~(\ref{eq:slavnov-tau}) as 
-\begin{equation}
-\label{eq:slavnov-tau-functions}
-  \bm{\tau}_\ell(\bm{u}_\ell; \bm{v}) = \frac{\det [\Omega_j((\bm{u}_\ell)_k)]|_{j,k=1}^n }{\Delta(\bm{u}_\ell)} 
-\end{equation}
-where \((\bm{u}_\ell)_k \) is the \(k\)-th component of the vector
-\(\bm{u}_\ell\).  Therefore, for a fixed \(\ell\), we define the
-vector \( \bm{z} \equiv \bm{u}_\ell\).  Consequently,
-\begin{equation}
-\begin{split}
-\label{eq:slav-tau-function}
-  \bm{\tau}(\bm{z}, \bm{v})
-  & = \frac{1}{\Delta(\bm{z})} \det[\Omega_j(z_k) ]_{j,k=1}^n \\
-  & = \frac{1}{\Delta(\bm{z})} \det\left[\frac{\mathcal{Y}_j(z_k)}{z_k - v_j} \right]_{j,k=1}^n  \; .
-\end{split}
-\end{equation}
-All these tau functions have the form of an \emph{alternant
-determinant} devided by the Vandermonde determinant.
-
-It is well documented that the functions defined as
-in~(\ref{eq:slav-tau-function}) are tau functions of the
-KP-hierachy, see~\cite{Araujo:2021ghu} and references therein, in
-particular~\cite{Kharchev:1991cy}. Consequently, these functions are
-tau functions. 
-
 Henceforth, we will only refer to the matrix
 \(\bm{\Omega}\) defined by the components
 \begin{equation}
@@ -512,10 +506,83 @@ Henceforth, we will only refer to the matrix
   \Omega_{jk} = \frac{\mathcal{Y}_j(z_k)}{z_k - v_j}\; .
 \end{equation}
 
+Finally, we can write~(\ref{eq:slavnov-tau}) as 
+\begin{equation}
+\label{eq:slavnov-tau-functions}
+  \bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v}) = \frac{\det [\Omega_j((\bm{u}_\ell)_k)]|_{j,k=1}^n }{\Delta(\bm{u}_\ell)} \; ,
+\end{equation}
+where \((\bm{u}_\ell)_k \) is the \(k\)-th component of the vector
+\(\bm{u}_\ell\).  More explicitly, remember that \(\bm{u} = (u_1,
+\dots, u_{n+1})\) and that \(\bm{u}_\ell = \bm{u}_\ell\setminus
+\{u_\ell\} = (u_1, \dots, u_{\ell-1}, u_{\ell+ 1}, \dots, u_{n+1})\),
+we have
+\begin{equation}
+  (\bm{u}_\ell)_k =
+  \left\{ 
+  \begin{matrix}
+    u_k & \text{if} & k < \ell\\
+    u_{k+1} & \text{if} & k > \ell
+  \end{matrix}
+  \right. \; .
+\end{equation}
+It is convenient to write \(\bm{z}^{(\ell)} = (z^{(\ell)}_1,
+z^{(\ell)}_2, \dots, z^{(\ell)}_n) = \bm{u}_{\ell}\). Moreover, it is
+worth noting that the normalized Slavnov product
+\(\bm{\tau}^{(\ell)}\) is completely independent of the parameter
+\(u_\ell\). On the other hand, these functions are not independent from each
+other, since \(\bm{z}^{(\ell)} \cap \bm{z}^{(\ell')} = \bm{u} \setminus
+\{ u_\ell, u_{\ell'}\} \).
+
+Consequently, we write the normalized Slavnov products as 
+\begin{equation}
+\begin{split}
+\label{eq:slav-tau-function}
+  \bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})
+  & = \frac{1}{\Delta(\bm{z^{(\ell)}})} \det[\Omega_j(z^{(\ell)}_k) ]_{j,k=1}^n \\
+  & = \frac{1}{\Delta(\bm{z}^{(\ell)})} \det\left[\frac{\mathcal{Y}_j(z^{(\ell)}_k)}{z^{(\ell)}_k - v_j} \right]_{j,k=1}^n
+  \; \quad \ell = 1, \dots, n+1 \; .
+\end{split}
+\end{equation}
+This is the first result of out work. 
+
+All the normalized Slavnov products~(\ref{eq:slav-tau-function}) take
+the form of \emph{alternant determinants} of the functions
+\(\{\Omega_j\}_{j=1}^n\) divided by Vandermonde determinants.  This
+result establishes that the normalized slavnov
+products~(\ref{eq:slav-tau-function}) are tau functions of the KP
+hierarchy. Indeed, it is well documented that, given a set of generic
+functions \(\{\phi_j\}_{j=1}^n\), expressions of the type
+\begin{equation}
+\tau(\bm{w}) =
+\frac{\det_{i,j} \phi_i(w_j)}{\Delta(\bm{w})}\; ,
+\end{equation}
+where \(\{w_j\}_{j=1}^n\) are complex parameters, satisfy the Hirota
+bilinear equation. Consequently, they are tau functions of the KP
+hierarchy.  This proposition has been extensively discussed in the
+literature, for example~\cite{Segal:1985aga, Kharchev:1991cy,
+  Araujo:2021ghu} and references therein.
+
+\todo{15/05}
+\begin{remark}
+  In~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, the
+  authors have explored a family of functions \(\{ \phi_i\}_{i=1}^n\)
+  that forms a basis vector because they parametrize points in a
+  Grassmannian space. These functions are also useful in the
+  definition of the Baker-Akhiezer function. The important aspect for
+  us is that the functions \(\Omega_j\) relevant for our discussion do
+  not belong to the class discussed in the references above.
+  Therefore, we need to explore their properties and the
+  Baker-Akhiezer functions relevant to our present discussion.
+\end{remark}
+
+\begin{remark}
+  Reduction of a multicomponent KP Hierarchy
+  It is interesting to observe that we have an array of tau functions ...
+\end{remark}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tau functions expansion of the Slavnov product}
-
 We can immediately observe that the poles of the tau
 function~(\ref{eq:slav-tau-function}) are exactly the Bethe roots of
 the integrable model.  We now want to analyse this pole structure of
