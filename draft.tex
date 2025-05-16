@@ -274,6 +274,7 @@ where we have defined the coefficients
 In simple terms, this expression shows that the Slavnov products
 satisfy a linear system.  We can write this system in a matrix form as
 \begin{equation}
+\label{eq:linear-system}
 \bm{M} \bm{\zeta} = 
   \left(\bm{L} - \bm{\Lambda} \right) \bm{\zeta} = \bm{0}\; ,
 \end{equation}
@@ -562,23 +563,43 @@ hierarchy.  This proposition has been extensively discussed in the
 literature, for example~\cite{Segal:1985aga, Kharchev:1991cy,
   Araujo:2021ghu} and references therein.
 
-\todo{15/05}
-\begin{remark}
-  In~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, the
-  authors have explored a family of functions \(\{ \phi_i\}_{i=1}^n\)
-  that forms a basis vector because they parametrize points in a
-  Grassmannian space. These functions are also useful in the
-  definition of the Baker-Akhiezer function. The important aspect for
-  us is that the functions \(\Omega_j\) relevant for our discussion do
-  not belong to the class discussed in the references above.
-  Therefore, we need to explore their properties and the
-  Baker-Akhiezer functions relevant to our present discussion.
-\end{remark}
+In~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, the
+authors explored a family of functions \(\{ \phi_i\}_{i=1}^n\) that
+parametrize points in a Grassmannian space. These functions also play
+an important role in the definition of the Baker-Akhiezer
+functions. However, the asymptotic behavior of the functions
+\(\Omega_j\), which are relevant to our discussion, indicates that
+they do not belong to the class considered in the references above.
+Therefore, we must investigate their properties and the corresponding
+Baker-Akhiezer functions specific to our discussion.  We begin this
+analysis below.
 
-\begin{remark}
-  Reduction of a multicomponent KP Hierarchy
-  It is interesting to observe that we have an array of tau functions ...
-\end{remark}
+Given that each function \(\bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})\), for
+\(\ell = 1, \dots, n+1\), is a distinct but related tau function, one
+can define a vector
+\begin{equation}
+  \bm{T}(\bm{Z}, \bm{v}) = 
+\begin{bmatrix}
+\bm{\tau}^{(1)}(\bm{z}^{(1)}, \bm{v}) \\ 
+\bm{\tau}^{(2)}(\bm{z}^{(2)}, \bm{v}) \\ 
+\vdots \\ 
+\bm{\tau}^{(n+1)}(\bm{z}^{(n+1)}, \bm{v})
+\end{bmatrix}
+\end{equation}
+where \(\bm{Z} = (\bm{z}^{(1)}, \bm{z}^{(2)}, \dots,
+\bm{z}^{(n+1)})\). This is a vector of tau functions of the KP
+hierarchy. This observation suggests that there is, in fact, an
+underlying multicomponent KP hierarchy in this context, and that the
+linear system~(\ref{eq:linear-system}), which we can write as
+\begin{equation}
+\left( \bm{L} - \bm{\Lambda} \right) \bm{T} = \bm{0},
+\end{equation}
+defines a reduction of this multicomponent KP hierarchy. This
+reduction ultimately describes constraints that relate the different
+sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
+idea in this work, but we hope to return to this problem in future
+publications.
+\todo{16/05}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
