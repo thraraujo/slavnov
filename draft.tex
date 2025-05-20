@@ -54,7 +54,7 @@ closed determinantal formula.
 \end{abstract}
 
 \date{\today}
-\keywords{Integrability, Bethe states, Schur, Hall-Littlewood, Toda, KP}
+\keywords{Integrability, spin chains, bethe, slavnov, kp}
 \subjclass[2020]{82B20, 82B23}
 
 \maketitle
@@ -181,6 +181,7 @@ on the parameters \(\bm{u}_j\). Additionally, we must also consider a
 set of Bethe roots \(\bm{v} = \{ v_k \}_{k=1}^n\), that is, parameters
 \(\bm{v}\) that satisfy the algebraic Bethe equations. Finally, we
 define the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinant representation}
@@ -599,20 +600,19 @@ reduction ultimately describes constraints that relate the different
 sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
 idea in this work, but we hope to return to this problem in future
 publications.
-\todo{16/05}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tau functions expansion of the Slavnov product}
-We can immediately observe that the poles of the tau
-function~(\ref{eq:slav-tau-function}) are exactly the Bethe roots of
-the integrable model.  We now want to analyse this pole structure of
-\(\Delta(\bm{z})\tau(\bm{z}, \bm{v})\).  Let us consider that the
-Bethe roots are not degenerate, that is, if \(j \neq k\), then \(v_j
-\neq v_k\). In that case, the poles \(v_j\) are simple poles.
 
-Let us now consider a particular coefficient \(\bm{z}\), say \(z_l\), and
-make a Laplace expansion in the column \(l\), that is
+Let us now fix a component \(\ell\) and omit this index in
+equation~(\ref{eq:slav-tau-function}). We also assume that the Bethe
+roots are non-degenerate; that is, for \(j \neq k\), we necessarily
+have \(v_j \neq v_k\). In other words, each Bether root \(v_j\)
+corresponds to a simple poles of the Slavnov product.
+
+Fix a particular coefficient of \(\bm{z}\), say \(z_l\), and consider a Laplace
+expansion of~(\ref{eq:slav-tau-function}) along the \(l\)-th column. That is
 \begin{equation}
 \label{eq:minor-expansion}
 \begin{split}
@@ -622,15 +622,15 @@ make a Laplace expansion in the column \(l\), that is
   \det[\hat{\Omega}_{j, l}]\; ,
 \end{split}
 \end{equation}
-where \(\hat{\Omega}_{j,l} \) is the \((j, l)\) minor of
-\(\bm{\Omega}\).  Now, we can extract the residue of the tau function
-for \(z_l\) at the point \(v_j\), that is
+where \(\det[\hat{\Omega}_{j,l}]\) denotes the \((j, l)\)-minor of
+\(\bm{\Omega}\). We can now extract the residue of the tau function
+with respect to \(z_l\) at the point \(v_j\); that is
 \begin{equation}
-  \Res_{(z_l, v_j)}(\Delta(\bm{z})\tau(\bm{z}, \bm{v})) = (-1)^{j+l} \mathcal{Y}_j(v_j) \det[\hat{\Omega}_{j, l}]
+  \Res_{z_l=v_j}(\Delta(\bm{z})\tau(\bm{z}, \bm{v})) = (-1)^{j+l} \mathcal{Y}_j(v_j) \det[\hat{\Omega}_{j, l}]\;. 
 \end{equation}
 
 \begin{subequations}
-Let us now decompose the Vandermonde determinant as
+Additionally, decompose the Vandermonde determinant as
 \begin{equation}
   \Delta(\bm{z}) = \prod_{j>k}(z_j - z_k) = \Delta(\bm{z}_l) \prod_{r<l}(z_l - z_r) \prod_{s>l}(z_s - z_l)\; ,
 \end{equation}
@@ -653,16 +653,17 @@ Inserting this decomposition into~(\ref{eq:minor-expansion}), we find
 \left(\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\Omega}_{j, l}]\right)\; .
 \end{equation}
 
-When we define the \(n\) sets of functions
+By defining the \(n\) sets of functions
 \begin{equation}
   \begin{split}
     \hat{\bm{\Omega}}_{(j)}(z) & = \left(\Omega_1(z), \dots, \Omega_{j-1}(z), \Omega_{j+1}(z), \dots, \Omega_n(z) \right)\; ,
-    \quad j =1, \dots, n\; ,
+    \quad j =1, \dots, n\; , 
   \end{split}
 \end{equation}
-so that we can simplify the minor
-expansion~(\ref{eq:minor-expansion-2}) even further; that is
+we can further simplify the minor
+expansion~(\ref{eq:minor-expansion-2}); that is
 \begin{equation}
+  \label{eq:slavnov-tauexp}
 \begin{split}
   \bm{\tau}(\bm{z}, \bm{v})
   & = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
@@ -678,57 +679,60 @@ defined the object
 \begin{equation}
   \label{eq:basis-tau}
     \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v}) = 
-\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j)}(\bm{z}_{(l)} ]\; .
+\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j)}(\bm{z}_{(l)})]\; .
 \end{equation}
-The curious aspect of this expression is that it easy to see that each term  
-\(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) is a tau function itself, and that
-it acts as a basis for the Slavnov's product. 
-Additionally, these basis tau functions \(\tilde{\tau}_j(\bm{z}_l,
-\bm{v})\) are, by construction, completely independent of \(z_l\).
-
 Finally, we have
 \begin{equation}
-  \Res_{(z_l, v_j)}(\tau(\bm{z}, \bm{v}))
+  \Res_{z_l = v_j}(\tau(\bm{z}, \bm{v}))
   = \frac{(-1)^{j + l} \mathcal{Y}_j(v_j)}{\Xi_l(v_j, \bm{z}_l)}
-  \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})
+  \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\; .
 \end{equation}
 
-In order to avoid cluttering, let us order the parameters \(\bm{z}\) and
-consider these points close to the corresponding \(\bm{v}\), that is,
-we consider just the residues \(z_j \to v_j\), then
+We can also organize the parameters \(\bm{z}\) and consider these
+points close to the corresponding Bethe roots \(\bm{v}\). Therefore 
 \begin{subequations}
 \begin{equation}
-  \Res_{(z_j, v_j)}(\tau(\bm{z}, \bm{v}))
+  \Res_{z_j = v_j}(\tau(\bm{z}, \bm{v}))
   = \frac{\mathcal{Y}_j(v_j)}{\Xi_j(v_j, \bm{z}_j)}
-  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})
+  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})\; ,
 \end{equation}
 or yet 
 \begin{equation}
   \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})
   = \frac{\Xi_j(v_j, \bm{z}_j)}{\mathcal{Y}_j(v_j)}
-  \Res_{(z_j, v_j)}(\tau(\bm{z}, \bm{v}))
+  \Res_{z_j = v_j}(\tau(\bm{z}, \bm{v}))\; .
 \end{equation}
 \end{subequations}
-Evidently, one can repeat the same ideas and take \(z_k \in \bm{z}_j\)
-close to \(v_k \in \bm{v}_j\). 
 
-Therefore, we have the interesting result that the rresidues of the
-tau function \(\tau(\bm{z}, \bm{v})\) for \(z_j\) approaching the
-Bethe root \(v_j\) is proportional to a tau function.
+Expression~(\ref{eq:slavnov-tauexp}) is one of the main results in
+this work.  It is easy to see that each term
+\(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) is a tau function itself,
+and serves as a basis for the Slavnov's product. Additionally, these
+basis tau functions \(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) are, by
+construction, completely independent of \(z_l\). This result
+essentially shows that, given a \(\mathcal{Y}\)-function (which is
+related to the eigenvalue of the transfer matrix), one can construct a
+basis of tau functions that span the Slavnov products in the
+corresponding integrable system. Moreover, this expansion ensures that
+the resulting Slavnov product is also a tau function of the KP
+hierarchy.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Homogeneous limit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Homogeneous limit: Wronskian formula}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In the previous section we have discussed the limit where the
+In the previous section, we discussed the limit in which the
 parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
-want to consider the limit where \(\bm{z}\) tend to a single variable,
-say \(z_k\to z_1\), \(k=2,\dots, n\).
+consider a different limit, where all variables in the set \(\bm{z}\)
+tend to a single variable -- that is, \(z_k\to z_1\) for \(k=2,\dots,
+n\).
 
-\subsection{Wronskian formula}
-
-Let us first consider the case where \(z_2 \to z_1\). We consider a
-series expansion about \(z_1\), and the second column of~(\ref{eq:slav-tau-function}) becomes
+Let us first consider the case \(z_2 \to z_1\). We perform a series
+expansion around \(z_1\), in which the second column
+of~(\ref{eq:slav-tau-function}) becomes
 \begin{subequations}
 \begin{equation}
   \bm{\tau}(\bm{z}, \bm{v}) = \frac{1}{\Delta(\bm{z})}
@@ -744,15 +748,15 @@ series expansion about \(z_1\), and the second column of~(\ref{eq:slav-tau-funct
     \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} + (z_2 - z_1) \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} 
     + \mathcal{O}(\delta^2) &
     \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
-  \end{pmatrix}
+  \end{pmatrix}\; ,
 \end{equation}
-where we have written \(z_2 - z_1 = \delta \to 0\), and we denote by
-\(\mathcal{Y}^{(n)}(z)\) the \(n\)-th derivative of a
+where we have written \(z_2 - z_1 = \delta \to 0\). Moreover, let us
+denote by \(\mathcal{Y}^{(n)}(z)\) the \(n\)-th derivative of
 \(\mathcal{Y}(z)\) with respect its argument.
 
-Now one can immediatelly see that the second column is the first
-column plus terms multiplied by the factor \(\delta = z_2 -
-z_1\). Using elementary operations on the column, we find
+One can immediately see that the second column is equal to the first
+column plus terms proportional to the factor \(\delta = z_2 -
+z_1\)​. Using elementary column operations, we find
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2 \to z_1}\frac{(z_2 - z_1)}{\Delta(\bm{z})}
   \det
@@ -766,10 +770,10 @@ z_1\). Using elementary operations on the column, we find
     \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
   \end{pmatrix}\; .
 \end{equation}
-We can now repeat the same ideas for \(z_3\to z_1=z_2\). We find that
-the third column is the sum of the first and second columns, and
-derivatives multiplied by the factor \(\delta^2\sim (z_3 - z_2)(z_3 -
-z_1)\). All in all, we have
+We can now repeat the same reasoning for \(z_3\to z_1=z_2\). We find
+that the third column becomes a linear combination of the first and
+second columns, along with terms involving derivatives multiplied by
+the factor \(\delta^2 = (z_3 - z_2)(z_3 - z_1)\). All in all, we have
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2, z_3 \to z_1}\frac{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}{\Delta(\bm{z})}
   \det
@@ -784,9 +788,9 @@ z_1)\). All in all, we have
   \end{pmatrix}\; .
 \end{equation}
 
-Repeating the same idea for all columns, we get that the
-multiplicative factor cancels out the Vandermonde determinant, and
-that the homogeneous limit gives
+By applying this procedure iteratively to each column, we find that
+the multiplicative factors cancel the Vandermonde determinant, and the
+homogeneous limit becomes
 \begin{equation}
   \bm{\tau}_h(z_1, \bm{v}) =
   \det
@@ -800,8 +804,8 @@ that the homogeneous limit gives
     \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}^{(n-1)}_n(z_1)}{z_1 - v_n}
   \end{pmatrix}\; .
 \end{equation}
-
-Finally, let we write \(z_1 \equiv w\) and using elementary row operations we find
+Finally, we write \(z_1 \equiv w\) and using elementary row operations
+we find
 \begin{equation}
   \bm{\tau}_h(w, \bm{v}) =
   \frac{1}{\prod_{k=1}^n(w - v_k)}
@@ -809,9 +813,11 @@ Finally, let we write \(z_1 \equiv w\) and using elementary row operations we fi
   \; .
 \end{equation}
 \end{subequations}
-The interesting aspect of this expression is that the poles of this
-function are exactly the Bethe roots, and they are easily built from
-the Algebraic Bethe ansatz. Additionally, the functions
+An interesting aspect of this expression is that its poles coincide
+precisely with the Bethe roots \(\bm{v}\). Moreover, the homogeneous
+limit can be readily constructed from the Algebraic Bethe Ansatz,
+since it depends only on the transfer matrix
+eigenvalues. Additionally, the functions
 \(\{\mathcal{Y}_j(w)\}_{j=1}^n\) are linearly independent if and only
 if the Bethe roots are non-degenerate.
 
