@@ -728,7 +728,7 @@ In the previous section, we discussed the limit in which the
 parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
 consider a different limit, where all variables in the set \(\bm{z}\)
 tend to a single variable -- that is, \(z_k\to z_1\) for \(k=2,\dots,
-n\).
+n\). The analysis follows the ideas of~\cite{Izergin:1991rs}. 
 
 Let us first consider the case \(z_2 \to z_1\). We perform a series
 expansion around \(z_1\), in which the second column
@@ -822,36 +822,41 @@ eigenvalues. Additionally, the functions
 if the Bethe roots are non-degenerate.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Examples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let us now consider the cases \(n=2, 3\) (the case \(n=1\) is trivial)
-to gain some understanding of the problem.
+Let us now consider the cases \(n = 2\) and \(n = 3\) to gain further
+insight into the problem.
 
-\subsection{n=2} In this case, we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
-\(\bm{v} = (v_1, v_2)\). Moreover, we have the two sets \(\bm{v}_1 =
-\{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From (\ref{eq:y-functions}), we have
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Case n=2}
+In this case, we have \(\mathcal{Y}_j\) for \(j = 1, 2\) and two Bethe
+roots \(\bm{v} = (v_1, v_2)\). Moreover, we define the two sets
+\(\bm{v}_1 = \{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From
+equation~(\ref{eq:y-functions}), we have
 \begin{subequations}
 \begin{equation}
   \begin{split}
     \mathcal{Y}_j(z) =
     \alpha_0(z) \sigma_0^{(1)}(\bm{v}_j) +  
     \alpha_1(z)( \sigma_1^{(1)}(\bm{v}_j) + z \sigma_0^{(1)}(\bm{v}_j)) +
-    \alpha_2(z) z \sigma_1^{(1)}(\bm{v}_j) \; , 
+    \alpha_2(z) z \sigma_1^{(1)}(\bm{v}_j) \; . 
   \end{split}
 \end{equation}
-finally, the explicit formulas for the elementary symmetric polynomials are \(\sigma_0^{(1)}(x) =1\)
-and \(\sigma_1^{(1)}(x) = x\). 
-
-Therefore
+Furthermore, the explicit formulas for the elementary symmetric
+polynomials are \(\sigma_0^{(1)}(x) = 1\) and \(\sigma_1^{(1)}(x) =
+x\). Therefore
 \begin{equation}
   \begin{split}
     \mathcal{Y}_1(z) & = \alpha_0(z) + z \alpha_1(z)  + v_2 \left( \alpha_1(z) + z \alpha_2(z) \right) \\ 
-    \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) ; .
+    \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) \; .
   \end{split}
 \end{equation}
-Consequently, we find
+Consequently, the normalized Slavnov product becomes
 \begin{equation}
 \begin{split}
   \bm{\tau}(z_1, z_2; v_1 , v_2)
@@ -860,7 +865,7 @@ Consequently, we find
   & = \frac{1}{z_2 - z_1}
   \left(
   \frac{\mathcal{Y}_1(z_1)}{(z_1 - v_1)} \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) - 
-  \frac{\mathcal{Y}_2(z_1)}{(z_1 - v_2)} \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) \right)
+  \frac{\mathcal{Y}_2(z_1)}{(z_1 - v_2)} \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) \right)\; ,
 \end{split}
 \end{equation}
 where 
@@ -869,24 +874,25 @@ where
  \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) = \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)}  \; .
 \end{equation}
 \end{subequations}
-From this expression, it is easy to extract the residues of \(z_1\)
-about one of the Bethe roots.
 
-It is easy to see that the homogeneous limit, that is \(z_2 \to z_1\equiv
-w\) gives
+From this expression, it is easy to extract the residues of \(z_1\) at
+one of the Bethe roots. It is also straightforward to see that the
+homogeneous limit, that is, \(z_2 \to z_1 \equiv w\), yields
 \begin{equation}
   \bm{\tau}(w; v_1 , v_2) =
-  \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; , 
+  \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; . 
 \end{equation}
 It is also elementary to see that the functions \(\{\mathcal{Y}_1,
 \mathcal{Y}_2\}\) are linearly independent as long as \(v_2 \neq
-v_1\), what is guaranteed by the hypothesis that the Bethe roots are
-different.
+v_1\), which is guaranteed by the assumption that the Bethe roots are
+distinct.
 
-
-\subsection{n=3} Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\) and three Bethe roots
-\(\bm{v} = (v_1, v_2, v_3)\). Moreover, we have the sets \(\bm{v}_1 = (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\)
-and \(\bm{v}_3 = (v_1, v_2)\). Then, it is easy to see that
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Case n=3}
+Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\), and three Bethe roots
+\(\bm{v} = (v_1, v_2, v_3)\). Moreover, we define the sets \(\bm{v}_1
+= (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\), and \(\bm{v}_3 = (v_1,
+v_2)\). Then, it is easy to see that
 \begin{equation}
 \begin{split}
   \mathcal{Y}_j(z)
@@ -894,78 +900,78 @@ and \(\bm{v}_3 = (v_1, v_2)\). Then, it is easy to see that
   & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) \; ,
 \end{split}
 \end{equation}
-with the explicit expressions 
+with
 \begin{equation}
   \sigma_0^{(2)}(x, y) = 1\; ,\qquad 
   \sigma_1^{(2)}(x, y) = x + y\; ,\qquad 
   \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; . 
 \end{equation}
 
-Then, we have
+Hence
 \begin{subequations}
 \begin{equation}
-  \begin{split}
-    \bm{\tau} & (z_1, z_2, z_3 ; v_1 , v_2, v_3)  =
-    \frac{1}{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}\times \\
-    & \times \left[
-      \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-        \end{bmatrix}
-        -  
-      \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-        \end{bmatrix} \right.\\
-        & \qquad + \left.
-      \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-        \end{bmatrix} 
-  \right] \; .
-  \end{split}
+\begin{split}
+\bm{\tau} & (z_1, z_2, z_3 ; v_1 , v_2, v_3)  =
+\frac{1}{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}\times \\
+& \times \left[
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    \end{bmatrix}
+    -  
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    \end{bmatrix} \right.\\
+    & \qquad + \left.
+    \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+    \end{bmatrix} 
+\right] \; .
+\end{split}
 \end{equation}
-We organize this expression as
+We reorganize this expression as follows:
 \begin{equation}
-  \begin{split}
-    \bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
-    \frac{1}{(z_2 - z_1)(z_3 - z_1)}
-    \left[
-      \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
-      \left(
-      \frac{1}{(z_3 - z_2)}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-        \end{bmatrix}
-        \right) - \right. \\
-        & - 
-      \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
-      \left(
-      \frac{1}{(z_3 - z_2)}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-        \end{bmatrix} \right) \\
-        & +
-        \left.
-      \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
-      \left(
-      \frac{1}{(z_3 - z_2)}
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-        \end{bmatrix} 
-        \right)
-  \right]\; .
-  \end{split}
+\begin{split}
+\bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
+\frac{1}{(z_2 - z_1)(z_3 - z_1)}
+\left[
+    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+    \left(
+    \frac{1}{(z_3 - z_2)}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    \end{bmatrix}
+    \right) - \right. \\
+    & - 
+    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+    \left(
+    \frac{1}{(z_3 - z_2)}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    \end{bmatrix} \right) \\
+    & +
+    \left.
+    \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+    \left(
+    \frac{1}{(z_3 - z_2)}
+    \det\begin{bmatrix}
+    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+    \end{bmatrix} 
+    \right)
+\right]\; .
+\end{split}
 \end{equation}
 \end{subequations}
 
-Finally, we conclude that that basis tau functions are
+Finally, we conclude that the basis tau functions are
 \begin{subequations}
   \begin{equation}
 	\tilde{\bm{\tau}}_1(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
@@ -986,13 +992,13 @@ Finally, we conclude that that basis tau functions are
         \det\begin{bmatrix}
         \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
         \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-        \end{bmatrix} \; .
+        \end{bmatrix} \; . 
   \end{equation}
 \end{subequations}
 
-With these expressions, we can consider the case where \(z_1, z_2 z_3
-\to w\). Consider first the case \(z_3 \to z_2 = w\), then  
-we know that 
+With these expressions, we can consider the homogeneous limit \(z_1,
+z_2, z_3 \to w\). Consider first the case \(z_3 \to z_2 = w\), then we
+know that
 \begin{equation}
   \begin{split}
   \tilde{\bm{\tau}}_1(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_2, \mathcal{Y}_3](w)\\
@@ -1001,40 +1007,47 @@ we know that
   \; .
   \end{split}
 \end{equation}
-and now, it is easy to see that if we also take the limit \(z_1\to w\), we have
+It is immediate to see that the basis tau functions correspond to
+Slavnov products for the case \(n=2\). We also take the limit \(z_1\to
+w\); then
 \begin{equation}
   \bm{\tau}(w; v_1 , v_2, v_3) = 
   \frac{1}{(w - v_1)(w - v_2)(w - v_3)} \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \mathcal{Y}_3](w)\; .
 \end{equation}
 
-Of course we can keep the calculations for other cases, but now it is obvious that
-this explicit analysis become cumbersome very early. It also explains why we
-keep our analysis restricted to the Rational cases. 
+Of course, we could continue the calculations for other cases, but it
+is now clear that this explicit analysis becomes cumbersome quite
+quickly. This also explains why we restrict our analysis to the
+rational cases.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Baker-Akhiezer function}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section deals with some properties of the Baker-Akhiezer
-functions associated to the tau functions we found above.  Many
-aspects of these functions deserve a thorough examination, but here we
-investigagte just the most immediate aspects.
+This section addresses some properties of the Baker-Akhiezer functions
+associated with the tau functions derived above. While many aspects of
+these functions deserve thorough examination, here we focus on their
+most essential properties.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integral representation of the tau functions}
 
-We now want to write the Slavnov products we defined above in terms of
+We now aim to express the Slavnov products defined above in terms of
 the following coordinates
 \begin{equation}
   t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
 \end{equation}
-the so called Miwa coordinates.
-
-We define
+the so-called Miwa coordinates. Let us also define the function
 \begin{equation}
   \xi(\bm{t}, \lambda) = \sum_{p=1}^\infty t_p \lambda^p\; , 
 \end{equation}
-where \(\lambda\) is a complex parameter. Therefore
+where \(\lambda\) is a complex parameter.
+
+Therefore
 \begin{equation}
   \begin{split}
     e^{\xi(\bm{t}, \lambda)} & = \exp\left( \sum_{p=1}^\infty t_p \lambda^p \right)
@@ -1044,14 +1057,12 @@ where \(\lambda\) is a complex parameter. Therefore
     & =  \prod_{j=1}^n \frac{1}{1 -  z_j \lambda} \; .
   \end{split}
 \end{equation}
-It is easy to see that these functions have simple poles at \( \lambda
-= z_j^{-1}\).
+It is easy to see that these functions have simple poles at \( \lambda = z_j^{-1}\).
 
-Let us now establish an important result,
-see ~\cite{Araujo:2021ghu} and references therein. 
 \begin{proposition}
-The tau function~(\ref{eq:slav-tau-function}) admits the following integral
-representation 
+It has been established that tau functions in the alternant
+form~(\ref{eq:slav-tau-function}) admits the following integral
+representation
 \begin{subequations}
 \begin{equation}
   \label{eq:tau-function-miwa}
@@ -1071,6 +1082,15 @@ encloses all poles except the Bethe root \(v_k\).
 
 
 \paragraph{\textbf{\emph{Proof}}}
+
+As far as we know, this result was first established
+in~\cite{ZinnJustin:2002cr, ZinnJustin:2002pk}; see
+also~\cite{Zinnjustin2009, Araujo:2021ghu} for further
+discussions. Here, we present a proof of this result for pedagogical
+reasons and to address some differences that arise due to our
+conventions.
+\todo{21/05}
+
 In terms of the \(z\)-coordinates, the tau functions becomes
 \begin{equation}
   \label{eq:tau-function}
