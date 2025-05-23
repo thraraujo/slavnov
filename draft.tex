@@ -362,7 +362,7 @@ containing all the Bethe roots \(\{v_j\}_{j=1}^n\), we have
   \frac{1}{2 \pi i}\oint_{\Gamma} \mathrm{d}z g(z; \bm{v}) = \sum_{j=1}^n
   \prod_{v_i \in \bm{v}\setminus \{v_j\}} g(z, v_i)\; .
 \end{equation}
-Putting all these facts together, the coefficients \(L_{jk}\) are given by
+Consequently, the coefficients \(L_{jk}\) are given by
 \begin{equation}
   L_{jk} = g(u_k, \bm{u}_k) \mathcal{Y}(u_k; \bm{u}_j)\; ,
 \end{equation}
@@ -1060,6 +1060,7 @@ Therefore
 It is easy to see that these functions have simple poles at \( \lambda = z_j^{-1}\).
 
 \begin{proposition}
+\label{prop:integral-rep}
 It has been established that tau functions in the alternant
 form~(\ref{eq:slav-tau-function}) admits the following integral
 representation
@@ -1089,9 +1090,8 @@ also~\cite{Zinnjustin2009, Araujo:2021ghu} for further
 discussions. Here, we present a proof of this result for pedagogical
 reasons and to address some differences that arise due to our
 conventions.
-\todo{21/05}
 
-In terms of the \(z\)-coordinates, the tau functions becomes
+In terms of the \(z\)-coordinates, the integral~(\ref{eq:tau-function-miwa}) becomes
 \begin{equation}
   \label{eq:tau-function}
   \bm{\tau}(\bm{z}, \bm{v}) =
@@ -1099,28 +1099,34 @@ In terms of the \(z\)-coordinates, the tau functions becomes
     \oint_{\gamma_k} \frac{d w}{2\pi i}
     \prod_{l=1}^n \frac{1}{w - z_l} \frac{w^{n-j}\mathcal{Y}_k(w)}{w - v_k} \right) \; . 
 \end{equation}
-Now, it is easy to see that \(w =0\) is not a pole.  All in all, the
-integration curve \(\gamma_k\) encloses points \(\{z_j\}_{j=1}^n\).
+Since \(n \geq j\), the point \(w = 0\) is not a pole of the
+integrand. All in all, the integration contour \(\gamma_k\) encloses
+the points \(\{z_j\}_{j=1}^n\).
 
-Let us define the invertible matrix \(\bm{\mathcal{K}}^T\) by its components
+Let us define the matrix\footnote{
+The choice of the transposition is an aesthetic one. We want 
+to derive a result expressed as a matrix product with the components \(\Omega_{kl}\) on the left.}
+\(\bm{\mathcal{K}}^T\) by its components as follows:
 \begin{equation}
+\label{eq:k-matrix}
     \mathcal{K}_{kj} = 
-\oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{z}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k}\;. 
+\oint_{\gamma_k} \frac{d w}{2\pi i} e^{\xi(\bm{z}, w^{-1})} \frac{w^{-j}\mathcal{Y}_k(w)}{w - v_k}\; .
 \end{equation}
-Explicitly, we have 
+We can now carry out the integration
 \begin{equation}
   \begin{split}
     \mathcal{K}_{kj}
     = & \oint_{\gamma_k} \frac{d w}{2\pi i} \frac{w^{n-j}}{\prod_{s} (w - z_s)}
     \frac{\mathcal{Y}_k(w)}{w - v_k} = \sum_{\ell =1}^n \frac{z_l^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)}
     \frac{\mathcal{Y}_k(z_\ell)}{z_\ell - v_k}\\
-    & = \sum_{\ell = 1}^n  \Omega_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
+    & = \sum_{\ell = 1}^n  \Omega_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)\; ,
   \end{split}
 \end{equation}
 where in the second line we have used the \(\bm{\Omega}\)-matrix
 defined in~(\ref{eq:omega-matrix}).
 
-It is easy to see that
+We can now see that the matrix \(\bm{\mathcal{K}}\) can be understood
+as the product of two other matrices. Consequently, we have
 \begin{equation}
   \begin{split}
   \det \bm{\mathcal{K}} & = \det(\bm{\Omega}) \det_{l,j}\left( \frac{z_l^{n-j}}{\prod_{j\neq l} (z_l - z_j)}\right) \\
@@ -1137,34 +1143,44 @@ We also have the identities
 	\prod_{\substack{j, l = 1 \\ j \neq l}}^n (z_l - z_j) = (-1)^{n(n-1)/2} \Delta(\bm{z})^2\; . 
   \end{equation}
 \end{subequations}
-Putting all these facts together, we finally see that 
-\(\bm{\tau}(\bm{z}, \bm{v}) = \det\bm{\mathcal{K}}\), that
-is preciselly the expression~(\ref{eq:slav-tau-function}).\\
-\qed
+Combining all these expressions, we finally see that
+\begin{equation}
+  \det \bm{\mathcal{K}} = \frac{\det \bm{\Omega}}{\Delta(\bm{z})}\; ,
+\end{equation}
+then \(\bm{\tau}(\bm{z}, \bm{v}) = \det\bm{\mathcal{K}}\), that is
+preciselly the expression~(\ref{eq:slav-tau-function}) for a fixed
+\(\ell\). \\ \qed
 
-One of the advantages of this representation is
-that now it is easier to consider the limit of the infinite chain,
-\(n\to \infty\).
+\begin{lemma}
+\label{lemma:k-invert}
+The matrix \(\bm{\mathcal{K}}\) defined via~(\ref{eq:k-matrix}) is
+invertible. This follows immediately from the relation
+\(\bm{\tau}(\bm{z}, \bm{v}) = \det \bm{\mathcal{K}}\).
+\end{lemma}
+
+One advantage of the integral
+representation~(\ref{eq:tau-function-miwa}) is that it makes it easier
+to consider the limit of the infinite chain, \(n\to \infty\).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Baker-Akhiezer  in \(z\)-coordinates}
 
-The Baker-Akhiezer (BA) funcion is defined in terms of the Japanese formula~\cite{Zabrodin2018}
+The Baker-Akhiezer (BA) function is defined through the
+Japanese formula~\cite{Babelon:2003qtg, Harnad:2021tau, Zabrodin2018}.
 \begin{equation}
+\label{eq:ba-function}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
-  \frac{\bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})}{\bm{\tau}(\bm{t}, \bm{v})}
+  \frac{\bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})}{\bm{\tau}(\bm{t}, \bm{v})}\; ,
 \end{equation}
 where 
 \begin{equation}
   \bm{t} - [\lambda^{-1}] = 
   \{t_1 - \lambda^{-1}, t_2 - \lambda^{-2}/ 2 ,  t_2 - \lambda^{-3}/3, \dots,  t_p - \lambda^{-p}/p, \dots \}\; .
 \end{equation}
-
-Using the expression~(\ref{eq:tau-function-miwa}), we can write the
-Baker-Akhiezer function in terms of the \(z\)-coordinates.
-Let us first write
+We can write these components as
 \begin{equation}
-  t_p - \lambda^{-p}/p = \frac{1}{p} \sum_{j=1}^n z_j^ p - \lambda^{-p}/p \; , 
+  t_p - \frac{\lambda^{-p}}{p} = \frac{1}{p} \sum_{j=1}^n z_j^ p - \frac{\lambda^{-p}}{p} \; , 
 \end{equation}
 therefore
 \begin{equation}
@@ -1173,232 +1189,260 @@ therefore
     & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ - \sum_{p=1}^\infty \frac{\lambda^{-p}}{p} w^{-p} \right] \\
     & = e^{\xi(\bm{t}, w^{-1})} \exp\left[ \ln ( 1 - 1 / (\lambda w)) \right]
       = \left( 1 - \frac{1}{\lambda w}\right)  \prod_{j=1}^n \frac{1}{1 -  z_j /w} \\
-    & = \frac{w^{n-1}}{\lambda } \left( \lambda w - 1 \right)  \prod_{j=1}^n \frac{1}{w -  z_j} \\
+    & = \frac{w^{n-1}}{\lambda } \left( \lambda w - 1 \right)  \prod_{j=1}^n \frac{1}{w -  z_j} \; .
   \end{split}
 \end{equation}
 
-Using these expressions, we can write 
+Finally, we express the shifted tau functions
+\begin{subequations}
 \begin{equation}
   \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
   \det_{j,k}\left[
   \oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{- j -1} ( \lambda w - 1) \mathcal{Y}_k(w)}{\lambda(w - v_k)} 
-  \right]\; .
+  \right]
 \end{equation}
-that in terms of the \(z\)-coordinates becomes
+in terms of the \(z\)-coordinates as
 \begin{equation}
 \begin{split}
-  \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v})
-  & = \det_{j,k}\left[\oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}  
-    \frac{( \lambda w - 1) w^{n-j-1}\mathcal{Y}_k(w)}{\lambda(w - v_k)} \right]\\
+  \bm{\tau}(\bm{z}, \bm{v}; \lambda^{-1})
+  & = \det_{j,k}\left[\oint_{\gamma_k} \frac{dw}{2\pi i} 
+    \frac{( \lambda w - 1) w^{n-j-1}\mathcal{Y}_k(w)}{\lambda(w - v_k)} \prod_{s=1}^n \frac{1}{w - z_s} \right]\\
   & = \det_{j,k}\left[
-    \oint_{\gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}  
-    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
-    \right]
+    \oint_{\gamma_k} \frac{dw}{2\pi i}  
+    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)} \prod_{s=1}^n \frac{1}{w - z_s} 
+    \right]\; ,
 \end{split}
 \end{equation}
-where we have defined the function 
+\end{subequations}
+where we have defined the functions
 \begin{equation}
   \widehat{\mathcal{Y}}_k(w; \lambda)
-  = \frac{( \lambda w - 1)}{\lambda} \mathcal{Y}_k(w) \; ,
+  = \frac{( \lambda w - 1)}{\lambda} \mathcal{Y}_k(w) \; , \qquad k =1, \dots, n\;. 
 \end{equation}
-From these expressions, it is easy to see that for \(j=n\) the point
-\(w = 0\) is a pole; and we must consider it in the integration curve \(\gamma_k\). 
+From these expressions, it is easy to see that for \(j = n\), the
+point \(w = 0\) is a pole, and we must include it in the integration
+contour \(\gamma_k\).
 
-It is convenient to define the components
+Define the matrix \(\widetilde{\bm{\mathcal{K}}}^T\) by its components
 \begin{equation}
+\label{eq:k-tilde}
   \begin{split}
     \widetilde{\mathcal{K}}_{kj} = &
-    \oint_{\tilde \gamma_k} \frac{dw}{2\pi i} \prod_{s=1}^n \frac{1}{w - z_s}
-    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)}
+\oint_{\gamma_k} \frac{dw}{2\pi i} e^{\xi(\bm{t}, w^{-1})} \frac{w^{- j -1} ( \lambda w - 1) \mathcal{Y}_k(w)}{\lambda(w - v_k)}
+    \\
+    = & \oint_{\gamma_k} \frac{dw}{2\pi i}  
+    \frac{( \lambda w - 1) w^{n-j-1}\mathcal{Y}_k(w)}{\lambda(w - v_k)} \prod_{s=1}^n \frac{1}{w - z_s}  \\
+    = &
+    \oint_{\tilde \gamma_k} \frac{dw}{2\pi i}
+    \frac{w^{n-j-1}\widehat{\mathcal{Y}}_k(w; \lambda)}{(w - v_k)} \prod_{s=1}^n \frac{1}{w - z_s} 
     + \delta_{nj} F_k(\lambda) \\
-    & = \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
+    = & \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell} \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
     + F_k(\lambda)\delta_{nj}  \\
   \end{split}
 \end{equation}
-where \(\tilde{\gamma}_k\) is a deformation contour that does not pick
-the point \(w=0\); and
+where \(\tilde{\gamma}_k\) is a deformed contour that does not enclose
+the point \(w = 0\), and
 \begin{equation}
+\label{eq:omehat-comp}
   \widehat{\Omega}_{k\ell}
-  = \frac{1}{z_\ell} \frac{\widetilde{\mathcal{Y}}_k(\lambda, z_\ell)}{z_\ell - v_k}
+  = \frac{1}{z_\ell} \frac{\widehat{\mathcal{Y}}_k(z_\ell, \lambda)}{z_\ell - v_k}
   = \frac{(\lambda z_\ell -1)}{\lambda z_\ell} {\Omega}_{k\ell} 
 \; , \qquad 
  F_k(\lambda) = (-1)^{n+1} \frac{\widehat{\mathcal{Y}}_k(0; \lambda)}{v_k }  \prod_{s=1}^n z_s^{-1} \; .
 \end{equation}
+Moreover, it is also convenient to define the matrix
+\(\widehat{\bm{\Omega}}\) formed by the components
+\(\widehat{\Omega}_{ij}\) and
+the vector \(\bm{F} = (F_1, \dots , F_n)\), 
+with the components defined above in~(\ref{eq:omehat-comp}).
 
-In order to simplify our analysis, let us define one more matrix
-\(\widehat{\mathcal{K}}\) by its components
+Additionally, let us define yet another matrix,
+\(\widehat{\bm{\mathcal{K}}}^T\), by
 \begin{equation}
     \widehat{\mathcal{K}}_{kj} = 
     \sum_{\ell = 1}^n  \widehat{\Omega}_{k \ell}
-    \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right)
-    \; .
-\end{equation}
-We conclude that \(\widetilde{\mathcal{K}}\) can be obtained from 
-\(\widehat{\mathcal{K}}\) by adding to each component of the \(n\)-th row
-the corresponding component of the vector \(\bm{F} = (F_1, \dots , F_n)\). 
-Let us write this operation as 
-\begin{equation}
-  \widetilde{\mathcal{K}} = \widehat{\mathcal{K}} + \bm{0}_{[ \bm{F} \to n-row]}\; . 
-\end{equation}
-Where we use the notation \(\mathcal{A}_{[ \bm{F} \to j-row]} \) to
-denote the replacement of the \(j-th\) row of the matrix with the
-vector \(\bm{F}\).  Above we have considered this operation with the
-zero matrix \(\bm{0}\).
-
-By the multilinearity of the determinant, we can write
-\begin{equation}
-  \det \widetilde{\mathcal{K}} = 
-    \det \widehat{\mathcal{K}} + 
-    \det \widehat{\mathcal{K}}_{[\bm{F} \to n-row]}\; .
+    \left( \frac{z_\ell^{n-j}}{\prod_{s\neq \ell} (z_\ell - z_s)} \right) \; .
 \end{equation}
 
-It is now easy to see that \(\det \widehat{\mathcal{K}}\) is
-proportional to the tau functions (Slavnov products), that is
+We conclude that \(\widetilde{\bm{\mathcal{K}}}\) can be derived from
+\(\widehat{\bm{\mathcal{K}}}\) by adding, component-wise, the vector
+\(\bm{F} = (F_1, \dots , F_n)\) to the \(n\)-th row.  We write this
+operation as
 \begin{equation}
-    \det \widehat{\mathcal{K}}  = 
-    \det(\widehat{\Omega})
+  \widetilde{\bm{\mathcal{K}}} = \widehat{\bm{\mathcal{K}}} + \bm{0}_{[ \bm{F} \to n\text{-row}]}\; . 
+\end{equation}
+Here we use the notation \(\mathcal{\bm{A}}_{[ \bm{F} \to j\text{-row}]}\) 
+to denote the replacement of the \(j\)-th row of the matrix 
+\(\mathcal{\bm{A}}\) with the vector \(\bm{F}\). In the expression above, 
+we have considered this operation with the null matrix \(\bm{0}\).
+By the multilinearity of the determinant, we finally have
+\begin{equation}
+  \det \widetilde{\bm{\mathcal{K}}} = 
+    \det \widehat{\bm{\mathcal{K}}} + 
+    \det \widehat{\bm{\mathcal{K}}}_{[\bm{F} \to n\text{-row}]}\; .
+\end{equation}
+
+It is now easy to see that \(\det \widehat{\bm{\mathcal{K}}}\) is
+proportional to the Slavnov product, that is,
+\begin{equation}
+    \det \widehat{\bm{\mathcal{K}}}  = 
+    \det(\widehat{\bm{\Omega}})
     \det_{l,j}
     \left( \frac{z_l^{n-j}}{\prod_{s\neq l} (z_l - z_s)} \right)\\
-    = \frac{\det(\widehat{\Omega})}{\Delta(\bm{z})}
+    = \frac{\det(\widehat{\bm{\Omega}})}{\Delta(\bm{z})}\;. 
 \end{equation}
-where \(\widehat{\Omega}\) is the matrix formed by the components
-\(\widehat{\Omega}_{i,j}\). The above determinant is itself a tau function,
-but we can also write is as
+The above determinant is itself a tau function, but we can also write
+it as
 \begin{equation}
     \det \widehat{\mathcal{K}} = 
     \frac{\det(\Omega)}{\Delta(\bm{z})}
     \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) 
     = \bm{\tau}(\bm{z}, \bm{v}) \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) \; . 
 \end{equation}
-
-Finally, using the elementary symmetric polynomials \(\sigma_p^{(n)}\), we write
+Furthermore, we can simplify this expression using the elementary
+symmetric polynomials \(\sigma_p^{(n)}\); that is,
 \begin{equation}
   \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) = 1 + 
   \sum_{p=1}^n (-1)^p \lambda^{-p} \sigma_p^{(n)}(\bm{z}^{-1})\; , 
 \end{equation}
 where \( \bm{z}^{-1} = \{z_1^{-1}, z_2^{-1}, \dots , z_n^{-1}\}\). 
 
-Putting all these facts together, we write the Baker-Akhiezer function
-as 
+Collecting all these facts, we finally write the Baker-Akhiezer
+function as
 \begin{equation}
   \psi(\lambda; \bm{z}, \bm{v}) =
   e^{\xi(\bm{t}, \lambda)}  \left[ 1 + 
   \sum_{p=1}^n (-1)^p \lambda^{-p} \sigma_p^{(n)}(\bm{z}^{-1})
     + \frac{1}{\bm{\tau}(\bm{z}, \bm{v})}
-    \det \widehat{\mathcal{K}}_{[\bm{F} \to n-row]}
+    \det \widehat{\bm{\mathcal{K}}}_{[\bm{F} \to n\text{-row}]}
   \right]\; .
 \end{equation}
-Next section we find a better expression for the Baker-Akhiezer
-function, but from this expression we can see that all the poles
-are at the point \(\lambda =0\). 
-
-%%% Maybe I should calculate some examples
-%\subsection{Examples} Let us now consider the cases \(n=2, 3\).
-%We have calculated the tau functions for these objets. The
-%elementary symmetric polynomials are also known. Therefore,
-%the only detail we need to complete now is the calculation of
-%the matrix \(\widehat{\mathcal{K}}\). 
-%
-%\subsubsection{n=2} We
-%we have \(\mathcal{Y}_j\) for \(j=1,2\) and two Bethe roots
+From this expression we can see that all the poles are located at the
+point \(\lambda = 0\).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Baker-Akhiezer in \(t\)-coordinates}
 
-We now want to consider the above calculations in the Miwa
-coordinates. 
+In this section, we find a better expression for the Baker-Akhiezer
+function. Our main goal now is to reconsider the above calculations
+using the Miwa coordinates.
 
-We define the matrix \(\check{\mathcal{K}}(\lambda)\) by its components
+Let us begin our exploration with the definitions~(\ref{eq:k-matrix})
+and~(\ref{eq:k-tilde}). Let us write
 \begin{equation}
-    \check{\mathcal{K}}_{jk} = -
-    \oint_{\gamma_k} \frac{dw}{2\pi i}
+\label{eq:ktilde-split}
+  \widetilde{\mathcal{K}}_{kj} = \mathcal{K}_{kj}
+  - \frac{1}{\lambda} \oint_{\gamma_k} \frac{dw}{2\pi i}
     e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; .
 \end{equation}
-
-Therefore, we have that 
+Therefore, let us define one more matrix,
+\(\check{\bm{\mathcal{K}}}^T\), with components given by
+\begin{equation}
+  \check{\mathcal{K}}_{jk} =
+  - \oint_{\gamma_k} \frac{dw}{2\pi i}
+    e^{\xi(\bm{t}, w^{- 1})} \frac{w^{-j -1 }\mathcal{Y}_k(w)}{w - v_k} \; .
+\end{equation}
+Therefore,~(\ref{eq:ktilde-split}) becomes
 \begin{equation}
   \widetilde{\mathcal{K}}_{kj} = 
   \mathcal{K}_{kj}  + \frac{1}{\lambda}
-  \check{\mathcal{K}}_{kj}
-  \ \Leftrightarrow \
-  \widetilde{\mathcal{K}} = 
-  \mathcal{K} + \frac{1}{\lambda}
-  \check{\mathcal{K}}\; , 
+  \check{\mathcal{K}}_{kj} \; , 
 \end{equation}
-and since \(\mathcal{K}\) is invertible, we get
+that yields
 \begin{equation}
-  \widetilde{\mathcal{K}} = 
-  \mathcal{K}\left( \mathbb{1} + 
-  \frac{1}{\lambda}\mathcal{K}^{-1}\check{\mathcal{K}} \right)\; .
+  \widetilde{\bm{\mathcal{K}}} = 
+  \bm{\mathcal{K}} + \frac{1}{\lambda}
+  \check{\bm{\mathcal{K}}}\; .
+\end{equation}
+Moreover, by Lemma~\ref{lemma:k-invert}, \(\bm{\mathcal{K}}\) is
+invertible; therefore,
+\begin{equation}
+  \widetilde{\bm{\mathcal{K}}} = 
+  \bm{\mathcal{K}}\left( \mathbb{1} + 
+  \frac{1}{\lambda}\bm{\mathcal{K}}^{-1}\check{\bm{\mathcal{K}}} \right)\; .
 \end{equation}
 
-Putting all these facts together, we find that the shifted
-tau-functions are
+Combining these results, we find that the shifted tau-functions are
 \begin{equation}
   \bm{\tau}(\bm{t} - [\lambda^{-1}], \bm{v}) =
   \bm{\tau}(\bm{t}, \bm{v})
   \det \left( \mathbb{1} + \frac{1}{\lambda}
-  \mathcal{K}^{-1} \check{\mathcal{K}} \right)\; .
+  \bm{\mathcal{K}}^{-1} \check{\bm{\mathcal{K}}} \right)\; .
 \end{equation}
-
-We finally conclude that the Bakher-Akhiezer function can be written as
+We finally conclude that the Bakher-Akhiezer
+function~(\ref{eq:ba-function}) can be written as
 \begin{equation}
 \label{eq:ba-fredholm}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
   \det \left( \mathbb{1} + 
-    \frac{1}{\lambda} \mathcal{M}
+    \frac{1}{\lambda} \bm{\mathcal{M}}
   \right)\; , 
 \end{equation}
-where \(\mathcal{M} = \mathcal{K}^{-1} \check{\mathcal{K}}\) is a
-finite dimensional matrix. Let us now use the elementary expression
+where \(\bm{\mathcal{M}} =
+\bm{\mathcal{K}}^{-1}\check{\bm{\mathcal{K}}}\) is a
+finite-dimensional matrix depending on the coordinates
+\(\bm{t}\).
+
+Let us now use the elementary property
 \begin{subequations}
 \begin{equation}
   \begin{split}
-    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
-    & = \exp \left[ \Tr \log \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M} \right) \right]\\
+    \det \left( \mathbb{1} + \frac{1}{\lambda} \bm{\mathcal{M}}\right)
+    & = \exp \left[ \Tr \ln \left( \mathbb{1} + \frac{1}{\lambda} \bm{\mathcal{M}} \right) \right]
+    = \exp\left[ \sum_{l=1}^n \ln \left( 1 + \frac{\mu_l}{\lambda} \right)\right]\\
     & = \prod_{l=1}^n \left( 1 + \frac{\mu_l}{\lambda} \right) \; ,
   \end{split}
 \end{equation}
 \end{subequations}
 where \(\bm{\mu} = \{\mu_l\}_{l=1}^n\) are the eigenvalues of the
-matrix \(\mathcal{M}\), and these obviously depend on the Bethe roots
-\(\bm{v}\) and parameters \(\bm{t}\). Therefore, we have
+matrix \(\bm{\mathcal{M}}\), and these obviously depend on the Bethe
+roots \(\bm{v}\) and parameters \(\bm{t}\).  Therefore, we have
 \begin{equation}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
   \left(1 + \sum_{k=1}^n \frac{\xi_k(\bm{t})}{\lambda^k} 
-  \right)\; . 
+  \right)\; \qquad \xi_k(\bm{t}) = \sigma_k^{(n)}(\bm{\mu})\; .
 \end{equation}
-where \(\xi_k(\bm{t}) = \sigma_k^{(n)}(\mu_1, \dots, \mu_n)\) and \(\mu_j = \mu_j(\bm{t}, \bm{v})\).
 
-We can also write 
+Alternatively, we can also express the determinant as
 \begin{equation}
   \begin{split}
-    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
+    \det \left( \mathbb{1} + \frac{1}{\lambda} \bm{\mathcal{M}}\right)
     & = \exp\left[ \sum_{l=1}^n \ln \left( 1 + \frac{\mu_l}{\lambda} \right)\right]
     = \exp\left[ \sum_{l=1}^n \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k} \left(\frac{\mu_l}{\lambda} \right)^k\right] \\ 
     & = \exp\left[ \sum_{k=1}^\infty \frac{(-1)^{k-1}}{\lambda^k} \gamma_k\right] \; ,
   \end{split}
 \end{equation}
-where we define the Miwa coordinates \(\gamma_k = \frac{1}{k}\sum_{l=1}^n \mu_l^k \). Consequently
+where we define the coordinates as 
 \begin{equation}
-    \det \left( \mathbb{1} + \frac{1}{\lambda} \mathcal{M}\right)
-     = 1 + \sum_{k\geq 1}\frac{1}{\lambda^k} \sigma_k(\bm{\gamma})\; .
+\gamma_k = \frac{1}{k} \sum_{l=1}^n \mu_l^k\; .
 \end{equation}
-Putting all these facts together, we can write the functions
-\(\xi_k(\bm{t})\) in terms of \(\bm{\gamma}\).  Observe that now the
-parameter \(n\) is hidden in the definition of the coordinates
-\(\gamma_k\).  One advantgage of this expression is that now we seem
-ot have a better setting to consider the thermodynamic limit \(n \to
-\infty\) with with \(n/L \to 0\). In fact, the
-expression~(\ref{eq:ba-fredholm}) suggests that in this limit, the
-Baker-Akhiezer function in the thermodynamics limit can be written as
-a Fredholm determinant. We are currently exploring this question and
+
+Then, we write the Baker-Akhiezer as 
+\begin{equation}
+  \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
+  \left(1 + \sum_{k\geq 1} \frac{\sigma_k(\bm{\gamma})}{\lambda^k} 
+  \right)\; .
+\end{equation}
+Notice that this second expression does not explicitly depend on the
+size \(n\) of the Slavnov product. Consequently, the functions
+\(\xi_k(\bm{t})\) can be expressed in terms of the coordinates
+\(\bm{\gamma}\), where the parameter \(n\) is now implicitly contained
+in their definition.
+
+An advantage of this formulation is that it provides a more suitable
+framework to consider the thermodynamic limit \(n \to \infty\) with
+\(n/L \to 0\). In fact, expression~(\ref{eq:ba-fredholm}) suggests
+that in this limit the Baker-Akhiezer function can be represented as a
+Fredholm determinant. We are currently investigating this question and
 hope to report new results soon.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this paper we have discussed some properties of the Slavnov
