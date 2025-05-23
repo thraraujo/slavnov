@@ -36,21 +36,22 @@ Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
 
 \begin{abstract}
-Connections between classical and quantum integrable systems are
-analyzed from the viewpoint of the Slavnov products of Bethe
-states. It is well known that, modulo model-dependent aspects, the
-functional structure of the Slavnov products takes the form of
-determinants. Using new results on the general structure of rational
-and trigonometric models, we establish that, as long as the model
-satisfies certain conditions, its Slavnov product is a tau function of
-the KP hierarchy, thus generalizing some known results. We also show
-that the Slavnov products can be expanded in terms of other tau
-functions, and we prove that their homogeneous limit can be calculated
-as a Wronskian of functions related to the eigenvalues of the transfer
-matrices. Finally, we calculate the Baker–Akhiezer functions
-associated with these Slavnov products, and show that, modulo a
-multiplicative universal term, the Baker–Akhiezer functions have a
-closed determinantal formula.
+ Connections between classical and quantum integrable systems are
+ analyzed from the viewpoint of Slavnov products of Bethe states. It
+ is well known that, modulo model dependent aspects, the functional
+ structure of Slavnov products generally takes the form of
+ determinants. Building on recent results on the structure of rational
+ and trigonometric models, we show that, provided certain conditions
+ are satisfied, the Slavnov product of a given model can be
+ interpreted as a tau function of the KP hierarchy, thus extending
+ known results in a more general setting. Moreover, we show that
+ Slavnov products can be expanded in terms of other tau functions. We
+ also prove that their homogeneous limit can be systematically
+ expressed as a Wronskian of functions related to the eigenvalues of
+ the transfer matrices.  Finally, we compute the Baker–Akhiezer
+ functions associated with these Slavnov products and show that, apart
+ from a universal multiplicative factor, they admit a closed
+ determinantal representation.
 \end{abstract}
 
 \date{\today}
@@ -59,7 +60,7 @@ closed determinantal formula.
 
 \maketitle
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 
@@ -106,7 +107,7 @@ The main ingredients for the Slavnov product are the Bethe
 wavefunctions themselves. As such, the specific details of these
 objects depend on the model, symmetries and their representations, and
 on the boundary conditions. Nevertheless, the general
-\textbf{functional structure} of Slavnov products across radically
+functional structure of Slavnov products across radically
 different models is basically the same. More specifically, modulo some
 multiplicative factors, all these expressions take the form of
 determinants, and it is this basic property that allows us to
@@ -126,23 +127,32 @@ in~\cite{Belliard:2019bfz} -- along with some additional restrictions
 hierarchy. Additionally, we discuss some immediate consequences of
 this result.
 
-In Section 2, we review the main aspects of the
-work~\cite{Belliard:2019bfz}. This section also fixes some of the
-notation we use in the remainder of this work and in future
-investigations. Section 3 presents two new results. First, we rewrite
+Let us now provide a brief overview of the content and structure of
+our work. In Section 2, we offer a review of the main findings
+presented in the work of Belliard and
+Slavnov~\cite{Belliard:2019bfz}. In addition, we use this section to
+carefully establish and clarify the notation that will be employed
+throughout the remainder of this paper, as well as in related future
+investigations.
+
+Section 3 presents two new results and a conjecture. First, we rewrite
 relevant formulas established in~\cite{Belliard:2019bfz} and prove
 that these Slavnov products are KP tau functions expressed in terms of
 alternant determinants. We also discuss some contrasts between this
 formula and certain results that have previously appeared in matrix
-theory investigations.
+theory investigations.  These tau functions are written in terms of
+two sets of parameters. The first set consists of arbitrary complex
+numbers, and the second set consists of the Bethe roots of the spin
+chain. In Section 3, we also find a basis for the Slavnov products,
+and this basis is itself formed by tau functions. The results of
+Section 3 allow us to investigate the case where the complex
+parameters are close to the Bethe roots.
 
-These tau functions are written in terms of two sets of
-parameters. The first set is given by arbitrary complex numbers, and
-the second set is given by the Bethe roots of the spin chain.  In
-Section 3, we also find a basis for the Slavnov products, and this
-basis is itself formed by tau functions. The results of Section 3
-allow us to investigate the case where the complex parameters are
-close to the Bethe roots.
+In this section, we also conjecture (and only present some general
+evidence) that these tau functions indicate that we are, in fact,
+dealing with a multicomponent KP hierarchy, and that the linear
+equations discussed by Belliard and Slavnov~\cite{Belliard:2019bfz}
+describe a reduction of this larger integrable hierarchy.
 
 Section 4 discusses the homogeneous limit of the Slavnov product.  In
 this case, all complex parameters condense to a single value, and we
@@ -589,7 +599,10 @@ can define a vector
 \end{equation}
 where \(\bm{Z} = (\bm{z}^{(1)}, \bm{z}^{(2)}, \dots,
 \bm{z}^{(n+1)})\). This is a vector of tau functions of the KP
-hierarchy. This observation suggests that there is, in fact, an
+hierarchy.
+
+\begin{conjecture}
+This observation suggests that there is, in fact, an
 underlying multicomponent KP hierarchy in this context, and that the
 linear system~(\ref{eq:linear-system}), which we can write as
 \begin{equation}
@@ -600,6 +613,7 @@ reduction ultimately describes constraints that relate the different
 sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
 idea in this work, but we hope to return to this problem in future
 publications.
+\end{conjecture}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1445,48 +1459,70 @@ hope to report new results soon.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this paper we have discussed some properties of the Slavnov
-products and their relation with the tau functions of the KP
-hierarchy.
+In this work, we have discussed several properties of the Slavnov
+products arising in quantum integrable models and their deep
+connection with the tau functions of the KP hierarchy. We can
+summarize our main findings as follows. Our initial result
+demonstrates that the general structure of these tau functions can be
+expressed in terms of an alternant matrix. This general formulation
+firmly establishes the identification of the Slavnov product as a tau
+function within the framework of the KP classical integrable hierarchy.
 
-An important initial observation is that the general form of this tau
-function is written in terms of some alternant matrix, and this form
-is known since (cite papers on the matrix models and so on). But the
-functions associated to the current paper is drastically different
-from those papers, and do not expand a point in the
-Grassmannian. Therefore, it is necessary to better understand some of
-these properties. In this paper we start exploring these results.
+We have also proved that these Slavnov products admit a basis
+expansion in terms of other tau functions, thereby establishing that
+we are dealing with a particularly distinguished object within this
+framework. Moreover, we have discussed a conjecture suggesting the
+existence of a multicomponent KP hierarchy underlying all of our
+results.
 
-....  
+The behaviour of these functions near the Bethe roots of the quantum
+integrable systems, as well as the homogeneous limit of the Slavnov
+product, has also been discussed. Finally, we conclude our work with a
+brief analysis of the Baker-Akhiezer function. The most important
+result for us is that we have shown that the Baker-Akhiezer function,
+modulo a universal multiplicative factor, also admits a determinantal
+form.
 
-We have also started our exploration of the Baker-Akhiezer function since it seems to
-be the relevant object of our investigation.  
+Evidently, there are many results that can be extended in this work,
+and several aspects that deserve further investigation. Let us list
+some of these problems, ranging from relatively straightforward
+applications to more substantial challenges.
 
-Some future interesting directions. We might want to calculate the
-solutions of the KP equation to see what they really mean. Perhaps
-consider analitic and numerical calculations, since the calculation of
-the determinants become complicated even for small values of \(n\).
+A simple problem to be discussed is the physical meaning of the
+solutions of the KP equation that can be constructed using the tau
+functions explored in this work. Perhaps one might consider both
+analytical and numerical approaches, since the calculation of the
+determinants becomes complicated even for relatively small values of
+\(n\).
 
-More interestingly, one may try to consider the thermodynamic limit of
-the Slavnov product and explore what it means from the viewpoint of
-the Baker-Akhiezer function.  See the Limit \(L \to \infty\) and \(N
-\to \infty\) but sufficiently slower than \(L\).  I think that the
-matrix \(\mathcal{M}\) is a trace class operator and we write the BA
-function as a Fredholm determinant.
+Another important aspect of this work is to achieve a better
+understanding of the Baker-Akhiezer functions associated with the
+Slavnov products. Here, we have only scratched the surface of these
+objects, and a full description of their properties is still
+lacking. We are currently investigating the thermodynamic limit of
+this system. In particular, we are studying the Slavnov product and
+its interpretation from the viewpoint of the Baker-Akhiezer
+function. For example, how to properly describe the limit \(L \to
+\infty\) and \(N \to \infty\), with \(N\) growing sufficiently
+slower than \(L\). I believe that the matrix \(\mathcal{M}\) is a
+trace-class operator, allowing us to express the Baker-Akhiezer
+function as a Fredholm determinant. We hope to report new results
+on this line of investigation soon.
 
-I think that this BA function will be similar to the soliton-like
-solution discussed in section 3.6.2 (page 41) of~\cite{Zabrodin2018}.
-My functions seem to have a pole of order \(N\) at infinity. And \(N\)
-zeros at the Bethe roots.
-
-Finally, we can explore the elliptic case and see if one can see if
-there exists any similar relation on the elliptic case.  Elliptic case
-- see slavnov, zabrodin's paper
-
+Finally, there is a more challenging problem to be addressed: the
+description of the elliptic case. While some determinantal formulas
+are known for the partially on-shell scalar product of Bethe states,
+it is not yet clear whether these objects are also related to tau
+functions of integrable hierarchies.  This characterization is another
+problem we are currently investigating, and we hope to have some
+results to report in the future.
 
 
-\subsubsection*{Acknowledgments}
-I would like to thank...
+
+
+
+%\subsubsection*{Acknowledgments}
+%I would like to thank the Fluminense Federal University for 
 
 \printbibliography
 
