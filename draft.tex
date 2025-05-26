@@ -6,7 +6,6 @@
 \bibliography{/home/thiago/Sync/wiki/database/bib-database.bib}
 
 %% Extra packages 
-\usepackage{amsaddr}                % Affiliation in the first page
 \usepackage{slashed}                % Feynman slash notation
 \usepackage{simplewick}             % Wick contractions
 \usepackage{fontawesome}
@@ -18,19 +17,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Slavnov products, KP and BA functions]{
-  More on the Slavnov products of spin chains,
-  KP hierarchy tau and Baker-Akhiezer functions 
-}
+\title[Slavnov products, KP and BA functions]{More on Slavnov Products of Spin Chains and KP Hierarchy Tau Functions}
 
 \author{Thiago Araujo}
 
-
-\address{\noindent 
-Institute of Exact Sciences, Department of Physics\\
-Fluminense Federal University\\
-Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
-27213-145 Volta Redonda, RJ, Brazil
+\address{
+Universidade Federal Fluminense, 
+Instituto de Ciências Exatas, Departamento de Física
+Volta Redonda, RJ, Brazil
 }
 
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
@@ -55,8 +49,13 @@ Rua Des. Ellis Hermydio Figueira, 783, Aterrado\\
 \end{abstract}
 
 \date{\today}
-\keywords{Integrability, spin chains, bethe, slavnov, kp}
-\subjclass[2020]{82B20, 82B23}
+\keywords{Integrability, field theories, lattice models, correlation functions, bethe ansatz}
+\subjclass[2020]{81T40, 81U15, 82B20, 82B21, 82B23}
+%81T40 : Two-dimensional field theories, conformal field theories, etc. in quantum mechanics
+%81U15 : Exactly and quasi-solvable systems arising in quantum theory
+%82B20 : Lattice systems (Ising, dimer, Potts, etc.) and systems on graphs arising in equilibrium statistical mechanics
+%82B21 : Continuum models (systems of particles, etc.) arising in equilibrium statistical mechanics
+%82B23 : Exactly solvable models; Bethe ansatz
 
 \maketitle
 
@@ -769,8 +768,8 @@ denote by \(\mathcal{Y}^{(n)}(z)\) the \(n\)-th derivative of
 \(\mathcal{Y}(z)\) with respect its argument.
 
 One can immediately see that the second column is equal to the first
-column plus terms proportional to the factor \(\delta = z_2 -
-z_1\)​. Using elementary column operations, we find
+column plus terms proportional to the factor
+\(\delta = z_2 - z_1\). Using elementary column operations, we find
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2 \to z_1}\frac{(z_2 - z_1)}{\Delta(\bm{z})}
   \det
