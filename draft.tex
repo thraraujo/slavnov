@@ -28,7 +28,25 @@ Volta Redonda, RJ, Brazil
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
 
 \begin{abstract}
- Connections between classical and quantum integrable systems are analyzed from the viewpoint of Slavnov products of Bethe states. It is well known that, modulo model dependent aspects, the functional structure of Slavnov products generally takes the form of determinants. Building on recent results on the structure of rational and trigonometric models, we show that, provided certain conditions are satisfied, the Slavnov product of a given model can be interpreted as a tau function of the KP hierarchy, thus extending known results in a more general setting. Moreover, we show that Slavnov products can be expanded in terms of other tau functions. We also prove that their homogeneous limit can be systematically expressed as a Wronskian of functions related to the eigenvalues of the transfer matrices.  Finally, we compute the Baker-Akhiezer functions associated with these Slavnov products and show that, apart from a universal multiplicative factor, they admit a closed determinantal representation.
+ Connections between classical and quantum integrable systems are
+ analyzed from the viewpoint of Slavnov products of Bethe states. It
+ is well known that, modulo model dependent aspects, the functional
+ structure of Slavnov products generally takes the form of
+ determinants. Building on recent results on the structure of rational
+ and trigonometric models, we show that, provided certain conditions
+ are satisfied, the Slavnov product of a given model can be
+ interpreted as a tau function of the KP hierarchy, thus extending
+ known results in a more general setting.  In light of this, we begin
+ by analyzing the classical features of these tau functions,
+ particularly the types of classical solutions defined by the Slavnov
+ products. We show that Slavnov products can be expanded in terms of
+ other tau functions.  We also show that their homogeneous limit
+ yields a Wronskian-type solution of the KP hierarchy, where the
+ Wronskian is constructed from functions related to the eigenvalues of
+ the transfer matrices.  Finally, we compute the Baker-Akhiezer
+ functions associated with these tau functions and show that, apart
+ from a universal multiplicative factor, they admit a closed
+ determinantal representation.
 \end{abstract}
 
 \keywords{Integrability, field theories, lattice models, correlation functions, bethe ansatz}
@@ -79,7 +97,7 @@ classical integrable hierarchy. Their analysis has been extended in
 several different directions and applications, for
 example~\cite{Wheeler:2010vmq, Foda:2010, Takasaki:2010qm,
   Foda:2012wn, Foda:2012wf}.  In~\cite{Araujo:2021ghu,
-  Araujo:2024klz}. The author of the current paper also investigated
+  Araujo:2024klz}, the author of the current paper also investigated
 some aspects of this research problem. In particular, the relation
 between integrable hierarchies and quantum integrable systems such as
 the Q-Boson integrable system and the Temperley-Lieb open spin chains.
@@ -105,8 +123,18 @@ Ansatz are KP and Toda tau functions}''. We prove that, as long as the
 integrable system satisfies the conditions established
 in~\cite{Belliard:2019bfz} -- along with some additional restrictions
 -- the Slavnov product is guaranteed to satisfy the KP integrable
-hierarchy. Additionally, we discuss some immediate consequences of
-this result.
+hierarchy.
+
+Having established this result, we proceed to analyze the classical
+aspects of the tau functions defined via Slavnov products. Our initial
+observation is that these tau functions differ from those studied
+in~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, whose
+origin lies in matrix model analysis. We also explore the possibility
+of a solitonic origin; to this end, we compute the homogeneous limit
+and find that it defines a Wronskian-type solution of the tau
+function~\cite{Kodama2018}. Finally, to further investigate its
+nature, we begin the computation of the Baker-Akhiezer function using
+the Japanese formula.
 
 Let us now provide a brief overview of the content and structure of
 our work. In Section 2, we offer a review of the main findings
@@ -135,13 +163,15 @@ dealing with a multicomponent KP hierarchy, and that the linear
 equations discussed by Belliard and Slavnov~\cite{Belliard:2019bfz}
 describe a reduction of this larger integrable hierarchy.
 
-Section 4 discusses the homogeneous limit of the Slavnov product.  In
-this case, all complex parameters condense to a single value, and we
-show that Slavnov products have a Wronskian expression written in
-terms of functions related to the eigenvalues of the transfer matrix.
-Section 5 presents some explicit examples for small spin chains, and
-we see that even in those cases the expressions for the tau functions
-become overwhelming very quickly.
+Section 4 discusses the homogeneous limit of the Slavnov product,
+which is relevant for investigating the solitonic aspects of these tau
+functions. In this limit, all complex parameters condense to a single
+value, and we show that the tau functions define a Wronskian solution
+of the KP integrable hierarchy, where the Wronskian is constructed
+from functions related to the eigenvalues of the transfer
+matrix. Section~5 presents explicit examples, and we observe that even
+in these cases, the expressions for the tau functions become
+overwhelmingly complex very quickly.
 
 Finally, in Section 6, we use the Japanese formula to investigate the
 Baker–Akhiezer function associated with these tau functions. Using
@@ -226,7 +256,7 @@ products with determinantal representations.
 
 \begin{proposition}
 The Slavnov products \(\bm{\zeta}_j\) satisfy a system of linear
-equations~\cite{Slavnov:2019aba}.
+equations~\cite{Belliard:2019bfz}.
 \end{proposition}
 \paragraph{\textbf{\emph{Proof}}} Let us first use that the
 transfer matrix can act on the on-shell bra \(\bra{\Psi(\bm{v})}\)
@@ -536,7 +566,7 @@ Consequently, we write the normalized Slavnov products as
   \; \quad \ell = 1, \dots, n+1 \; .
 \end{split}
 \end{equation}
-This is the first result of out work. 
+This is the first result of our work. 
 
 All the normalized Slavnov products~(\ref{eq:slav-tau-function}) take
 the form of \emph{alternant determinants} of the functions
@@ -563,8 +593,7 @@ functions. However, the asymptotic behavior of the functions
 \(\Omega_j\), which are relevant to our discussion, indicates that
 they do not belong to the class considered in the references above.
 Therefore, we must investigate their properties and the corresponding
-Baker-Akhiezer functions specific to our discussion.  We begin this
-analysis below.
+Baker-Akhiezer functions specific to our discussion.
 
 Given that each function \(\bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})\), for
 \(\ell = 1, \dots, n+1\), is a distinct but related tau function, one
