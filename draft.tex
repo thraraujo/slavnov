@@ -180,10 +180,6 @@ of Miwa coordinates. The most important result in this section is the
 explicit expressions for the Baker–Akhiezer functions. We discuss some
 interesting consequences and open problems in Section 7.
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Scalar products as determinants}
@@ -254,9 +250,11 @@ that does not fall into this classification is defined by
 elliptic \(R\)-matrices, although some of these models still have slavnov
 products with determinantal representations.
 
+The following result was established by Belliard and Slavnov~\cite{Belliard:2019bfz}:
+
 \begin{proposition}
 The Slavnov products \(\bm{\zeta}_j\) satisfy a system of linear
-equations~\cite{Belliard:2019bfz}.
+equations.
 \end{proposition}
 \paragraph{\textbf{\emph{Proof}}} Let us first use that the
 transfer matrix can act on the on-shell bra \(\bra{\Psi(\bm{v})}\)
@@ -417,30 +415,51 @@ The matrices \(\hat{\Omega}_\ell\) are minors of
 \begin{equation}
  \hat{\Omega}_\ell = \det_{k\neq \ell} \Omega_{jk}\; . 
 \end{equation}
-All in all, we use these determinants to define \(n+1\)
-\emph{normalized Slavnov products} as follows
+All in all, we use these determinants to normalize the \(n+1\)
+\emph{Slavnov products} as follows
 \begin{equation}
   \label{eq:slavnov-tau}
   \bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v}) \equiv \frac{1}{c_0}\frac{\bm{\zeta}_\ell}{\phi(\bm{v})}
+  = \frac{\det_{k\neq \ell} \Omega_{jk}}{\Delta(\bm{u}_\ell)}
   = \frac{\hat{\Omega}_{\ell}}{\Delta(\bm{u}_\ell)}\; , \quad \ell = 1, \dots, n+1 \; .
 \end{equation}
-This is the most important result for our discussion; and our goal now
-is to show that each \(\bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v})\) is a
-tau-function of the KP-hierarchy.
-
-
-
+This concludes our discussion of~\cite{Belliard:2019bfz}. The
+expression given in~(\ref{eq:slavnov-tau}) is the one that interests
+us most.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tau functions}
+\section{Slavnov products as KP tau functions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Given the expression~(\ref{eq:slavnov-tau}), our goal now is to show
+that these functions satisfy the Hirota bilinear equations, which
+essentially means that they are tau functions of the KP
+hierarchy. Similar calculations have been carried out in the past,
+particularly in the original works of Foda and
+collaborators~\cite{Foda:2009zz, Wheeler:2010vmq, Foda:2010,
+  Takasaki:2010qm, Foda:2012wn, Foda:2012wf}.  Their strategy involved
+expressing the objects in terms of fermionic bilinears and
+demonstrating that they can be written as sums over Schur polynomials,
+with coefficients satisfying the Plücker relations.
+
+In this section, we adopt a simpler approach. We
+rewrite~(\ref{eq:slavnov-tau}) as an alternant determinant and invoke
+the results of~\cite{Segal:1985aga, Kharchev:1991cy} which guarantee
+that such expressions, in general, satisfy the Hirota bilinear
+equations. In essence, by rewriting the Belliard--Slavnov formula for
+the Slavnov product \(\bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v})\) as an
+alternant determinant, we make manifest that it defines a tau function
+of the KP hierarchy.  We conclude this section with a proof that the
+KP tau functions discussed above can be expressed in terms of other
+tau functions of the KP hierarchy.
 
 In order to proceed, let us simplify the notation and organize the
-results described above. First of all, observe that we can define
-\(n\) functions \(\Omega_j(z)\) of the form
+results described above. First of all, let us use the
+components~(\ref{eq:omega-matrix-def}) to define \(n\) functions \(\Omega_j(z)\) of the
+form
 \begin{equation}
 \begin{split}
   \Omega_{j}(z) \equiv
@@ -493,8 +512,6 @@ Moreover, one can observe that
 \begin{equation}
 \Res_{z=v_k} \left( \Omega_j(z)\right) =  \delta_{jk}\mathcal{Y}_j(v_j)\; .
 \end{equation}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Alternant determinant expression for the Slavnov products}
@@ -566,14 +583,13 @@ Consequently, we write the normalized Slavnov products as
   \; \quad \ell = 1, \dots, n+1 \; .
 \end{split}
 \end{equation}
-This is the first result of our work. 
 
 All the normalized Slavnov products~(\ref{eq:slav-tau-function}) take
 the form of \emph{alternant determinants} of the functions
 \(\{\Omega_j\}_{j=1}^n\) divided by Vandermonde determinants.  This
-result establishes that the normalized slavnov
+result establishes that the normalized Slavnov
 products~(\ref{eq:slav-tau-function}) are tau functions of the KP
-hierarchy. Indeed, it is well documented that, given a set of generic
+hierarchy.  Indeed, it is well documented that, given a set of generic
 functions \(\{\phi_j\}_{j=1}^n\), expressions of the type
 \begin{equation}
 \tau(\bm{w}) =
@@ -585,15 +601,14 @@ hierarchy.  This proposition has been extensively discussed in the
 literature, for example~\cite{Segal:1985aga, Kharchev:1991cy,
   Araujo:2021ghu} and references therein.
 
-In~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, the
-authors explored a family of functions \(\{ \phi_i\}_{i=1}^n\) that
-parametrize points in a Grassmannian space. These functions also play
-an important role in the definition of the Baker-Akhiezer
-functions. However, the asymptotic behavior of the functions
-\(\Omega_j\), which are relevant to our discussion, indicates that
-they do not belong to the class considered in the references above.
-Therefore, we must investigate their properties and the corresponding
-Baker-Akhiezer functions specific to our discussion.
+Before proceeding, let us make two interesting observations. The first
+is a (bold) conjecture regarding a hypothetical multicomponent KP
+hierarchy underlying all the calculations discussed above. The second
+is a proof that the KP tau functions above can be expressed in terms
+of other tau functions of the KP hierarchy.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conjecture: Multicomponent tau functions}
 
 Given that each function \(\bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})\), for
 \(\ell = 1, \dots, n+1\), is a distinct but related tau function, one
@@ -624,7 +639,6 @@ sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
 idea in this work, but we hope to return to this problem in future
 publications.
 \end{conjecture}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tau functions expansion of the Slavnov product}
@@ -744,9 +758,38 @@ hierarchy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Homogeneous limit: Wronskian formula}
+\section{Wronskian-type KP tau functions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the previous section, we mentioned that given a set of generic
+functions \(\{\phi_j\}_{j=1}^n\), it has been shown that functions of
+the form
+\begin{equation}
+\tau(\bm{w}) = \frac{\det_{i,j} \phi_i(w_j)}{\Delta(\bm{w})}\;,
+\end{equation}
+are tau functions of the KP hierarchy. This proposition has been
+extensively discussed in the literature, see for
+example~\cite{Segal:1985aga, Kharchev:1991cy, Araujo:2021ghu} and
+references therein. In~\cite{Segal:1985aga, Kharchev:1991cy,
+  Alexandrov:2014cwa}, the authors explored families of functions \(\{
+\phi_i \}_{i=1}^n\) that parametrize points in a Grassmannian space.
+
+These functions also play an important role in the definition of the
+Baker--Akhiezer functions. However, the asymptotic behavior of the
+functions \(\Omega_j\), which are central to our discussion, suggests
+that they do not belong to the class considered in the references
+above. Therefore, the main goal in the remainder of this work is to
+identify general aspects of the classical tau functions associated
+with the Slavnov products.
+
+In this section, we investigate the homogeneous limit of these
+objects, and we find that this limit yields a Wronskian-type solution
+of the KP hierarchy; see~\cite{Kodama2018}. It is interesting to
+contrast this result with the solitonic solutions of the hierarchy,
+which can also be expressed in terms of Wronskians. To connect this
+solution to the standard KP hierarchy framework, we will need to
+introduce Miwa coordinates.
 
 In the previous section, we discussed the limit in which the
 parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
@@ -845,6 +888,35 @@ eigenvalues. Additionally, the functions
 \(\{\mathcal{Y}_j(w)\}_{j=1}^n\) are linearly independent if and only
 if the Bethe roots are non-degenerate.
 
+In order to better capture the meaning of these Wronskian-type tau
+functions, we must introduce the Miwa coordinates, which will be
+discussed in more detail in Section~6. The key point for now is that
+the homogeneous limit corresponds to the following specialization of
+the Miwa coordinates:
+\begin{equation}
+  t_p = \frac{n}{p} w^p\;, \quad p = 1, 2, 3, \dots
+\end{equation}
+Under this identification, we find that the Wronskian-type solution of
+the KP hierarchy can be written as
+\begin{equation}
+  \bm{\tau}_h(t_1, \bm{v}) =
+  \frac{1}{\prod_{k=1}^n(n^{-1} t_1 - v_k)}\,
+  \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](n^{-1}t_1)\;,
+\end{equation}
+where the coordinate \( t_1 \) can be interpreted as the spatial
+variable \(x\).  Finally, we can use standard techniques to construct
+a solution to the KP equation in the form
+\begin{equation}
+  \varphi_{KP} = 2\, \partial_{t_1}^2 \ln \bm{\tau}_h\;,
+\end{equation}
+and investigate the behavior of this solution near the Bethe roots,
+its spectral and singular structure. However, the key point is that
+these aspects require further analysis before we can address such
+specific details. In particular, we aim to construct the
+Baker--Akhiezer function in a more general setting.
+
+Before proceeding, let us compute some examples to better visualize
+the results obtained so far.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
