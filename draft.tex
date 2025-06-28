@@ -889,12 +889,17 @@ eigenvalues. Additionally, the functions
 if the Bethe roots are non-degenerate.
 
 In order to better capture the meaning of these Wronskian-type tau
-functions, we must introduce the Miwa coordinates, which will be
-discussed in more detail in Section~6. The key point for now is that
-the homogeneous limit corresponds to the following specialization of
-the Miwa coordinates:
+functions, we must introduce 
 \begin{equation}
-  t_p = \frac{n}{p} w^p\;, \quad p = 1, 2, 3, \dots
+  \label{eq:miwa-coord}
+  \bm{t} = (t_1, t_2, t_3, \dots) \; , \qquad 
+  t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
+\end{equation}
+the so-called Miwa coordinates, which will be discussed in more detail
+in Section~6. The key point for now is that the homogeneous limit
+corresponds to the following specialization of the Miwa coordinates:
+\begin{equation}
+  t_p = \frac{n}{p} w^p\;. 
 \end{equation}
 Under this identification, we find that the Wronskian-type solution of
 the KP hierarchy can be written as
@@ -904,16 +909,37 @@ the KP hierarchy can be written as
   \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](n^{-1}t_1)\;,
 \end{equation}
 where the coordinate \( t_1 \) can be interpreted as the spatial
-variable \(x\).  Finally, we can use standard techniques to construct
-a solution to the KP equation in the form
+variable \(x\).
+
+Alternatively, one can follow the techniques developed in the original
+references~\cite{Foda:2009zz, Wheeler:2010vmq, Foda:2010,
+  Takasaki:2010qm, Foda:2012wn, Foda:2012wf} to express the tau
+function~(\ref{eq:slav-tau-function}) as a linear combination of Schur
+polynomials \( s_{\lambda}(\bm{z}) \), or written in terms of Miwa
+coordinates \( s_{\lambda}(\bm{t}) \):
 \begin{equation}
-  \varphi_{KP} = 2\, \partial_{t_1}^2 \ln \bm{\tau}_h\;,
+  \bm{\tau}(\bm{z}, \bm{v}) = \sum_{\lambda \subseteq [N, L]} c_\lambda\, s_{\lambda}(\bm{z})
+  \quad  \textrm{or} \quad 
+ \bm{\tau}(\bm{t}, \bm{v}) = \sum_{\lambda \subseteq [N, L]} c_\lambda\, s_{\lambda}(\bm{t})\;,
 \end{equation}
-and investigate the behavior of this solution near the Bethe roots,
-its spectral and singular structure. However, the key point is that
-these aspects require further analysis before we can address such
-specific details. In particular, we aim to construct the
-Baker--Akhiezer function in a more general setting.
+where \(\lambda = (\lambda_1, \lambda_2, \dots, \lambda_N)\), with \(L
+\geq \lambda_j \geq \lambda_{j+1}\), denotes a Young Tableaux
+contained in a box of size \([N, L]\). Moreover, the coefficients \(
+c_\lambda \) can be explicitly written in terms of the functions \(
+\Omega_j(z)\).  The homogeneous limit discussed above corresponds to
+the specialization
+\begin{equation}
+  s_\lambda(w, w, w, \dots, w) = w^{|\lambda|} s_\lambda(1, 1, 1, \dots, 1)\;,
+  \quad |\lambda| = \sum_{j=1}^N \lambda_j\;,
+\end{equation}
+and in this limit, the Schur polynomial \( s_\lambda(1, 1, 1, \dots,
+1) \) counts the number of \emph{semi-standard Young tableaux} of
+shape \(\lambda\), see~\cite{Stanley2023}.  Therefore, we obtain a
+purely combinatorial expression for the tau functions, with weights
+given by the Plücker coordinates \( c_\lambda \), that is
+\begin{equation}
+  \bm{\tau}_h(w, \bm{v}) = \sum_{\lambda \subseteq [N,L]} w^{|\lambda|} c_\lambda\, (\#\mathrm{SSYT})_\lambda\;.
+\end{equation}
 
 Before proceeding, let us calculate some examples to better visualize
 the results obtained so far.
@@ -1132,11 +1158,8 @@ most essential properties.
 \subsection{Integral representation of the tau functions}
 
 We now aim to express the Slavnov products defined above in terms of
-the following coordinates
-\begin{equation}
-  t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
-\end{equation}
-the so-called Miwa coordinates. Let us also define the function
+the Miwa coordinates~(\ref{eq:miwa-coord}). We first define the
+function
 \begin{equation}
   \xi(\bm{t}, \lambda) = \sum_{p=1}^\infty t_p \lambda^p\; , 
 \end{equation}
