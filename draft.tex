@@ -90,17 +90,18 @@ problem we explore in this work.
 Connections between classical and quantum integrable systems are a
 long-standing research area, and have been addressed from a wide range
 of perspectives~\cite{Wu:1975mw, Its:1992bj, korepin2000the, Foda2009,
-  Alexandrov:2011aa}.  In~\cite{Foda:2009zz}, the authors started the
-analysis of the connections between the Slavnov products of the
-Heisenberg XXZ spin chain and the Kadomtsev–Petviashvili (KP)
-classical integrable hierarchy. Their analysis has been extended in
-several different directions and applications, for
-example~\cite{Wheeler:2010vmq, Foda:2010, Takasaki:2010qm,
-  Foda:2012wn, Foda:2012wf}.  In~\cite{Araujo:2021ghu,
-  Araujo:2024klz}, the author of the current paper also investigated
-some aspects of this research problem. In particular, the relation
-between integrable hierarchies and quantum integrable systems such as
-the Q-Boson integrable system and the Temperley-Lieb open spin chains.
+  Alexandrov:2011aa, Zabrodin:2012vj, Alexandrov:2013hca}.
+In~\cite{Foda:2009zz}, the authors started the analysis of the
+connections between the Slavnov products of the Heisenberg XXZ spin
+chain and the Kadomtsev–Petviashvili (KP) classical integrable
+hierarchy. Their analysis has been extended in several different
+directions and applications, for example~\cite{Wheeler:2010vmq,
+  Foda:2010, Takasaki:2010qm, Foda:2012wn, Foda:2012wf}.
+In~\cite{Araujo:2021ghu, Araujo:2024klz}, the author of the current
+paper also investigated some aspects of this research problem. In
+particular, the relation between integrable hierarchies and quantum
+integrable systems such as the Q-Boson integrable system and the
+Temperley-Lieb open spin chains.
 
 The main ingredients for the Slavnov product are the Bethe
 wavefunctions themselves. As such, the specific details of these
@@ -462,6 +463,7 @@ components~(\ref{eq:omega-matrix-def}) to define \(n\) functions \(\Omega_j(z)\)
 form
 \begin{equation}
 \begin{split}
+\label{eq:om-def}
   \Omega_{j}(z) \equiv
   \Omega_{j}(z; \bm{v}) & = g(z, v_j) \mathcal{Y}(z; \{z, \bm{v}_j\})\\
    & = \frac{c}{z - v_j} \mathcal{Y}(z; \{z, \bm{v}_j\})\; , \qquad j =1, \dots, n \; .
@@ -766,7 +768,8 @@ In the previous section, we mentioned that given a set of generic
 functions \(\{\phi_j\}_{j=1}^n\), it has been shown that functions of
 the form
 \begin{equation}
-\tau(\bm{w}) = \frac{\det_{i,j} \phi_i(w_j)}{\Delta(\bm{w})}\;,
+\label{eq:general-tau}
+\bm{\tau}(\bm{w}) = \frac{\det_{i,j} \phi_i(w_j)}{\Delta(\bm{w})}\;,
 \end{equation}
 are tau functions of the KP hierarchy. This proposition has been
 extensively discussed in the literature, see for
@@ -918,19 +921,19 @@ function~(\ref{eq:slav-tau-function}) as a linear combination of Schur
 polynomials \( s_{\lambda}(\bm{z}) \), or written in terms of Miwa
 coordinates \( s_{\lambda}(\bm{t}) \):
 \begin{equation}
-  \bm{\tau}(\bm{z}, \bm{v}) = \sum_{\lambda \subseteq [N, L]} c_\lambda\, s_{\lambda}(\bm{z})
+  \bm{\tau}(\bm{z}, \bm{v}) = \sum_{\lambda \subseteq [n, L]} c_\lambda\, s_{\lambda}(\bm{z})
   \quad  \textrm{or} \quad 
- \bm{\tau}(\bm{t}, \bm{v}) = \sum_{\lambda \subseteq [N, L]} c_\lambda\, s_{\lambda}(\bm{t})\;,
+ \bm{\tau}(\bm{t}, \bm{v}) = \sum_{\lambda \subseteq [n, L]} c_\lambda\, s_{\lambda}(\bm{t})\;,
 \end{equation}
-where \(\lambda = (\lambda_1, \lambda_2, \dots, \lambda_N)\), with \(L
+where \(\lambda = (\lambda_1, \lambda_2, \dots, \lambda_n)\), with \(L
 \geq \lambda_j \geq \lambda_{j+1}\), denotes a Young Tableaux
-contained in a box of size \([N, L]\). Moreover, the coefficients \(
+contained in a box of size \([n, L]\). Moreover, the coefficients \(
 c_\lambda \) can be explicitly written in terms of the functions \(
 \Omega_j(z)\).  The homogeneous limit discussed above corresponds to
 the specialization
 \begin{equation}
   s_\lambda(w, w, w, \dots, w) = w^{|\lambda|} s_\lambda(1, 1, 1, \dots, 1)\;,
-  \quad |\lambda| = \sum_{j=1}^N \lambda_j\;,
+  \quad |\lambda| = \sum_{j=1}^n \lambda_j\;,
 \end{equation}
 and in this limit, the Schur polynomial \( s_\lambda(1, 1, 1, \dots,
 1) \) counts the number of \emph{semi-standard Young tableaux} of
@@ -938,7 +941,7 @@ shape \(\lambda\), see~\cite{Stanley2023}.  Therefore, we obtain a
 purely combinatorial expression for the tau functions, with weights
 given by the Plücker coordinates \( c_\lambda \), that is
 \begin{equation}
-  \bm{\tau}_h(w, \bm{v}) = \sum_{\lambda \subseteq [N,L]} w^{|\lambda|} c_\lambda\, (\#\mathrm{SSYT})_\lambda\;.
+  \bm{\tau}_h(w, \bm{v}) = \sum_{\lambda \subseteq [n,L]} w^{|\lambda|} c_\lambda\, (\#\mathrm{SSYT})_\lambda\;.
 \end{equation}
 
 Before proceeding, let us calculate some examples to better visualize
@@ -1149,10 +1152,24 @@ rational cases.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section addresses some properties of the Baker-Akhiezer functions
-associated with the tau functions derived above. While many aspects of
-these functions deserve thorough examination, here we focus on their
-most essential properties.
+In Section 4, we began investigating certain features of the Slavnov
+products from the perspective of the KP hierarchy. In particular, we
+examined the behavior of these tau functions when all parameters
+condense to a single value. Using known techniques, we found that the
+resulting tau functions are of Wronskian type, and we also observed
+that, when expressed in terms of Schur polynomials, this limit admits
+a combinatorial interpretation.
+
+In this section we want to continue with this investigation, but now
+without taking any particular limit for the parameters. Here we
+address some properties of the Baker-Akhiezer functions associated
+with the tau functions derived above. While many aspects of these
+functions deserve thorough examination, here we focus on their most
+essential properties.  This section presents two main findings: first,
+we derive explicit expressions for the Baker--Akhiezer function;
+second, based on its mathematical structure, we argue that it defines
+a soliton-like solution, in the sense described
+in~\cite{Zabrodin2018}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integral representation of the tau functions}
@@ -1177,11 +1194,19 @@ Therefore
 \end{equation}
 It is easy to see that these functions have simple poles at \( \lambda = z_j^{-1}\).
 
+It was first established in~\cite{ZinnJustin:2002cr,
+  ZinnJustin:2002pk} that tau functions of the alternant
+form~(\ref{eq:general-tau}) admit an integral representation; see
+also~\cite{Zinnjustin2009, Araujo:2021ghu} for further discussion. Let
+us now use these results to express~(\ref{eq:slav-tau-function}) in
+integral form. For pedagogical purposes -- and to clarify several
+differences in our conventions -- we provide a complete proof of this
+result below.
+
 \begin{proposition}
 \label{prop:integral-rep}
-It has been established that tau functions in the alternant
-form~(\ref{eq:slav-tau-function}) admits the following integral
-representation
+The tau functions in the alternant form~(\ref{eq:slav-tau-function})
+admits the following integral representation
 \begin{subequations}
 \begin{equation}
   \label{eq:tau-function-miwa}
@@ -1202,14 +1227,8 @@ encloses all poles except the Bethe root \(v_k\).
 
 \paragraph{\textbf{\emph{Proof}}}
 
-As far as we know, this result was first established
-in~\cite{ZinnJustin:2002cr, ZinnJustin:2002pk}; see
-also~\cite{Zinnjustin2009, Araujo:2021ghu} for further
-discussions. Here, we present a proof of this result for pedagogical
-reasons and to address some differences that arise due to our
-conventions.
-
-In terms of the \(z\)-coordinates, the integral~(\ref{eq:tau-function-miwa}) becomes
+In terms of the \(z\)-coordinates, the
+integral~(\ref{eq:tau-function-miwa}) becomes
 \begin{equation}
   \label{eq:tau-function}
   \bm{\tau}(\bm{z}, \bm{v}) =
@@ -1276,13 +1295,8 @@ invertible. This follows immediately from the relation
 \(\bm{\tau}(\bm{z}, \bm{v}) = \det \bm{\mathcal{K}}\).
 \end{lemma}
 
-One advantage of the integral
-representation~(\ref{eq:tau-function-miwa}) is that it makes it easier
-to consider the limit of the infinite chain, \(n\to \infty\).
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Baker-Akhiezer  in \(z\)-coordinates}
+\subsection{Baker-Akhiezer in \(z\)-coordinates}
 
 The Baker-Akhiezer (BA) function is defined through the
 Japanese formula~\cite{Babelon:2003qtg, Harnad:2021tau, Zabrodin2018}.
@@ -1409,11 +1423,11 @@ proportional to the Slavnov product, that is,
     \left( \frac{z_l^{n-j}}{\prod_{s\neq l} (z_l - z_s)} \right)\\
     = \frac{\det(\widehat{\bm{\Omega}})}{\Delta(\bm{z})}\;. 
 \end{equation}
-The above determinant is itself a tau function, but we can also write
+The determinant above is itself a tau function, but we can also write
 it as
 \begin{equation}
-    \det \widehat{\mathcal{K}} = 
-    \frac{\det(\Omega)}{\Delta(\bm{z})}
+    \det \widehat{\bm{\mathcal{K}}} = 
+    \frac{\det(\bm{\Omega})}{\Delta(\bm{z})}
     \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) 
     = \bm{\tau}(\bm{z}, \bm{v}) \prod_{l=1}^n \left( 1 - \frac{1}{\lambda z_l} \right) \; . 
 \end{equation}
@@ -1517,6 +1531,7 @@ where \(\bm{\mu} = \{\mu_l\}_{l=1}^n\) are the eigenvalues of the
 matrix \(\bm{\mathcal{M}}\), and these obviously depend on the Bethe
 roots \(\bm{v}\) and parameters \(\bm{t}\).  Therefore, we have
 \begin{equation}
+  \label{eq:ba-standard}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
   \left(1 + \sum_{k=1}^n \frac{\xi_k(\bm{t})}{\lambda^k} 
   \right)\; \qquad \xi_k(\bm{t}) = \sigma_k^{(n)}(\bm{\mu})\; .
@@ -1528,41 +1543,145 @@ Alternatively, we can also express the determinant as
     \det \left( \mathbb{1} + \frac{1}{\lambda} \bm{\mathcal{M}}\right)
     & = \exp\left[ \sum_{l=1}^n \ln \left( 1 + \frac{\mu_l}{\lambda} \right)\right]
     = \exp\left[ \sum_{l=1}^n \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k} \left(\frac{\mu_l}{\lambda} \right)^k\right] \\ 
-    & = \exp\left[ \sum_{k=1}^\infty \frac{(-1)^{k-1}}{\lambda^k} \gamma_k\right] \; ,
+    & = \exp\left[ \sum_{k=1}^\infty \frac{(-1)^{k-1}}{\lambda^k} q_k\right] \; ,
   \end{split}
 \end{equation}
 where we define the coordinates as 
 \begin{equation}
-\gamma_k = \frac{1}{k} \sum_{l=1}^n \mu_l^k\; .
+q_k = \frac{1}{k} \sum_{l=1}^n \mu_l^k\; .
 \end{equation}
 
 Then, we write the Baker-Akhiezer as 
 \begin{equation}
+\label{eq:ba-nindependent}
   \psi(\bm{t},\bm{v}; \lambda) = e^{\xi(\bm{t}, \lambda)}
-  \left(1 + \sum_{k\geq 1} \frac{\sigma_k(\bm{\gamma})}{\lambda^k} 
+  \left(1 + \sum_{k\geq 1} \frac{\sigma_k(\bm{q}(\bm{t}))}{\lambda^k} 
   \right)\; .
 \end{equation}
 Notice that this second expression does not explicitly depend on the
-size \(n\) of the Slavnov product. Consequently, the functions
-\(\xi_k(\bm{t})\) can be expressed in terms of the coordinates
-\(\bm{\gamma}\), where the parameter \(n\) is now implicitly contained
-in their definition.
+size \( n \) of the Slavnov product. Consequently, the functions \(
+\xi_k(\bm{t}) \) can be expressed in terms of the coordinates \(
+\bm{q} \), that is, \( \xi_k(\bm{t}) \equiv \sigma_k(\bm{q}) \), where
+the parameter \( n \) is now implicitly contained in their definition.
 
-An advantage of this formulation is that it provides a more suitable
-framework to consider the thermodynamic limit \(n \to \infty\) with
-\(n/L \to 0\). In fact, expression~(\ref{eq:ba-fredholm}) suggests
-that in this limit the Baker-Akhiezer function can be represented as a
-Fredholm determinant. We are currently investigating this question and
-hope to report new results soon.
+Let us now briefly discuss the meaning of these expressions. We first
+observe that the Baker--Akhiezer function~(\ref{eq:ba-standard}) is in
+standard form (see~\cite{Zabrodin2018}), where all coefficients \(
+\xi_k(\bm{t}) \) are elementary symmetric polynomials in the
+eigenvalues of the matrix \( \bm{\mathcal{M}} \). The corresponding KP
+field can then be obtained from
+\begin{equation}
+  u = -2\, \partial_{t_1} \xi_1(\bm{t})\;.
+\end{equation}
 
+In this form, it becomes clear that these solutions define a
+generalization of the soliton-like solutions of the KP hierarchy
+discussed in~\cite{Zabrodin2018}. In particular, we identify \( n \)
+functions
+\begin{equation}
+  \varrho_k(\lambda) = \frac{\mathcal{Y}_k(\lambda)}{\lambda - v_k}\;, \qquad k = 1, \dots, n\;,
+\end{equation}
+such that
+\begin{equation}
+  \oint_{\gamma_k} \frac{d\lambda}{2\pi i}\, \psi(\bm{t}, \bm{v}; \lambda^{-1})\, \varrho_k(\lambda) = 0\;, 
+\end{equation}
+so that the tau-function~(\ref{eq:tau-function-miwa}) is simply
+\begin{equation}
+  \bm{\tau}(\bm{t}, \bm{v}) =
+    \det_{j,k}\left(
+    \oint_{\gamma_k} \frac{d \lambda}{2\pi i} e^{\xi(\bm{t}, \lambda^{-1})} \lambda^{-j}\varrho_k(\lambda) \right)\; ,
+\end{equation}
+This construction extends the soliton-like solutions described in~\cite{Zabrodin2018}.
 
+Let us finish this section with two important observations. 
+
+\begin{remark}
+
+First, let us observe that the functions \( \mathcal{Y}_k(\lambda) \)
+in~(\ref{eq:om-def}) are defined by the absence of the Bethe root \(
+v_k \). As a result, there is no limiting procedure in \( \lambda \)
+that connects different functions \( \mathcal{Y}_k(\lambda) \). Our
+goal is to find an appropriate embedding of this system into the Sato
+Grassmannian. In the case of the XXX model, Belliard and Slavnov have
+shown in~\cite{Belliard:2019bfz} that the functions \(
+\mathcal{Y}(\lambda) \) are polynomials of degree \( 2n + 1 \).
+
+Let us consider the sum
+\begin{equation}
+  \sum_{k=1}^n \mathcal{Y}_k(\lambda) = a_{2n+1} \lambda^{2n+1} + \mathcal{O}(\lambda^{2n})\;,
+\end{equation}
+where \( a_{2n+1} \) is the coefficient of the highest-degree term and
+depends on the Bethe roots \( \bm{v} \). We then define the function
+\begin{equation}
+  \phi_1(\lambda) = \frac{1}{a_{2n+1}} \sum_{k=1}^n \mathcal{Y}_k(\lambda)
+  = \lambda^{2n+1} \left( 1 + \mathcal{O}(\lambda^{-1}) \right)\;.
+\end{equation}
+Next, we define \( n-1 \) additional functions \( \phi_j(\lambda) \)
+as
+\begin{equation}
+  \phi_j(\lambda) = \lambda^{j-1} \phi_1(\lambda)\;, \quad j = 2, 3, \dots, n\;.
+\end{equation}
+By comparison with the results of~\cite{Kharchev:1991cy}, we expect
+that, at least in this case, the set of functions \( \{
+\phi_j(\lambda) \} \) provides coordinates on the Sato
+Grassmannian. In future work, we hope to present a more rigorous
+justification of this heuristic argument, as well as a clearer proof
+that this embedding is appropriate.
+\end{remark}
+
+\begin{remark}
+In this work, we have restricted ourselves to the analysis of finite
+\( n \). However, the limit \( n \to \infty \) is fundamental for a
+deeper understanding of the embedding of these solutions within the
+classical KP hierarchy framework. One advantage of the integral
+representation~(\ref{eq:tau-function-miwa}) and the Baker--Akhiezer
+function~(\ref{eq:ba-nindependent}) is that both retain an implicit
+dependence on \( n \), making them well-suited for studying this
+limit. The limit \( n \to \infty \) is expected to correspond to the
+thermodynamic limit of the spin chain, and therefore provides a
+natural setting for our problem.
+
+A key point in our analysis is that the tau functions defined by the
+Slavnov products correspond to restricted tau functions. This is
+clearly seen when we expand the tau function in terms of Schur
+polynomials, as done in the original references~\cite{Foda:2009zz,
+  Wheeler:2010vmq, Foda:2010, Takasaki:2010qm, Foda:2012wn,
+  Foda:2012wf}, and briefly reviewed in Section~4. In that context,
+the corresponding Young tableaux are confined to a box of size \([n,
+  L]\). To obtain a fully general tau function of the KP hierarchy, we
+must consider the limit \( n \to \infty \), \( L \to \infty \).
+
+In this limit, the tau function \( \bm{\tau}(\bm{t}) \) becomes a
+function of infinitely many time variables \( \bm{t} = (t_1, t_2,
+\dots) \) and defines a point in the Sato Grassmannian, thus
+corresponding to a full KP hierarchy. In terms of the Schur polynomial
+expansion, this means summing over Young tableaux with arbitrarily
+long hooks. Interestingly, the tau function itself appears to have a
+trivial expression in this limit (see, for
+example,~\cite{Babbitt1990})\footnote{We thank the referee for
+pointing out this reference.}.
+
+On the other hand, the analysis of the Baker--Akhiezer function in
+this limit is more subtle. In particular, we need to better understand
+the Fredholm determinant expression~(\ref{eq:ba-fredholm}). A central
+issue is to prove that the matrix appearing in this expression defines
+a trace-class operator and to characterize the structure of its
+kernel; it may also be necessary to further impose that \( n / L \to 0
+\). These considerations suggest that, in the thermodynamic limit, the
+Baker--Akhiezer function can indeed be represented as a Fredholm
+determinant. We are currently investigating this question and hope to
+report new results in the near future.
+
+One of the key advantages of this formulation is that it provides a
+more natural framework for taking the thermodynamic limit, as the
+dependence on \( n \) becomes implicit in all relevant expansions.
+\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 In this work, we have discussed classical properties of the Slavnov
 products arising in quantum integrable models and their deep
@@ -1605,7 +1724,7 @@ Another important aspect of this work is to gain a deeper
 understanding of the Baker--Akhiezer functions associated with the
 Slavnov products. Here, we have only scratched the surface of these
 objects, and a complete description of their properties is still
-lacking. We are currently investigating the limit \( N \to \infty \),
+lacking. We are currently investigating the limit \( n \to \infty \),
 which corresponds to a proper Sato and Segal--Wilson tau
 function. This limit should coincide with the thermodynamic limit of
 the Slavnov product, and we hope that known results in the literature
@@ -1614,7 +1733,7 @@ will help address some of the open questions.
 In particular, it is important to understand the significance of the
 Slavnov product from the perspective of the Baker--Akhiezer
 function. For instance, how does one properly describe the double
-limit \( L \to \infty \) and \( N \to \infty \), with \( N \) growing
+limit \( L \to \infty \) and \( n \to \infty \), with \( n \) growing
 sufficiently slower than \( L \)? We believe that the matrix \(
 \mathcal{M} \) is a trace-class operator, which would allow the
 Baker--Akhiezer function to be expressed as a Fredholm determinant. We
@@ -1622,11 +1741,12 @@ hope to report new results along this line of investigation soon.
 
 Finally, there is a more challenging problem to be addressed: the
 description of the elliptic case. While some determinantal formulas
-are known for the partially on-shell scalar product of Bethe states,
-it is not yet clear whether these objects are also related to tau
-functions of integrable hierarchies.  This characterization is another
-problem we are currently investigating, and we hope to have some
-results to report in the future.
+are known for the partially on-shell scalar product of Bethe
+states~\cite{Slavnov:2020xxj}, it is not yet clear whether these
+objects are also related to tau functions of integrable hierarchies.
+This characterization is another problem we are currently
+investigating, and we hope to have some results to report in the
+future.
 
 
 
