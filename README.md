@@ -1,7 +1,7 @@
 # Tau functions from Slavnov products
 
 Repository for the paper 
-[arXiv:2505.21166 [hep-th]](https://arxiv.org/abs/2505.21166), see
+[arXiv:2505.21166 [hep-th]](https://arxiv.org/abs/2505.21166), see also
 [Inspire-HEP](https://inspirehep.net/literature/2925577).
 
 **Abstract**
