@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{amsart}
+\documentclass[a4paper,11pt]{amsart}
 
 \usepackage{globaldef}
 \input{definitions.tex}
@@ -16,38 +16,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Slavnov products, KP and BA functions]{More on Slavnov Products of Spin Chains and KP Hierarchy Tau Functions}
+\title[Slavnov products, KP and BA functions]{More on Algebraic Bethe
+  Ansatz Scalar Products as KP Hierarchy Tau Functions}
 
 \author{Thiago Araujo}
 
 \address{
-Universidade Federal Fluminense, 
-Instituto de Ciências Exatas, Departamento de Física
-Volta Redonda, RJ, Brazil
-}
+Universidade Federal Fluminense,\\ 
+Instituto de Ciências Exatas, Departamento de Física\\
+Volta Redonda, RJ, Brazil}
 
 \email{\texttt{\href{thiaraujo@id.uff.br}{thiaraujo@id.uff.br}}}
 
 \begin{abstract}
  Connections between classical and quantum integrable systems are
- analyzed from the viewpoint of Slavnov products of Bethe states. It
- is well known that, modulo model dependent aspects, the functional
- structure of Slavnov products generally takes the form of
- determinants. Building on recent results on the structure of rational
- and trigonometric models, we show that, provided certain conditions
- are satisfied, the Slavnov product of a given model can be
- interpreted as a tau function of the KP hierarchy, thus extending
- known results in a more general setting.  In light of this, we begin
- by analyzing the classical features of these tau functions,
- particularly the types of classical solutions defined by the Slavnov
- products. We show that Slavnov products can be expanded in terms of
- other tau functions.  We also show that their homogeneous limit
- yields a Wronskian-type solution of the KP hierarchy, where the
- Wronskian is constructed from functions related to the eigenvalues of
- the transfer matrices.  Finally, we compute the Baker-Akhiezer
- functions associated with these tau functions and show that, apart
- from a universal multiplicative factor, they admit a closed
- determinantal representation.
+ analyzed from the viewpoint of partially off-shell scalar products of
+ Bethe states, the so called Slavnov products. It is well known that,
+ modulo model dependent aspects, the functional structure of Slavnov
+ products generally takes the form of determinants. Building on recent
+ results on the structure of rational and trigonometric models, we
+ show that, provided certain conditions are satisfied, the Slavnov
+ products of quantum integrable systems can be interpreted as tau
+ functions of the KP hierarchy, thus extending known results in a more
+ general setting.  In light of this, we begin by analyzing the
+ classical features of these tau functions, particularly the types of
+ classical solutions defined by the Slavnov products. We show that
+ Slavnov products can be expanded in terms of other tau functions.  We
+ also show that their homogeneous limit yields a Wronskian-type
+ solution of the KP hierarchy, where the Wronskian is constructed from
+ functions related to the eigenvalues of the transfer matrices.
+ Finally, we compute the Baker-Akhiezer functions associated with
+ these tau functions and show that, apart from a universal
+ multiplicative factor, they admit a closed determinantal
+ representation.
 \end{abstract}
 
 \keywords{Integrability, field theories, lattice models, correlation functions, bethe ansatz}
@@ -62,7 +63,6 @@ Volta Redonda, RJ, Brazil
 
 \setcounter{tocdepth}{1}
 \tableofcontents
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,9 +79,9 @@ aspect of these products: scalars products in the algebraic Bethe
 ansatz can be expressed in terms of determinants.
 
 More specifically, we investigate a very special type of correlation
-function in quantum integrable spin chains, the so called
-\emph{Slavnov product}~\cite{Slavnov1989}. These objects can be seen
-as building blocks of more sophisticated correlation functions and are
+function in quantum integrable systems, the so called \emph{Slavnov
+product}~\cite{Slavnov1989}. These objects can be seen as building
+blocks of more sophisticated correlation functions and are
 instrumental in the study of norms of Bethe wave
 functions~\cite{Korepin:1993kvr}. But more importantly for the
 purposes of the present work, Slavnov products seem to be a bridge
@@ -116,16 +116,15 @@ manipulate these objects and prove that they are KP and/or Toda tau
 functions.
 
 Belliard and Slavnov~\cite{Belliard:2019bfz} have thoroughly
-investigated this property for spin chains with rational and
-trigonometric \(R\)-matrices, and basically answered ``\emph{why
-scalar products in the Algebraic Bethe Ansatz have determinant
-representations}''. Using their results, we now want to understand
-``\emph{why and how (some) scalar products in the Algebraic Bethe
-Ansatz are KP and Toda tau functions}''. We prove that, as long as the
-integrable system satisfies the conditions established
-in~\cite{Belliard:2019bfz} -- along with some additional restrictions
--- the Slavnov product is guaranteed to satisfy the KP integrable
-hierarchy.
+investigated this property for models with rational and trigonometric
+\(R\)-matrices, and basically answered ``\emph{why scalar products in
+the Algebraic Bethe Ansatz have determinant representations}''. Using
+their results, we now want to understand ``\emph{why and how (some)
+scalar products in the Algebraic Bethe Ansatz are KP and Toda tau
+functions}''. We prove that, as long as the integrable system
+satisfies the conditions established in~\cite{Belliard:2019bfz} --
+along with some additional restrictions -- the Slavnov product is
+guaranteed to satisfy the KP integrable hierarchy.
 
 Having established this result, we proceed to analyze the classical
 aspects of the tau functions defined via Slavnov products. Our initial
