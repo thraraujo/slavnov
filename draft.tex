@@ -69,6 +69,7 @@ Volta Redonda, RJ, Brazil}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\todo[inline]{I need to check the abstract and intro later}
 One important ingredient in the Algebraic Bethe Ansatz is the scalar
 product of Bethe states. This object plays a central role in the
 analysis of quantum integrable systems. Many important results have
@@ -186,24 +187,24 @@ interesting consequences and open problems in Section 7.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To ensure the paper is as self-contained as possible, this section
-reviews the main arguments of the work of Belliard and
-Slavnov~\cite{Belliard:2019bfz}. Let us start with a set of arbitrary
-complex parameters \(\bm{u} = \{u_j\}_{j=1}^{n+1}\), and define
-\(n+1\) sets \(\bm{u}_j=\bm{u}\setminus \{u_j\}\). In the Algebraic
-Bethe Ansatz context~\cite{Korepin:1993kvr, Slavnov:2019aba}, we can
-now define \(n+1\) off-shell Bethe vectors \(\ket{\Psi(\bm{u}_j)}\),
-i.e., Bethe states where the algebraic Bethe equations are not imposed
-on the parameters \(\bm{u}_j\). Additionally, we must also consider a
-set of Bethe roots \(\bm{v} = \{ v_k \}_{k=1}^n\), that is, parameters
-\(\bm{v}\) that satisfy the algebraic Bethe equations. Finally, we
-define the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\).
+\textcolor{red}{This section recalls the determinant representation of partially on-shell scalar
+products established by Belliard and Slavnov~\cite{Belliard:2019bfz}. We specify the assumptions and
+conventions needed below, emphasizing the analytic behavior at the Bethe roots that will enter our
+construction of KP tau functions.}
+
+Let us start with a set of arbitrary complex parameters \(\bm{u} = \{u_j\}_{j=1}^{n+1}\), and define
+\(n+1\) sets \(\bm{u}_j=\bm{u}\setminus \{u_j\}\). In the Algebraic Bethe Ansatz
+context~\cite{Korepin:1993kvr, Slavnov:2019aba}, we can now define \(n+1\) off-shell Bethe vectors
+\(\ket{\Psi(\bm{u}_j)}\), i.e., Bethe states where the algebraic Bethe equations are not imposed on
+the parameters \(\bm{u}_j\). Additionally, we must also consider a set of Bethe roots \(\bm{v} = \{
+v_k \}_{k=1}^n\), that is, parameters \(\bm{v}\) that satisfy the algebraic Bethe
+equations. \textcolor{red}{Moreover, let us define \(n\) sets \(\bm{v}_j = \bm{v}\setminus
+\{u_j\}\).} Finally, we define the on-shell Bethe vectors \(\ket{\Psi(\bm{v})}\).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinant representation}
-The action of the transfer matrix \(\mathcal{T}(z)\), that is an
-Hermitian operator, on the dual on-shell Bethe vector is given by
+The action of the transfer matrix \(\mathcal{T}(z)\) on the dual on-shell Bethe vector is given by
 \begin{equation}
 \label{eq:eigenvalue-bethe}
 \bra{\Psi(\bm{v})}\mathcal{T}(z) = \Lambda(z; \bm{v}) \bra{\Psi(\bm{v})} \; , 
@@ -229,19 +230,19 @@ expanded as
 \label{eq:scalar-exp}
   \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)}  = \sum_{k=1}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; ,
 \end{equation}
-where \(L_{jk}\) are coefficients, and the off-diagonal elements
-\(L_{jk}\) with \(j\neq k\) contain the unwanted
-terms~\cite{Slavnov:2019aba}. From the Algebraic Bethe Ansatz
-construction, the non-diagonal terms must vanish when the Bethe
-equations are satisfied, and this is basically the definition of the
-algebraic bethe equations. Consequently, only the diagonal
-coefficients \(L_{jj}\) survive, and we conclude that these terms must
-be equal to the eigenvalue of the tranfer matrix.  Therefore
+where \(L_{jk}\) are coefficients, and the off-diagonal elements \(L_{jk}\) with \(j\neq k\) contain
+the unwanted terms~\cite{Slavnov:2019aba}. \textcolor{red}{The coefficients \(L_{jk}\), \(k\neq j\),
+  multiply the unwanted terms. Writing \(L_{jj}=\Lambda(u_j;\bm u_j)\), where \(\Lambda\) denotes
+  the eigenvalue formula evaluated at arbitrary Bethe parameters, the off-shell action takes the
+  form}
 \begin{equation}
-  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} =  \Lambda(u_j; \bm{u}_j) \ket{\Psi(\bm{v})} + 
+  \mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} =  \Lambda(u_j; \bm{u}_j) \ket{\Psi({\color{red} \bm{u}_j})} + 
   \sum_{\substack{k=1\\ k\neq j}}^{n+1} L_{jk} \ket{\Psi(\bm{u}_k)} \; . 
 \end{equation}
 \end{subequations}
+\textcolor{red}{The Bethe equations for \(\bm{u}_j\) cancel the unwanted terms, leaving only the
+term proportional to \(|\Psi(\bm u_j)\rangle\). Its coefficient \(L_{jj}=\Lambda(u_j;\bm{u}_j)\)
+then becomes the transfer-matrix eigenvalue.}
 
 This class of models includes many of the most familiar spin chains
 with rational and trigonometric \(R\)-matrices -- including those
@@ -258,7 +259,7 @@ equations.
 \end{proposition}
 \paragraph{\textbf{\emph{Proof}}} Let us first use that the
 transfer matrix can act on the on-shell bra \(\bra{\Psi(\bm{v})}\)
-on on the off-shell ket \(\ket{\Psi(\bm{u}_j)}\), then  
+or on the off-shell ket \(\ket{\Psi(\bm{u}_j)}\), then  
 \begin{equation}
 \label{eq:scalar-prod}
   \bra{\Psi(\bm{v})} \left(\mathcal{T}(u_j)\ket{\Psi(\bm{u}_j)} \right) =
@@ -280,11 +281,11 @@ side of~(\ref{eq:scalar-prod}). Therefore, we have
   \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k \; .
 \end{equation}
 
-Puttting all these facts together, we can write the
+Putting all these facts together, we can write the
 expression~(\ref{eq:scalar-prod}) as
 \begin{equation}
   \sum_{k=1}^{n+1} L_{jk} \bm{\zeta}_k  = 
-  \Lambda(u_j; \bar{v}) \bm{\zeta}_j\quad \Rightarrow \quad
+  \Lambda(u_j; {\color{red}\bm{v}}) \bm{\zeta}_j\quad \Rightarrow \quad
   \sum_{k=1}^{n+1} M_{jk} \bm{\zeta}_k = 0 \; ,
 \end{equation}
 where we have defined the coefficients
@@ -317,18 +318,18 @@ with \(\Lambda_j \equiv \Lambda(u_j; \bm{v})\), and
 \end{equation}
 \end{subequations}
 This completes the proof of their proposition. 
- \qed
+\qed
 
-There are two important consequences for us now. First of all, if we
-assume that this system has a nontrivial solution, it will be
-expressed in terms of minors of the matrix \(\bm{M}\).
+There are two important consequences for us now. First of all, \textcolor{red}{Assuming
+\(\operatorname{rank}(\bm M)=n\), the kernel is one-dimensional and is spanned by any nonzero
+column of \(\operatorname{adj}(\bm M)\), whose entries are signed cofactors.}
 
-Moreover, since the system is homogeneous, the solutions are
-determined up to multiplicative factors, which we can fix by
-requiring that the final result yields a KP tau function. In the
-original works of Foda and collaborators, e.g.,~\cite{Foda:2009zz,
-  Wheeler:2010vmq}, the authors perform a series of redefinitions to
-achieve the same goal.
+\textcolor{red}{
+The linear system determines the scalar products only up to a common factor. Their physical
+normalization requires additional information about the Bethe vectors. Motivated by the work of Foda
+and Wheeler~\cite{Foda:2009zz,Wheeler:2010vmq}, we extract the prefactor in the determinant
+representation and investigate the KP tau-function structure of the resulting normalized scalar
+products.}
 
 Evidently, being a determinant is not enough to guarantee that the
 Slavnov product is a tau function.  In order to establish this
@@ -347,41 +348,53 @@ Let us start with an R-matrix of the form
   R(u,v) = \mathbb{1} + g(u,v) \mathcal{P}\; , \qquad
   g(u,v) = \frac{c}{u - v}
 \end{equation}
-where \(c\) is a constant, \(\mathbb{1}\) is the identity and
+where \(c\) is a non-zero constant, \(\mathbb{1}\) is the identity and
 \(\mathcal{P}\) is the permutation operator~\cite{Slavnov:2019aba}.
-The eigenvalues of the transfer matrix have the form
+\textcolor{red}{We consider rational models whose transfer-matrix eigenvalues have the form}
 \begin{equation}
   \Lambda(z, \bm{v}) = g(z, \bm{v}) \mathcal{Y}(z; \bm{v})\; ,
 \end{equation}
-where the function \(\mathcal{Y}(z; \bm{v})\) is symmetric over the
-Bethe roots \(\bm{v}\), and has a linear dependence on each Bethe root
-\(v_j\).
+where the function \(\mathcal{Y}(z; \bm{v})\) is symmetric over the Bethe roots \(\bm{v}\), and has
+a linear dependence on each Bethe root \(v_j \in \bm{v}\).
+Additionally, we have the product 
+\begin{equation}
+  g(z, \bm{v}) = \prod_{v_i\in \bm{v}} g(z; v_i)\; . 
+\end{equation}
+Now, it is easy to see that each Bethe root \( v_i \in \bm{v}\) is a pole of
+\(g(z;\bm{v})\).
+
+\textcolor{red}{We restrict to nonzero
+  on-shell Bethe vectors with pairwise distinct roots, and assume that the chosen normalization of
+  \(\mathcal{T}(z)\) is holomorphic in a neighborhood of each root in \(\bm{v}\). The corresponding
+  eigenvalue \(\Lambda(z;\bm v)\) is therefore holomorphic at the Bethe roots.}
+
+With these conditions, let \(\Gamma\) be a positively oriented simple closed contour enclosing
+all Bethe roots, with none on the contour. The residue theorem gives
+\begin{equation}
+  \frac{1}{2 \pi i}\oint_{\Gamma} \mathrm{d}z g(z; \bm{v}) = {\color{red} c}\sum_{j=1}^n
+  \prod_{v_i \in \bm{v}\setminus \{v_j\}} g(\textcolor{red}{v_j}, v_i)\; .
+\end{equation}
+
+\textcolor{red}{Since the roots are pairwise distinct and \(\Lambda(z;\bm{v})\) is holomorphic
+near each Bethe root, the representation \(\Lambda(z;\bm{v})=g(z,\bm{v})\mathcal Y(z;\bm{v})\) implies
+\begin{equation}
+\mathcal Y(v_i;\bm{v})=0,\qquad i=1,\dots,n.
+\end{equation}
+Thus the apparent poles of the eigenvalue at the Bethe roots are removable.}
 
 Generically, we write the \(\mathcal{Y}\)-functions as 
 \begin{equation}
 \label{eq:yfunc-exp}
   \mathcal{Y}(z; \bm{v}) = \sum_{p=0}^n \alpha_p(z) \sigma_p^{(n)}(\bm{v})\; , 
 \end{equation}
-where \(\sigma_p^{(n)}(\bm{v})\) are elementary symmetric polynomials
-in \(\bm{v}\), and \(\alpha_p(z)\) are free functional parameters.
-The most important point for us is that the functions \(\alpha_p(z)\), 
-and consequently the \(\mathcal{Y}\)-function, are regular in the limit
-\(z \to v_j \in \bm{v}\). The XXX spin chain has been discussed
-in~\cite{Belliard:2019bfz}, and the authors show that \(\alpha_p(z)\)
-are polynomials of degree \(2n\).
+where \(\sigma_p^{(n)}(\bm{v})\) are elementary symmetric polynomials in \(\bm{v}\), and
+\(\alpha_p(z)\) are free functional parameters.  The most important point for us is that the
+functions \(\alpha_p(z)\), and consequently the \(\mathcal{Y}\)-function, are
+\textcolor{red}{holomorphic in a neighborhood of each Bethe root}. The XXX spin chain discussed
+in~\cite{Belliard:2019bfz} \textcolor{red}{gives an example of a polynomial realization satisfying
+  this regularity assumption.}
 
-Let us also define the product 
-\begin{equation}
-  g(z, \bm{v}) = \prod_{v_i\in \bm{v}} g(z; v_i)\; . 
-\end{equation}
-Now, it is easy to see that each Bethe root \( v_i \in \bm{v}\) is a
-pole of \(g(z;\bm{v})\). Therefore, if \(\Gamma\) is a contour
-containing all the Bethe roots \(\{v_j\}_{j=1}^n\), we have
-\begin{equation}
-  \frac{1}{2 \pi i}\oint_{\Gamma} \mathrm{d}z g(z; \bm{v}) = \sum_{j=1}^n
-  \prod_{v_i \in \bm{v}\setminus \{v_j\}} g(z, v_i)\; .
-\end{equation}
-Consequently, the coefficients \(L_{jk}\) are given by
+Furthermore, the coefficients \(L_{jk}\) are given by
 \begin{equation}
   L_{jk} = g(u_k, \bm{u}_k) \mathcal{Y}(u_k; \bm{u}_j)\; ,
 \end{equation}
@@ -393,16 +406,16 @@ given by
 \begin{equation}
  \bm{\zeta}_\ell = \phi(\bm{v}) \tilde{\Delta}(\bm{u}_\ell)\hat{\Omega}_\ell\; , \qquad \ell = 1, \dots, n+1\; .
 \end{equation}
-Let us now explain the different terms in this expression.  First of
-all, \(\phi(\bm{v})\) is a function of the Bethe roots and its
-particular form is not important in out analysis. Moreover, we have
+Let us now explain the different terms in this expression.  First of all, \(\phi(\bm{v})\) is a
+function of the Bethe roots and its particular form is not important in our analysis and we only
+impose that \textcolor{red}{\(\phi(\bm v)\ne 0\)}. \textcolor{red}{ To connect with the notation of
+  Belliard–Slavnov, we denote their prefactor by \(\tilde{\Delta}\), reserving \(\Delta\) for the
+  ordinary Vandermonde determinant}. Therefore
 \begin{equation}
-  \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_j \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\; .
+  \tilde{\Delta}(\bm{u}_\ell) = \prod_{\substack{u_j, u_k \in \bm{u}_\ell \\ j>k}} \frac{c}{u_j - u_k}\; .
 \end{equation}
-We can also absorb the product of \(c\) into a new constant
-\(c_0\), and it is easy to see that \(\tilde{\Delta}(\bm{u}_\ell)/c_0\) is the
-inverse of the Vandermonde determinant \(\Delta(\bm{u}_\ell) =
-\prod_{j>k}(u_j - u_k)\).
+\textcolor{red}{Thus \(\tilde\Delta(\bm u_\ell)=c_0/\Delta(\bm u_\ell)\), where \(c_0=c^{n(n-1)/2}\)
+  and \(\Delta(\bm u_\ell)=\prod_{j>k}(u_j-u_k)\) is the Vandermonde determinant.}
 
 We now define the \(n\times (n+1)\) matrix \(\bm{\Omega}\) by specifying its components
 \begin{equation}
@@ -410,6 +423,13 @@ We now define the \(n\times (n+1)\) matrix \(\bm{\Omega}\) by specifying its com
   \Omega_{jk}(u_k; \bm{v}) = g(u_k, v_j) \mathcal{Y}(u_k; \{u_k, \bm{v}_j\})\; ,
   \quad j= 1, \dots, n\; , \quad k =1, \dots, n+1\; .
 \end{equation}
+\textcolor{red}{Although this expression contains the factor \(1/(u_k-v_j)\), its singularity at
+  \(u_k=v_j\) is removable. Indeed, the function \(\mathcal{Y}(u_k;\{u_k,\bm{v}_j\})\) is holomorphic near this point and satisfies
+   \begin{equation}
+   \left.\mathcal{Y}(u_k;\{u_k,\bm{v}_j\})\right|_{u_k=v_j} =\mathcal{Y}(v_j;\bm{v})=0.
+   \end{equation}
+Thus each matrix entry extends holomorphically to \(u_k=v_j\).}
+
 The matrices \(\hat{\Omega}_\ell\) are minors of
 \(\bm{\Omega}\) with the \(\ell\)-th column excluded, in other words,
 \begin{equation}

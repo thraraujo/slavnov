@@ -16,6 +16,7 @@
 *.md 
 *.org
 /auxiliary
+/reviews
 __pycache__/*
 .ipynb_checkpoints/*
 answer-report/*
