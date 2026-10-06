@@ -492,7 +492,7 @@ Let us also denote \(\mathcal{Y}(z; \{z, \bm{v}_j\}) \equiv
 \mathcal{Y}_j(z)\), and note that we have \(n\) functions
 \(\mathcal{Y}_j(z)\) whose defining property is the absence of the
 \(j\)-th Bethe root \(v_j\).  It is also convenient to consider
-\(c=1\), consequently \(c_0=1\).
+\(c=1\).
 
 Moreover, the expansion of the
 \(\mathcal{Y}\)-functions~(\ref{eq:yfunc-exp}) yields
@@ -529,10 +529,7 @@ Putting all these facts together, we have
 \end{split}
 \end{equation}
 The factor \((z - v_j)^{-1}\) introduces the dependence on the Bethe root \(v_j\).  
-Moreover, one can observe that
-\begin{equation}
-\Res_{z=v_k} \left( \Omega_j(z)\right) =  \delta_{jk}\mathcal{Y}_j(v_j)\; .
-\end{equation}
+\textcolor{red}{Moreover, the pole at \(z = v_j\) is removable, since \(\mathcal{Y}_j(v_j)=0\).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Alternant determinant expression for the Slavnov products}
@@ -570,11 +567,11 @@ Henceforth, we will only refer to the matrix
 Finally, we can write~(\ref{eq:slavnov-tau}) as 
 \begin{equation}
 \label{eq:slavnov-tau-functions}
-  \bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v}) = \frac{\det [\Omega_j((\bm{u}_\ell)_k)]|_{j,k=1}^n }{\Delta(\bm{u}_\ell)} \; ,
+  \bm{\tau}^{(\ell)}(\bm{u}_\ell; \bm{v}) = \frac{\det \{\Omega_j[(\bm{u}_\ell)_k]\}|_{j,k=1}^n }{\Delta(\bm{u}_\ell)} \; ,
 \end{equation}
 where \((\bm{u}_\ell)_k \) is the \(k\)-th component of the vector
 \(\bm{u}_\ell\).  More explicitly, remember that \(\bm{u} = (u_1,
-\dots, u_{n+1})\) and that \(\bm{u}_\ell = \bm{u}_\ell\setminus
+\dots, u_{n+1})\) and that \(\bm{u}_\ell = \bm{u}\setminus
 \{u_\ell\} = (u_1, \dots, u_{\ell-1}, u_{\ell+ 1}, \dots, u_{n+1})\),
 we have
 \begin{equation}
@@ -582,17 +579,16 @@ we have
   \left\{ 
   \begin{matrix}
     u_k & \text{if} & k < \ell\\
-    u_{k+1} & \text{if} & k > \ell
+    u_{k+1} & \text{if} & k \geq \ell
   \end{matrix}
   \right. \; .
 \end{equation}
-It is convenient to write \(\bm{z}^{(\ell)} = (z^{(\ell)}_1,
-z^{(\ell)}_2, \dots, z^{(\ell)}_n) = \bm{u}_{\ell}\). Moreover, it is
-worth noting that the normalized Slavnov product
-\(\bm{\tau}^{(\ell)}\) is completely independent of the parameter
-\(u_\ell\). On the other hand, these functions are not independent from each
-other, since \(\bm{z}^{(\ell)} \cap \bm{z}^{(\ell')} = \bm{u} \setminus
-\{ u_\ell, u_{\ell'}\} \).
+It is convenient to write \(\bm{z}^{(\ell)} = (z^{(\ell)}_1, z^{(\ell)}_2, \dots, z^{(\ell)}_n) =
+\bm{u}_{\ell}\). Moreover, it is worth noting that the normalized Slavnov product
+\(\bm{\tau}^{(\ell)}\) is completely independent of the parameter \(u_\ell\). \textcolor{red}{These functions are
+evaluations of the same determinant quotient on different, overlapping subsets of \(\bm{u}\), that is
+\(\bm{z}^{(\ell)} \cap \bm{z}^{(\ell')} = \bm{u} \setminus
+\{ u_\ell, u_{\ell'}\} \).}
 
 Consequently, we write the normalized Slavnov products as 
 \begin{equation}
@@ -622,44 +618,41 @@ hierarchy.  This proposition has been extensively discussed in the
 literature, for example~\cite{Segal:1985aga, Kharchev:1991cy,
   Araujo:2021ghu} and references therein.
 
-Before proceeding, let us make two interesting observations. The first
-is a (bold) conjecture regarding a hypothetical multicomponent KP
-hierarchy underlying all the calculations discussed above. The second
-is a proof that the KP tau functions above can be expressed in terms
-of other tau functions of the KP hierarchy.
+Let us finish this section with a proof that the KP tau functions above can be expressed in terms of
+other tau functions of the KP hierarchy.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Conjecture: Multicomponent tau functions}
-
-Given that each function \(\bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})\), for
-\(\ell = 1, \dots, n+1\), is a distinct but related tau function, one
-can define a vector
-\begin{equation}
-  \bm{T}(\bm{Z}, \bm{v}) = 
-\begin{bmatrix}
-\bm{\tau}^{(1)}(\bm{z}^{(1)}, \bm{v}) \\ 
-\bm{\tau}^{(2)}(\bm{z}^{(2)}, \bm{v}) \\ 
-\vdots \\ 
-\bm{\tau}^{(n+1)}(\bm{z}^{(n+1)}, \bm{v})
-\end{bmatrix}
-\end{equation}
-where \(\bm{Z} = (\bm{z}^{(1)}, \bm{z}^{(2)}, \dots,
-\bm{z}^{(n+1)})\). This is a vector of tau functions of the KP
-hierarchy.
-
-\begin{conjecture}
-This observation suggests that there is, in fact, an
-underlying multicomponent KP hierarchy in this context, and that the
-linear system~(\ref{eq:linear-system}), which we can write as
-\begin{equation}
-\left( \bm{L} - \bm{\Lambda} \right) \bm{T} = \bm{0},
-\end{equation}
-defines a reduction of this multicomponent KP hierarchy. This
-reduction ultimately describes constraints that relate the different
-sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
-idea in this work, but we hope to return to this problem in future
-publications.
-\end{conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Check if it is worth keeping
+%\subsection{Conjecture: Multicomponent tau functions}
+%
+%Given that each function \(\bm{\tau}^{(\ell)}(\bm{z}^{(\ell)}, \bm{v})\), for
+%\(\ell = 1, \dots, n+1\), is a distinct but related tau function, one
+%can define a vector
+%\begin{equation}
+%  \bm{T}(\bm{Z}, \bm{v}) = 
+%\begin{bmatrix}
+%\bm{\tau}^{(1)}(\bm{z}^{(1)}, \bm{v}) \\ 
+%\bm{\tau}^{(2)}(\bm{z}^{(2)}, \bm{v}) \\ 
+%\vdots \\ 
+%\bm{\tau}^{(n+1)}(\bm{z}^{(n+1)}, \bm{v})
+%\end{bmatrix}
+%\end{equation}
+%where \(\bm{Z} = (\bm{z}^{(1)}, \bm{z}^{(2)}, \dots,
+%\bm{z}^{(n+1)})\). This is a vector of tau functions of the KP
+%hierarchy.
+%
+%\begin{conjecture}
+%This observation suggests that there is, in fact, an
+%underlying multicomponent KP hierarchy in this context, and that the
+%linear system~(\ref{eq:linear-system}), which we can write as
+%\begin{equation}
+%\left( \bm{L} - \bm{\Lambda} \right) \bm{T} = \bm{0},
+%\end{equation}
+%defines a reduction of this multicomponent KP hierarchy. This
+%reduction ultimately describes constraints that relate the different
+%sets of parameters \(\bm{z}^{(\ell)}\).  We have not explored this
+%idea in this work, but we hope to return to this problem in future
+%publications.
+%\end{conjecture}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tau functions expansion of the Slavnov product}
@@ -667,8 +660,7 @@ publications.
 Let us now fix a component \(\ell\) and omit this index in
 equation~(\ref{eq:slav-tau-function}). We also assume that the Bethe
 roots are non-degenerate; that is, for \(j \neq k\), we necessarily
-have \(v_j \neq v_k\). In other words, each Bether root \(v_j\)
-corresponds to a simple poles of the Slavnov product.
+have \(v_j \neq v_k\).
 
 Fix a particular coefficient of \(\bm{z}\), say \(z_l\), and consider a Laplace
 expansion of~(\ref{eq:slav-tau-function}) along the \(l\)-th column. That is
@@ -682,11 +674,7 @@ expansion of~(\ref{eq:slav-tau-function}) along the \(l\)-th column. That is
 \end{split}
 \end{equation}
 where \(\det[\hat{\Omega}_{j,l}]\) denotes the \((j, l)\)-minor of
-\(\bm{\Omega}\). We can now extract the residue of the tau function
-with respect to \(z_l\) at the point \(v_j\); that is
-\begin{equation}
-  \Res_{z_l=v_j}(\Delta(\bm{z})\tau(\bm{z}, \bm{v})) = (-1)^{j+l} \mathcal{Y}_j(v_j) \det[\hat{\Omega}_{j, l}]\;. 
-\end{equation}
+\(\bm{\Omega}\).
 
 \begin{subequations}
 Additionally, decompose the Vandermonde determinant as
@@ -726,7 +714,7 @@ expansion~(\ref{eq:minor-expansion-2}); that is
 \begin{split}
   \bm{\tau}(\bm{z}, \bm{v})
   & = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
-    \left(\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j) r}(\bm{z}_{(l) s} ]_{r, s=1}^n\right)\\ 
+    \left(\frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j) r}(\bm{z}_{(l) s}) ]_{r, s=1}^{n-1}\right)\\ 
   & = \frac{1}{\Xi_l(z_l, \bm{z}_l)} \sum_{j=1}^n (-1)^{j + l} \frac{\mathcal{Y}_j(z_l)}{z_l - v_j} 
     \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\; ,
 \end{split}
@@ -740,41 +728,12 @@ defined the object
     \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v}) = 
 \frac{1}{\Delta(\bm{z}_l)} \det[\hat{\bm{\Omega}}_{(j)}(\bm{z}_{(l)})]\; .
 \end{equation}
-Finally, we have
-\begin{equation}
-  \Res_{z_l = v_j}(\tau(\bm{z}, \bm{v}))
-  = \frac{(-1)^{j + l} \mathcal{Y}_j(v_j)}{\Xi_l(v_j, \bm{z}_l)}
-  \tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\; .
-\end{equation}
 
-We can also organize the parameters \(\bm{z}\) and consider these
-points close to the corresponding Bethe roots \(\bm{v}\). Therefore 
-\begin{subequations}
-\begin{equation}
-  \Res_{z_j = v_j}(\tau(\bm{z}, \bm{v}))
-  = \frac{\mathcal{Y}_j(v_j)}{\Xi_j(v_j, \bm{z}_j)}
-  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})\; ,
-\end{equation}
-or yet 
-\begin{equation}
-  \tilde{\bm{\tau}}_j(\bm{z}_j, \bm{v})
-  = \frac{\Xi_j(v_j, \bm{z}_j)}{\mathcal{Y}_j(v_j)}
-  \Res_{z_j = v_j}(\tau(\bm{z}, \bm{v}))\; .
-\end{equation}
-\end{subequations}
-
-Expression~(\ref{eq:slavnov-tauexp}) is one of the main results in
-this work.  It is easy to see that each term
-\(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) is a tau function itself,
-and serves as a basis for the Slavnov's product. Additionally, these
-basis tau functions \(\tilde{\bm{\tau}}_j(\bm{z}_l, \bm{v})\) are, by
-construction, completely independent of \(z_l\). This result
-essentially shows that, given a \(\mathcal{Y}\)-function (which is
-related to the eigenvalue of the transfer matrix), one can construct a
-basis of tau functions that span the Slavnov products in the
-corresponding integrable system. Moreover, this expansion ensures that
-the resulting Slavnov product is also a tau function of the KP
-hierarchy.
+\textcolor{red}{Each function \(\tilde{\bm{\tau}}_j(\bm{z}_l,\bm{v})\) is itself an alternant
+  determinant divided by a Vandermonde and hence has the same KP interpretation as above. Thus,
+  equation~(\ref{eq:slavnov-tauexp}) expresses the normalized Slavnov product in terms of tau
+  functions constructed from \((n-1)\times(n-1)\) minors. These functions are independent of the
+  omitted variable \(z_l\).} This is the main result in this paper.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
