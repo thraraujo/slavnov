@@ -174,7 +174,7 @@ matrix. Section~5 presents explicit examples, and we observe that even
 in these cases, the expressions for the tau functions become
 overwhelmingly complex very quickly.
 
-Finally, in Section 6, we use the Japanese formula to investigate the
+Finally, in Section 5, we use the Japanese formula to investigate the
 Baker–Akhiezer function associated with these tau functions. Using
 known integral formulas for the tau functions, we write them in terms
 of Miwa coordinates. The most important result in this section is the
@@ -742,65 +742,57 @@ defined the object
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In the previous section, we mentioned that given a set of generic
-functions \(\{\phi_j\}_{j=1}^n\), it has been shown that functions of
-the form
+In the previous section, we mentioned that given a set of generic functions \(\{\phi_j\}_{j=1}^n\),
+it has been shown that functions of the form
 \begin{equation}
 \label{eq:general-tau}
 \bm{\tau}(\bm{w}) = \frac{\det_{i,j} \phi_i(w_j)}{\Delta(\bm{w})}\;,
 \end{equation}
-are tau functions of the KP hierarchy. This proposition has been
-extensively discussed in the literature, see for
-example~\cite{Segal:1985aga, Kharchev:1991cy, Araujo:2021ghu} and
-references therein. In~\cite{Segal:1985aga, Kharchev:1991cy,
-  Alexandrov:2014cwa}, the authors explored families of functions \(\{
-\phi_i \}_{i=1}^n\) that parametrize points in a Grassmannian space.
+are tau functions of the KP hierarchy. This proposition has been extensively discussed in the
+literature, see for example~\cite{Segal:1985aga, Kharchev:1991cy, Araujo:2021ghu} and references
+therein. In~\cite{Segal:1985aga, Kharchev:1991cy, Alexandrov:2014cwa}, the authors explored families
+of functions \(\{ \phi_i \}_{i=1}^n\) that parametrize points in a Grassmannian space.
 
-These functions also play an important role in the definition of the
-Baker--Akhiezer functions. However, the asymptotic behavior of the
-functions \(\Omega_j\), which are central to our discussion, suggests
-that they do not belong to the class considered in the references
-above. Therefore, the main goal in the remainder of this work is to
-identify general aspects of the classical tau functions associated
-with the Slavnov products.
+These functions also play an important role in the definition of the Baker--Akhiezer
+functions. However, the asymptotic behavior of the functions \(\Omega_j\), which are central to our
+discussion, suggests that they do not belong to the class considered in the references
+above. Therefore, the main goal in the remainder of this work is to identify general aspects of the
+classical tau functions associated with the Slavnov products.
 
-In this section, we investigate the homogeneous limit of these
-objects, and we find that this limit yields a Wronskian-type solution
-of the KP hierarchy; see~\cite{Kodama2018}. It is interesting to
-contrast this result with the solitonic solutions of the hierarchy,
-which can also be expressed in terms of Wronskians. To connect this
-solution to the standard KP hierarchy framework, we will need to
-introduce Miwa coordinates.
+\textcolor{red}{In this section, we derive a Wronskian representation of the confluent
+  specialization of these tau functions,} see~\cite{Kodama2018}. It is interesting to contrast this
+result with the solitonic solutions of the hierarchy, which can also be expressed in terms of
+Wronskians. \textcolor{red}{To describe this specialization in terms of the KP times, we introduce Miwa coordinates
+below.}
 
-In the previous section, we discussed the limit in which the
-parameters \(\bm{z}\) approach the Bethe roots \(\bm{v}\).  We now
-consider a different limit, where all variables in the set \(\bm{z}\)
-tend to a single variable -- that is, \(z_k\to z_1\) for \(k=2,\dots,
-n\). The analysis follows the ideas of~\cite{Izergin:1991rs}. 
+In the previous section, we discussed the limit in which the parameters \(\bm{z}\) approach the
+Bethe roots \(\bm{v}\).  We now consider a different limit, where all variables in the set
+\(\bm{z}\) tend to a single variable -- that is, \(z_k\to z_1\) for \(k=2,\dots, n\). The analysis
+follows the ideas of~\cite{Izergin:1991rs}. \textcolor{red}{Here we refer to this limit as the
+\emph{homogeneous limit}, that is the coalescence of the off-shell spectral variables, rather than
+to a limit of the lattice inhomogeneities.}
 
-Let us first consider the case \(z_2 \to z_1\). We perform a series
-expansion around \(z_1\), in which the second column
+We assume that the complete functions \(\Omega_j\), including their holomorphic continuations at
+removable singularities, are holomorphic near the common limiting point \(w\equiv z_1\). Let us first consider
+the case \(z_2 \to z_1\). We perform a series expansion around \(z_1\), in which the second column
 of~(\ref{eq:slav-tau-function}) becomes
 \begin{subequations}
 \begin{equation}
   \bm{\tau}(\bm{z}, \bm{v}) = \frac{1}{\Delta(\bm{z})}
   \det
   \begin{pmatrix}
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1} + (z_2 - z_1) \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1}
-    + \mathcal{O}(\delta^2) &
-    \frac{\mathcal{Y}_1(z_3)}{z_3 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} + (z_2 - z_1) \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} 
-    + \mathcal{O}(\delta^2) &
-    \frac{\mathcal{Y}_2(z_3)}{z_3 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
+    \Omega_1(z_1)  & \Omega_1(z_1) + (z_2 - z_1) \Omega^{(1)}_1(z_1) + \mathcal{O}(\delta^2) &
+    \Omega_1(z_3) & \dots & \Omega_1(z_n)\\
+    \Omega_2(z_1)  & \Omega_2(z_1) + (z_2 - z_1) \Omega^{(1)}_2(z_1) + \mathcal{O}(\delta^2) &
+    \Omega_2(z_3) & \dots & \Omega_2(z_n)\\
     &  \vdots & & \\
-    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} + (z_2 - z_1) \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} 
-    + \mathcal{O}(\delta^2) &
-    \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+    \Omega_n(z_1)  & \Omega_n(z_1) + (z_2 - z_1) \Omega^{(1)}_n(z_1) + \mathcal{O}(\delta^2) &
+    \Omega_n(z_3) & \dots & \Omega_n(z_n)
   \end{pmatrix}\; ,
 \end{equation}
 where we have written \(z_2 - z_1 = \delta \to 0\). Moreover, let us
-denote by \(\mathcal{Y}^{(n)}(z)\) the \(n\)-th derivative of
-\(\mathcal{Y}(z)\) with respect its argument.
+denote by \(\Omega^{(n)}(z)\) the \(n\)-th derivative of
+\(\Omega(z)\) with respect its argument.
 
 One can immediately see that the second column is equal to the first
 column plus terms proportional to the factor
@@ -809,320 +801,321 @@ column plus terms proportional to the factor
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2 \to z_1}\frac{(z_2 - z_1)}{\Delta(\bm{z})}
   \det
   \begin{pmatrix}
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
-    \frac{\mathcal{Y}_1(z_3)}{z_3 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
-    \frac{\mathcal{Y}_2(z_3)}{z_3 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
+    \Omega_1(z_1)  & \Omega^{(1)}_1(z_1) & \Omega_1(z_3) & \dots & \Omega_1(z_n)\\
+    \Omega_2(z_1)  & \Omega^{(1)}_2(z_1) & \Omega_2(z_3) & \dots & \Omega_2(z_n)\\
     &  \vdots & & \\
-    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
-    \frac{\mathcal{Y}_n(z_3)}{z_3 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+    \Omega_n(z_1)  & \Omega^{(1)}_n(z_1) & \Omega_n(z_3) & \dots & \Omega_n(z_n)
   \end{pmatrix}\; .
 \end{equation}
-We can now repeat the same reasoning for \(z_3\to z_1=z_2\). We find
-that the third column becomes a linear combination of the first and
-second columns, along with terms involving derivatives multiplied by
-the factor \(\delta^2 = (z_3 - z_2)(z_3 - z_1)\). All in all, we have
+After taking \(z_2 \to z_1\), we expand the third column around \(z_1\). Subtracting its
+contributions proportional to the first two columns leaves \((z_3-z_1)^2\Omega_j^{(2)}(z_1)/2\) at
+leading order. Thus
 \begin{equation}
   \bm{\tau}_h(\bm{z}, \bm{v}) = \lim_{z_2, z_3 \to z_1}\frac{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}{\Delta(\bm{z})}
   \det
   \begin{pmatrix}
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
-    \frac{\mathcal{Y}^{(2)}_1(z_1)}{z_1 - v_1} & \dots & \frac{\mathcal{Y}_1(z_n)}{z_n - v_1}\\
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
-    \frac{\mathcal{Y}_2^{(2)}(z_1)}{z_1 - v_2} &  \dots & \frac{\mathcal{Y}_2(z_n)}{z_n - v_2}\\
-    &  \vdots & & \\
-    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
-    \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}_n(z_n)}{z_n - v_n}
+    \Omega_1(z_1)  & \Omega^{(1)}_1(z_1) & \frac{1}{2}\Omega^{(2)}_1(z_1) & \dots & \Omega_1(z_n)\\
+    \Omega_2(z_1)  & \Omega^{(1)}_2(z_1) & \frac{1}{2}\Omega^{(2)}_2(z_1) & \dots & \Omega_2(z_n)\\ &  \vdots & & \\
+    \Omega_n(z_1)  & \Omega^{(1)}_n(z_1) & \frac{1}{2}\Omega^{(2)}_n(z_1) & \dots & \Omega_n(z_n)
   \end{pmatrix}\; .
 \end{equation}
 
-By applying this procedure iteratively to each column, we find that
-the multiplicative factors cancel the Vandermonde determinant, and the
-homogeneous limit becomes
+By applying this procedure iteratively to each column, we find that the multiplicative factors
+cancel the Vandermonde determinant, and the homogeneous limit becomes
 \begin{equation}
   \bm{\tau}_h(z_1, \bm{v}) =
   \det
   \begin{pmatrix}
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}  & \frac{\mathcal{Y}_1^{(1)}(z_1)}{z_1 - v_1} &
-    \frac{\mathcal{Y}^{(2)}_1(z_1)}{z_1 - v_1} & \dots & \frac{\mathcal{Y}_1^{(n-1)}(z_1)}{z_1 - v_1}\\
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2} & \frac{\mathcal{Y}_2^{(1)}(z_1)}{z_1 - v_2} &
-    \frac{\mathcal{Y}_2^{(2)}(z_1)}{z_1 - v_2} &  \dots & \frac{\mathcal{Y}_2^{(n-1)}(z_1)}{z_1 - v_2}\\
-    &  \vdots & & \\
-    \frac{\mathcal{Y}_n(z_1)}{z_1 - v_n} & \frac{\mathcal{Y}_n^{(1)}(z_1)}{z_1 - v_n} &
-    \frac{\mathcal{Y}_n^{(2)}(z_1)}{z_1 - v_n} &  \dots & \frac{\mathcal{Y}^{(n-1)}_n(z_1)}{z_1 - v_n}
+    \Omega_1(z_1)  & \Omega^{(1)}_1(z_1) & \frac{1}{2}\Omega^{(2)}_1(z_1) & \dots & \frac{1}{(n-1)!}\Omega^{(n-1)}_1(z_1)\\
+    \Omega_2(z_1)  & \Omega^{(1)}_2(z_1) & \frac{1}{2}\Omega^{(2)}_2(z_1) & \dots & \frac{1}{(n-1)!}\Omega^{(n-1)}_2(z_1)\\ &  \vdots & & \\
+    \Omega_n(z_1)  & \Omega^{(1)}_n(z_1) & \frac{1}{2}\Omega^{(2)}_n(z_1) & \dots & \frac{1}{(n-1)!}\Omega^{(n-1)}_n(z_1)
   \end{pmatrix}\; .
 \end{equation}
-Finally, we write \(z_1 \equiv w\) and using elementary row operations
-we find
+Finally, we write \(z_1 \equiv w\) so that
 \begin{equation}
-  \bm{\tau}_h(w, \bm{v}) =
-  \frac{1}{\prod_{k=1}^n(w - v_k)}
-  \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](w)
+  \bm{\tau}_h(w, \bm{v}) =\frac{1}{\prod_{j=1}^{n-1} j!}
+  \mathcal{W}[\Omega_1, \Omega_2, \dots, \Omega_n](w)
   \; .
 \end{equation}
 \end{subequations}
-An interesting aspect of this expression is that its poles coincide
-precisely with the Bethe roots \(\bm{v}\). Moreover, the homogeneous
-limit can be readily constructed from the Algebraic Bethe Ansatz,
-since it depends only on the transfer matrix
-eigenvalues. Additionally, the functions
-\(\{\mathcal{Y}_j(w)\}_{j=1}^n\) are linearly independent if and only
-if the Bethe roots are non-degenerate.
+Observe that the homogeneous limit can be readily constructed from the Algebraic Bethe Ansatz, since
+it depends only on the transfer matrix eigenvalues. \textcolor{red}{Nonvanishing of this Wronskian requires linear
+independence of the functions \(\Omega_j\), which must be checked separately for the realization under
+consideration.}
 
-In order to better capture the meaning of these Wronskian-type tau
-functions, we must introduce 
+In order to better capture the meaning of these Wronskian tau functions, we can introduce
 \begin{equation}
   \label{eq:miwa-coord}
   \bm{t} = (t_1, t_2, t_3, \dots) \; , \qquad 
   t_p = \frac{1}{p}\sum_{j=1}^n z_j^p\; ,
 \end{equation}
-the so-called Miwa coordinates, which will be discussed in more detail
-in Section~6. The key point for now is that the homogeneous limit
-corresponds to the following specialization of the Miwa coordinates:
+the so-called Miwa coordinates, which will be discussed in more detail in Section~5.
+\textcolor{red}{On the curve
 \begin{equation}
   t_p = \frac{n}{p} w^p\;. 
 \end{equation}
-Under this identification, we find that the Wronskian-type solution of
-the KP hierarchy can be written as
+this specialization can be parametrized by \(t_1 = n w\) as follows
 \begin{equation}
-  \bm{\tau}_h(t_1, \bm{v}) =
-  \frac{1}{\prod_{k=1}^n(n^{-1} t_1 - v_k)}\,
-  \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \dots, \mathcal{Y}_n](n^{-1}t_1)\;,
+  \bm{\tau}_h(t_1, \bm{v}) =\frac{1}{\prod_{j=1}^{n-1} j!}
+  \mathcal{W}[\Omega_1, \Omega_2, \dots, \Omega_n](n^{-1}t_1)\;.
 \end{equation}
-where the coordinate \( t_1 \) can be interpreted as the spatial
-variable \(x\).
+Here the Wronskian derivatives are taken with respect to \(w\), before evaluation at
+\(w=t_1/n\). Varying \(t_1\) along this curve also varies the higher KP times.}
 
-Alternatively, one can follow the techniques developed in the original
-references~\cite{Foda:2009zz, Wheeler:2010vmq, Foda:2010,
-  Takasaki:2010qm, Foda:2012wn, Foda:2012wf} to express the tau
-function~(\ref{eq:slav-tau-function}) as a linear combination of Schur
-polynomials \( s_{\lambda}(\bm{z}) \), or written in terms of Miwa
-coordinates \( s_{\lambda}(\bm{t}) \):
+\textcolor{red}{Alternatively, in polynomial realizations, we can express the tau
+function in terms of Schur polynomials, following the techniques
+developed in~\cite{Foda:2009zz, Wheeler:2010vmq, Foda:2010,
+Takasaki:2010qm, Foda:2012wn, Foda:2012wf}.
+Assume that
+\[
+  \deg \Omega_j \leq L+n-1, \qquad j=1,\ldots,n,
+\]
+where \(L\) is a nonnegative integer. Then the Schur expansion
+takes the finite form
 \begin{equation}
-  \bm{\tau}(\bm{z}, \bm{v}) = \sum_{\lambda \subseteq [n, L]} c_\lambda\, s_{\lambda}(\bm{z})
-  \quad  \textrm{or} \quad 
- \bm{\tau}(\bm{t}, \bm{v}) = \sum_{\lambda \subseteq [n, L]} c_\lambda\, s_{\lambda}(\bm{t})\;,
+  \bm{\tau}(\bm{z},\bm{v})
+  = \sum_{\lambda\subseteq[n,L]}
+    c_\lambda\,s_\lambda(\bm{z}).
 \end{equation}
-where \(\lambda = (\lambda_1, \lambda_2, \dots, \lambda_n)\), with \(L
-\geq \lambda_j \geq \lambda_{j+1}\), denotes a Young Tableaux
-contained in a box of size \([n, L]\). Moreover, the coefficients \(
-c_\lambda \) can be explicitly written in terms of the functions \(
-\Omega_j(z)\).  The homogeneous limit discussed above corresponds to
-the specialization
-\begin{equation}
-  s_\lambda(w, w, w, \dots, w) = w^{|\lambda|} s_\lambda(1, 1, 1, \dots, 1)\;,
-  \quad |\lambda| = \sum_{j=1}^n \lambda_j\;,
-\end{equation}
-and in this limit, the Schur polynomial \( s_\lambda(1, 1, 1, \dots,
-1) \) counts the number of \emph{semi-standard Young tableaux} of
-shape \(\lambda\), see~\cite{Stanley2023}.  Therefore, we obtain a
-purely combinatorial expression for the tau functions, with weights
-given by the Plücker coordinates \( c_\lambda \), that is
-\begin{equation}
-  \bm{\tau}_h(w, \bm{v}) = \sum_{\lambda \subseteq [n,L]} w^{|\lambda|} c_\lambda\, (\#\mathrm{SSYT})_\lambda\;.
-\end{equation}
+Here \(\lambda=(\lambda_1,\ldots,\lambda_n)\), with
+\(L\geq\lambda_1\geq\cdots\geq\lambda_n\geq0\), is a partition
+whose Young diagram lies in a rectangle with \(n\) rows and
+\(L\) columns. The coefficients \(c_\lambda\) are the corresponding
+maximal minors of the coefficient matrix of the polynomials
+\(\Omega_j\).}
 
-Before proceeding, let us calculate some examples to better visualize
-the results obtained so far.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Examples}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Let us now consider the cases \(n = 2\) and \(n = 3\) to gain further
-insight into the problem.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Case n=2}
-In this case, we have \(\mathcal{Y}_j\) for \(j = 1, 2\) and two Bethe
-roots \(\bm{v} = (v_1, v_2)\). Moreover, we define the two sets
-\(\bm{v}_1 = \{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From
-equation~(\ref{eq:y-functions}), we have
-\begin{subequations}
+\textcolor{red}{The same coefficients define the KP tau function in independent
+times,
 \begin{equation}
-  \begin{split}
-    \mathcal{Y}_j(z) =
-    \alpha_0(z) \sigma_0^{(1)}(\bm{v}_j) +  
-    \alpha_1(z)( \sigma_1^{(1)}(\bm{v}_j) + z \sigma_0^{(1)}(\bm{v}_j)) +
-    \alpha_2(z) z \sigma_1^{(1)}(\bm{v}_j) \; . 
-  \end{split}
+  \bm{\tau}(\bm{t},\bm{v})
+  = \sum_{\lambda\subseteq[n,L]}
+    c_\lambda\,s_\lambda(\bm{t}),
 \end{equation}
-Furthermore, the explicit formulas for the elementary symmetric
-polynomials are \(\sigma_0^{(1)}(x) = 1\) and \(\sigma_1^{(1)}(x) =
-x\). Therefore
-\begin{equation}
-  \begin{split}
-    \mathcal{Y}_1(z) & = \alpha_0(z) + z \alpha_1(z)  + v_2 \left( \alpha_1(z) + z \alpha_2(z) \right) \\ 
-    \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) \; .
-  \end{split}
-\end{equation}
-Consequently, the normalized Slavnov product becomes
-\begin{equation}
-\begin{split}
-  \bm{\tau}(z_1, z_2; v_1 , v_2)
-  & = \frac{1}{z_2 - z_1} \left(\frac{\mathcal{Y}_1(z_1) \mathcal{Y}_2(z_2)}{(z_1 - v_1)(z_2 - v_2)} - 
-  \frac{\mathcal{Y}_1(z_2) \mathcal{Y}_2(z_1)}{(z_1 - v_2)(z_2 - v_1)} \right)\\
-  & = \frac{1}{z_2 - z_1}
-  \left(
-  \frac{\mathcal{Y}_1(z_1)}{(z_1 - v_1)} \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) - 
-  \frac{\mathcal{Y}_2(z_1)}{(z_1 - v_2)} \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) \right)\; ,
-\end{split}
-\end{equation}
-where 
-\begin{equation}
- \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) = \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} \quad \textrm{and}  \qquad 
- \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) = \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)}  \; .
-\end{equation}
-\end{subequations}
+whose Miwa specialization reproduces
+\(\bm{\tau}(\bm{z},\bm{v})\).}
 
-From this expression, it is easy to extract the residues of \(z_1\) at
-one of the Bethe roots. It is also straightforward to see that the
-homogeneous limit, that is, \(z_2 \to z_1 \equiv w\), yields
+\textcolor{red}{The confluent limit corresponds to the specialization
 \begin{equation}
-  \bm{\tau}(w; v_1 , v_2) =
-  \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; . 
+  s_\lambda(\underbrace{w,\ldots,w}_{n})
+  = w^{|\lambda|}s_\lambda(1^n),
+  \qquad
+  |\lambda|=\sum_{j=1}^n\lambda_j.
 \end{equation}
-It is also elementary to see that the functions \(\{\mathcal{Y}_1,
-\mathcal{Y}_2\}\) are linearly independent as long as \(v_2 \neq
-v_1\), which is guaranteed by the assumption that the Bethe roots are
-distinct.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Case n=3}
-Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\), and three Bethe roots
-\(\bm{v} = (v_1, v_2, v_3)\). Moreover, we define the sets \(\bm{v}_1
-= (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\), and \(\bm{v}_3 = (v_1,
-v_2)\). Then, it is easy to see that
+Here \(1^n\) denotes \(n\) arguments equal to one, and
+\(s_\lambda(1^n)\) counts semistandard Young tableaux of shape
+\(\lambda\) with entries in \(\{1,\ldots,n\}\);
+see~\cite{Stanley2023}. Therefore,
 \begin{equation}
-\begin{split}
-  \mathcal{Y}_j(z)
-  & = (\alpha_0(z) + z \alpha_1(z))\sigma_0^{(2)}(\bm{v}_j)   + (\alpha_1(z) + z \alpha_2(z))\sigma_1^{(2)}(\bm{v}_j)  + \\
-  & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) \; ,
-\end{split}
+  \bm{\tau}_h(w,\bm{v})
+  = \sum_{\lambda\subseteq[n,L]}
+    w^{|\lambda|}c_\lambda\,s_\lambda(1^n).
 \end{equation}
-with
-\begin{equation}
-  \sigma_0^{(2)}(x, y) = 1\; ,\qquad 
-  \sigma_1^{(2)}(x, y) = x + y\; ,\qquad 
-  \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; . 
-\end{equation}
+This finite expansion applies under the polynomial degree
+assumption stated above.}
 
-Hence
-\begin{subequations}
-\begin{equation}
-\begin{split}
-\bm{\tau} & (z_1, z_2, z_3 ; v_1 , v_2, v_3)  =
-\frac{1}{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}\times \\
-& \times \left[
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
-    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-    \end{bmatrix}
-    -  
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-    \end{bmatrix} \right.\\
-    & \qquad + \left.
-    \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-    \end{bmatrix} 
-\right] \; .
-\end{split}
-\end{equation}
-We reorganize this expression as follows:
-\begin{equation}
-\begin{split}
-\bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
-\frac{1}{(z_2 - z_1)(z_3 - z_1)}
-\left[
-    \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
-    \left(
-    \frac{1}{(z_3 - z_2)}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
-    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-    \end{bmatrix}
-    \right) - \right. \\
-    & - 
-    \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
-    \left(
-    \frac{1}{(z_3 - z_2)}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-    \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-    \end{bmatrix} \right) \\
-    & +
-    \left.
-    \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
-    \left(
-    \frac{1}{(z_3 - z_2)}
-    \det\begin{bmatrix}
-    \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-    \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-    \end{bmatrix} 
-    \right)
-\right]\; .
-\end{split}
-\end{equation}
-\end{subequations}
+%% DELETE THIS PART LATER - BEGIN
 
-Finally, we conclude that the basis tau functions are
-\begin{subequations}
-  \begin{equation}
-	\tilde{\bm{\tau}}_1(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-        \end{bmatrix} 
-  \end{equation}
-  \begin{equation}
-	\tilde{\bm{\tau}}_2(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
-       \end{bmatrix}
-  \end{equation}
-  \begin{equation}
-	\tilde{\bm{\tau}}_3(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
-        \det\begin{bmatrix}
-        \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
-        \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
-        \end{bmatrix} \; . 
-  \end{equation}
-\end{subequations}
-
-With these expressions, we can consider the homogeneous limit \(z_1,
-z_2, z_3 \to w\). Consider first the case \(z_3 \to z_2 = w\), then we
-know that
-\begin{equation}
-  \begin{split}
-  \tilde{\bm{\tau}}_1(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_2, \mathcal{Y}_3](w)\\
-  \tilde{\bm{\tau}}_2(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_3](w)\\
-  \tilde{\bm{\tau}}_3(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_1)(w - v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)
-  \; .
-  \end{split}
-\end{equation}
-It is immediate to see that the basis tau functions correspond to
-Slavnov products for the case \(n=2\). We also take the limit \(z_1\to
-w\); then
-\begin{equation}
-  \bm{\tau}(w; v_1 , v_2, v_3) = 
-  \frac{1}{(w - v_1)(w - v_2)(w - v_3)} \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \mathcal{Y}_3](w)\; .
-\end{equation}
-
-Of course, we could continue the calculations for other cases, but it
-is now clear that this explicit analysis becomes cumbersome quite
-quickly. This also explains why we restrict our analysis to the
-rational cases.
-
-
+%% Before proceeding, let us calculate some examples to better visualize
+%% the results obtained so far.
+%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \section{Examples}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% Let us now consider the cases \(n = 2\) and \(n = 3\) to gain further
+%% insight into the problem.
+%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \subsection{Case n=2}
+%% In this case, we have \(\mathcal{Y}_j\) for \(j = 1, 2\) and two Bethe
+%% roots \(\bm{v} = (v_1, v_2)\). Moreover, we define the two sets
+%% \(\bm{v}_1 = \{v_2\}\) and \(\bm{v}_2 = \{v_1\}\). From
+%% equation~(\ref{eq:y-functions}), we have
+%% \begin{subequations}
+%% \begin{equation}
+  %% \begin{split}
+    %% \mathcal{Y}_j(z) =
+    %% \alpha_0(z) \sigma_0^{(1)}(\bm{v}_j) +  
+    %% \alpha_1(z)( \sigma_1^{(1)}(\bm{v}_j) + z \sigma_0^{(1)}(\bm{v}_j)) +
+    %% \alpha_2(z) z \sigma_1^{(1)}(\bm{v}_j) \; . 
+  %% \end{split}
+%% \end{equation}
+%% Furthermore, the explicit formulas for the elementary symmetric
+%% polynomials are \(\sigma_0^{(1)}(x) = 1\) and \(\sigma_1^{(1)}(x) =
+%% x\). Therefore
+%% \begin{equation}
+  %% \begin{split}
+    %% \mathcal{Y}_1(z) & = \alpha_0(z) + z \alpha_1(z)  + v_2 \left( \alpha_1(z) + z \alpha_2(z) \right) \\ 
+    %% \mathcal{Y}_2(z) & = \alpha_0(z) + z \alpha_1(z)  + v_1 \left( \alpha_1(z) + z \alpha_2(z) \right) \; .
+  %% \end{split}
+%% \end{equation}
+%% Consequently, the normalized Slavnov product becomes
+%% \begin{equation}
+%% \begin{split}
+  %% \bm{\tau}(z_1, z_2; v_1 , v_2)
+  %% & = \frac{1}{z_2 - z_1} \left(\frac{\mathcal{Y}_1(z_1) \mathcal{Y}_2(z_2)}{(z_1 - v_1)(z_2 - v_2)} - 
+  %% \frac{\mathcal{Y}_1(z_2) \mathcal{Y}_2(z_1)}{(z_1 - v_2)(z_2 - v_1)} \right)\\
+  %% & = \frac{1}{z_2 - z_1}
+  %% \left(
+  %% \frac{\mathcal{Y}_1(z_1)}{(z_1 - v_1)} \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) - 
+  %% \frac{\mathcal{Y}_2(z_1)}{(z_1 - v_2)} \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) \right)\; ,
+%% \end{split}
+%% \end{equation}
+%% where 
+%% \begin{equation}
+ %% \widetilde{\bm{\tau}}_1(z_2, v_1, v_2) = \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} \quad \textrm{and}  \qquad 
+ %% \widetilde{\bm{\tau}}_2(z_2, v_1, v_2) = \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)}  \; .
+%% \end{equation}
+%% \end{subequations}
+%% 
+%% From this expression, it is easy to extract the residues of \(z_1\) at
+%% one of the Bethe roots. It is also straightforward to see that the
+%% homogeneous limit, that is, \(z_2 \to z_1 \equiv w\), yields
+%% \begin{equation}
+  %% \bm{\tau}(w; v_1 , v_2) =
+  %% \frac{1}{(w- v_1)(w- v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)\; . 
+%% \end{equation}
+%% It is also elementary to see that the functions \(\{\mathcal{Y}_1,
+%% \mathcal{Y}_2\}\) are linearly independent as long as \(v_2 \neq
+%% v_1\), which is guaranteed by the assumption that the Bethe roots are
+%% distinct.
+%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \subsection{Case n=3}
+%% Now we have \(\mathcal{Y}_j\) for \(j=1,2,3\), and three Bethe roots
+%% \(\bm{v} = (v_1, v_2, v_3)\). Moreover, we define the sets \(\bm{v}_1
+%% = (v_2, v_3)\), \(\bm{v}_2 = (v_1, v_3)\), and \(\bm{v}_3 = (v_1,
+%% v_2)\). Then, it is easy to see that
+%% \begin{equation}
+%% \begin{split}
+  %% \mathcal{Y}_j(z)
+  %% & = (\alpha_0(z) + z \alpha_1(z))\sigma_0^{(2)}(\bm{v}_j)   + (\alpha_1(z) + z \alpha_2(z))\sigma_1^{(2)}(\bm{v}_j)  + \\
+  %% & \quad + (\alpha_2(z) + z \alpha_3(z))\sigma_2^{(2)}(\bm{v}_j) \; ,
+%% \end{split}
+%% \end{equation}
+%% with
+%% \begin{equation}
+  %% \sigma_0^{(2)}(x, y) = 1\; ,\qquad 
+  %% \sigma_1^{(2)}(x, y) = x + y\; ,\qquad 
+  %% \sigma_2^{(2)}(x, y) = x^2 + xy  + y^2\; . 
+%% \end{equation}
+%% 
+%% Hence
+%% \begin{subequations}
+%% \begin{equation}
+%% \begin{split}
+%% \bm{\tau} & (z_1, z_2, z_3 ; v_1 , v_2, v_3)  =
+%% \frac{1}{(z_2 - z_1)(z_3 - z_1)(z_3 - z_2)}\times \\
+%% & \times \left[
+    %% \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+    %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    %% \end{bmatrix}
+    %% -  
+    %% \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    %% \end{bmatrix} \right.\\
+    %% & \qquad + \left.
+    %% \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+    %% \end{bmatrix} 
+%% \right] \; .
+%% \end{split}
+%% \end{equation}
+%% We reorganize this expression as follows:
+%% \begin{equation}
+%% \begin{split}
+%% \bm{\tau} (z_1, z_2, z_3 ; v_1 , v_2, v_3)  & =
+%% \frac{1}{(z_2 - z_1)(z_3 - z_1)}
+%% \left[
+    %% \frac{\mathcal{Y}_1(z_1)}{z_1 - v_1}
+    %% \left(
+    %% \frac{1}{(z_3 - z_2)}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+    %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    %% \end{bmatrix}
+    %% \right) - \right. \\
+    %% & - 
+    %% \frac{\mathcal{Y}_2(z_1)}{z_1 - v_2}
+    %% \left(
+    %% \frac{1}{(z_3 - z_2)}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+    %% \end{bmatrix} \right) \\
+    %% & +
+    %% \left.
+    %% \frac{\mathcal{Y}_3(z_1)}{z_1 - v_2}
+    %% \left(
+    %% \frac{1}{(z_3 - z_2)}
+    %% \det\begin{bmatrix}
+    %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+    %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+    %% \end{bmatrix} 
+    %% \right)
+%% \right]\; .
+%% \end{split}
+%% \end{equation}
+%% \end{subequations}
+%% 
+%% Finally, we conclude that the basis tau functions are
+%% \begin{subequations}
+  %% \begin{equation}
+	%% \tilde{\bm{\tau}}_1(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        %% \det\begin{bmatrix}
+        %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}\\
+        %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+        %% \end{bmatrix} 
+  %% \end{equation}
+  %% \begin{equation}
+	%% \tilde{\bm{\tau}}_2(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        %% \det\begin{bmatrix}
+        %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        %% \frac{\mathcal{Y}_3(z_2)}{(z_2 - v_3)} & \frac{\mathcal{Y}_3(z_3)}{(z_3 - v_3)}
+       %% \end{bmatrix}
+  %% \end{equation}
+  %% \begin{equation}
+	%% \tilde{\bm{\tau}}_3(\bm{z}_1) = \frac{1}{(z_3 - z_2)} 
+        %% \det\begin{bmatrix}
+        %% \frac{\mathcal{Y}_1(z_2)}{(z_2 - v_1)} & \frac{\mathcal{Y}_1(z_3)}{(z_3 - v_1)}\\
+        %% \frac{\mathcal{Y}_2(z_2)}{(z_2 - v_2)} & \frac{\mathcal{Y}_2(z_3)}{(z_3 - v_2)}
+        %% \end{bmatrix} \; . 
+  %% \end{equation}
+%% \end{subequations}
+%% 
+%% With these expressions, we can consider the homogeneous limit \(z_1,
+%% z_2, z_3 \to w\). Consider first the case \(z_3 \to z_2 = w\), then we
+%% know that
+%% \begin{equation}
+  %% \begin{split}
+  %% \tilde{\bm{\tau}}_1(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_2, \mathcal{Y}_3](w)\\
+  %% \tilde{\bm{\tau}}_2(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_2)(w - v_3)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_3](w)\\
+  %% \tilde{\bm{\tau}}_3(w; v_1 , v_2, v_3) & = \frac{1}{(w - v_1)(w - v_2)}\mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2](w)
+  %% \; .
+  %% \end{split}
+%% \end{equation}
+%% It is immediate to see that the basis tau functions correspond to
+%% Slavnov products for the case \(n=2\). We also take the limit \(z_1\to
+%% w\); then
+%% \begin{equation}
+  %% \bm{\tau}(w; v_1 , v_2, v_3) = 
+  %% \frac{1}{(w - v_1)(w - v_2)(w - v_3)} \mathcal{W}[\mathcal{Y}_1, \mathcal{Y}_2, \mathcal{Y}_3](w)\; .
+%% \end{equation}
+%% 
+%% Of course, we could continue the calculations for other cases, but it
+%% is now clear that this explicit analysis becomes cumbersome quite
+%% quickly. This also explains why we restrict our analysis to the
+%% rational cases.
+%% 
+%% DELETE THIS PART LATER - END
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
